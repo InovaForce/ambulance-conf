@@ -1,0 +1,25 @@
+@import "../styles/variable";
+//@use "../styles/mixins" as m;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+ 
+}
+
+/* .container {
+  @include m.container(90%);
+}
+ */
+ a{
+  
+  text-decoration: none;
+ }
+ ul, li{
+  list-style: none;
+ }
+@media (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}

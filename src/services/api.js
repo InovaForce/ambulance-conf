@@ -1,0 +1,1 @@
+//api.js (to handle fetch requests)
