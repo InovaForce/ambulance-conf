@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
       <body className={`inter.className d-flex flex-column`} >
         <Header />
         <Row className="h-100">
-          <Col xs={8}>{children}</Col>
-          <Col xs={4}>
+          <Col xs={9}>{children}</Col>
+          <Col xs={3}>
             <SideBar />
           </Col>
         </Row>
