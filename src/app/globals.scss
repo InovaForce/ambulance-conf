@@ -1,22 +1,19 @@
-
+@use '../styles/variable' as v;
+@use '../styles/mixins' as m;
 @import '~bootstrap/scss/bootstrap';
-@import "../styles/variable";
-//@use "../styles/mixins" as m;
 
-html,body,#root > div {
+
+html, body, #root > div {
   height: 100%;
 }
 
 body {
-  background-color: $background-color;
-  color: $text-color;
- 
+  background-color: v.$background-color;
+  color: v.$text-color;
 }
-
-/* .container {
+.container {
   @include m.container(90%);
-}
- */
+} 
  a{
   
   text-decoration: none;
