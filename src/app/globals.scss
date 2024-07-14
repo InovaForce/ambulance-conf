@@ -5,6 +5,9 @@
 
 html, body, #root > div {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,8 +24,8 @@ body {
  ul, li{
   list-style: none;
  }
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   html {
     font-size: 14px;
   }
-}
+} */

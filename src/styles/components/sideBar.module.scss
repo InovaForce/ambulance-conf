@@ -10,14 +10,14 @@
     border: 1px solid v.$sidebar-border-color;
     background-color: v.$sidebar-background-color;
     text-align: center;
+    position: relative;
 
-    h2 {
-        font-size: 12px;
-      }
 
-    
-    
-
+    .total{
+        position: absolute;
+        bottom: 0;
+       
+    }
 }
 
 
