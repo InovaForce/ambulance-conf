@@ -1,0 +1,30 @@
+@use "@/styles/variable" as v;
+@use "@/styles/mixins" as m;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    border-bottom: 1px solid v.$sidebar-border-color;
+    //background-color: v.$sidebar-background-color;
+  
+    .nav {
+        display: flex;
+        width: 25%;
+        justify-content: flex-end;
+       
+
+        .nav_link {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 5px;
+            
+            
+            
+            
+        }   
+    }
+    
+}
