@@ -1,5 +1,11 @@
+
+@import '~bootstrap/scss/bootstrap';
 @import "../styles/variable";
 //@use "../styles/mixins" as m;
+
+html,body,#root > div {
+  height: 100%;
+}
 
 body {
   background-color: $background-color;
