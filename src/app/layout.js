@@ -3,7 +3,8 @@ import "./globals.scss";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Col,  Row } from "react-bootstrap";
-import SideBar from "@/components/configuration/sideBar";
+import SideBar from "@/components/sideBar";
+import Configuration from "./configuration/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({ children }) {
       
         <Header />
         <Row className="h-100">
-          <Col xs={9}>{children}</Col>
+          <Col xs={9}>
+          <Configuration />
+          {children}
+          </Col>
           <Col xs={3}>
             <SideBar />
           </Col>
