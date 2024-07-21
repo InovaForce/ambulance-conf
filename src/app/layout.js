@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <Header />
         <Row className="h-100">
           <Col xs={9}>
-          <Configuration />
+        
           {children}
           </Col>
           <Col xs={3}>

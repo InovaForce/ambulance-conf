@@ -1,12 +1,14 @@
 
-import ImageGallery from '@/components/ImageGallery';
+
+import HomeComp from '@/components/home';
 import React from 'react'
 
 const Home = () => {
   return (
     <div >
-     <ImageGallery/>
-      
+ 
+    <HomeComp/>
+
     </div>
   )
 }
