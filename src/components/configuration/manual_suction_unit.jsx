@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const ManualSuctionUnit = () => {
+const ManualSuctionUnit = ({setActive}) => {
     const [selectedUnit, setSelectedUnit] = useState('Laerdal');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const ManualSuctionUnit = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

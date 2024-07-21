@@ -8,9 +8,3 @@ export const getAllInformation = async () => {
     console.log(data);
     return data;
 }
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: ["infinitychassis.com"],
-  },
-};

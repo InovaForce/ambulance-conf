@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const HeadImmobilizer = () => {
+const HeadImmobilizer = ({setActive}) => {
     const [selectedImmobilizer, setSelectedImmobilizer] = useState('Ferno');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const HeadImmobilizer = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

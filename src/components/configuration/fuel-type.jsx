@@ -1,11 +1,12 @@
 "use client";
 import { useState } from 'react';
 
-const FuelTypeSelector = () => {
+const FuelTypeSelector = ({setActive}) => {
     const [selectedFuelType, setSelectedFuelType] = useState('');
 
     const handleSelectFuelType = (type) => {
         setSelectedFuelType(type);
+        setActive((prev) => prev + 1);
     };
 
     return (

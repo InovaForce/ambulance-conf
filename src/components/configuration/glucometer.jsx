@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const Glucometer = () => {
+const Glucometer = ({setActive}) => {
     const [selectedGlucometer, setSelectedGlucometer] = useState('Accu-Chek');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const Glucometer = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

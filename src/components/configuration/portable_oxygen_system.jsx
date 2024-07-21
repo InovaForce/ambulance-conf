@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const PortableOxygenSystem = () => {
+const PortableOxygenSystem = ({setActive}) => {
     const [selectedSystem, setSelectedSystem] = useState('Philips Respironics');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const PortableOxygenSystem = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

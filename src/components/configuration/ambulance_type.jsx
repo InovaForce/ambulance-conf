@@ -1,8 +1,7 @@
 "use client";
 import { useState } from 'react';
-import ImageGallery from '../ImageGallery';
 
-const AmbulanceType = () => {
+const AmbulanceType = ({setActive}) => {
     const [selectedAmbulanceType, setSelectedAmbulanceType] = useState('');
     const [selectedSubType, setSelectedSubType] = useState('');
 
@@ -13,12 +12,12 @@ const AmbulanceType = () => {
 
     const handleSelectSubType = (subtype) => {
         setSelectedSubType(subtype);
+        setActive((prev) => prev + 1);
     };
 
     return (
         <div>
             <h1>CHOOSE AMBULANCE TYPE</h1>
-            <span><ImageGallery/></span>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
                 <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? 'lightblue' : 'grey' }}>
                     Basic Life Support

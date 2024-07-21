@@ -1,7 +1,7 @@
-"use strict";
+"use client";
 import { useState } from 'react';
 
-const SuctionAspiration = () => {
+const SuctionAspiration = ({setActive}) => {
     const [selectedDevice, setSelectedDevice] = useState('Laerdal');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const SuctionAspiration = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

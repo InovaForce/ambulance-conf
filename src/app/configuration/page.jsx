@@ -1,21 +1,32 @@
-import AmbulanceType from '@/components/configuration/ambulance_type'
-import FuelTypeSelector from '@/components/configuration/fuel-type'
-import MainStretcher from '@/components/configuration/main_strecher'
-import TractionTypeSelector from '@/components/configuration/traction_type'
-import VehicleTypeSelector from '@/components/configuration/vehicle_type'
-import React from 'react'
+"use client"
 
-const Configuration = () => {
+import MedicalEqiupment from '@/components/medical-eqiupment'
+import PyschicalEqiupment from '@/components/pyschical-eqiupment'
+import React, { useEffect, useState } from 'react'
+import './page.scss'
+
+const ConfigurationPage = ({section, setActive, active, setSection}) => {
+  
+
+  const [type, setType] = useState("")
+
+  
+  useEffect(() => {
+    setType(section)  
+  }, [section]);
+  
+console.log("section", section, "type", type);
+
   return (
-    <div>
-     
-      <FuelTypeSelector />
-      <TractionTypeSelector />
-      <AmbulanceType />
-      <VehicleTypeSelector/>
-      <MainStretcher />
+    <div className="configuration">
+      {type && type === "pyschical" && (
+        <PyschicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} />
+      )}
+      {type && type === "medical" && (
+        <MedicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} />
+      )}
     </div>
-  )
+  );
 }
 
-export default Configuration
+export default ConfigurationPage;
