@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const FirstAidKit = () => {
+const FirstAidKit = ({setActive}) => {
     const [selectedKit, setSelectedKit] = useState('Johnson & Johnson');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const FirstAidKit = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

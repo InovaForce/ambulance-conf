@@ -1,11 +1,12 @@
 "use client";
 import { useState } from 'react';
 
-const VehicleTypeSelector = () => {
+const VehicleTypeSelector = ({setActive}) => {
     const [selectedVehicleType, setSelectedVehicleType] = useState('');
 
     const handleSelectVehicleType = (type) => {
         setSelectedVehicleType(type);
+        setActive((prev) => prev + 1);
     };
 
     return (

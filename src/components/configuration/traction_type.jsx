@@ -1,11 +1,12 @@
 "use client";
 import { useState } from 'react';
 
-const TractionTypeSelector = () => {
+const TractionTypeSelector = ({setActive}) => {
     const [selectedTractionType, setSelectedTractionType] = useState('');
 
     const handleSelectTractionType = (type) => {
         setSelectedTractionType(type);
+        setActive((prev) => prev + 1);
     };
 
     return (

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const VacuumMattress = () => {
+const VacuumMattress = ({setActive}) => {
     const [selectedMattress, setSelectedMattress] = useState('Hartwell');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const VacuumMattress = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

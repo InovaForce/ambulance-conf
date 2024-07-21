@@ -16,19 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`inter.className d-flex flex-column`} >
-      
+      <body className={`inter.className d-flex flex-column`}>
         <Header />
-        <Row className="h-100">
-          <Col xs={9}>
-        
-          {children}
-          </Col>
-          <Col xs={3}>
+        <Row>
+          <Col md={9}>{children}</Col>
+          <Col md={3}>
             <SideBar />
           </Col>
         </Row>
-
         <Footer />
       </body>
     </html>

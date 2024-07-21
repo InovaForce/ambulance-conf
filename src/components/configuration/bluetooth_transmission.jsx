@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const BluetoothTransmissionSelector = () => {
+const BluetoothTransmissionSelector = ({setActive}) => {
     const [selectedSystem, setSelectedSystem] = useState('Philips');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const BluetoothTransmissionSelector = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

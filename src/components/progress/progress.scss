@@ -1,0 +1,23 @@
+.progress{
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100px;
+    background-color: aliceblue;
+    
+    .progress-dot{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ff3939;
+        color: rgb(0, 0, 0);
+    }
+    .progress-line{
+       
+        height: 5px;
+        background-color: #c1bebe;
+        transition: background-color 0.5s ease-in;
+    }
+}

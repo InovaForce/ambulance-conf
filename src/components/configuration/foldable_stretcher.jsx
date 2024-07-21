@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const FoldableStretcherSelector = () => {
+const FoldableStretcherSelector = ({setActive}) => {
     const [selectedStretcher, setSelectedStretcher] = useState('Stryker');
     const [price, setPrice] = useState(100);
 
@@ -20,6 +20,7 @@ const FoldableStretcherSelector = () => {
             default:
                 setPrice(0);
         }
+        setActive((prev) => prev + 1);
     };
 
     return (

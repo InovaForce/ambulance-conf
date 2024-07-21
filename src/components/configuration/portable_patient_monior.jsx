@@ -1,6 +1,7 @@
+"use client";
 import { useState } from 'react';
 
-const PortablePatientMonitor= () => {
+const PortablePatientMonitor= ({setActive}) => {
     const [selectedStretcher, setSelectedStretcher] = useState('GE Healthcare');
     const [price, setPrice] = useState(100);
 
@@ -19,6 +20,7 @@ const PortablePatientMonitor= () => {
             default:
                 setPrice(0);
         }
+        setActive(0);
     };
 
     return (

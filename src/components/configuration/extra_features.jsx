@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 
-const ExtraFeaturesSelector = () => {
+const ExtraFeaturesSelector = ({setActive, setSection}) => {
     const [selectedFeatures, setSelectedFeatures] = useState([]);
 
     const handleSelectFeature = (feature) => {
@@ -10,6 +10,11 @@ const ExtraFeaturesSelector = () => {
         } else {
             setSelectedFeatures([...selectedFeatures, feature]);
         }
+    };
+
+    const handleSection = () => {
+        setActive(0);
+        setSection("medical");
     };
 
     return (
@@ -39,6 +44,7 @@ const ExtraFeaturesSelector = () => {
                         <li key={index}>{feature}</li>
                     ))}
                 </ul>
+                <button className='btn' onClick={handleSection}>bitir</button>
             </div>
         </div>
     );
