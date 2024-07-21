@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import ImageGallery from '../ImageGallery';
 
 const AmbulanceType = () => {
     const [selectedAmbulanceType, setSelectedAmbulanceType] = useState('');
@@ -17,6 +18,7 @@ const AmbulanceType = () => {
     return (
         <div>
             <h1>CHOOSE AMBULANCE TYPE</h1>
+            <span><ImageGallery/></span>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
                 <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? 'lightblue' : 'grey' }}>
                     Basic Life Support
