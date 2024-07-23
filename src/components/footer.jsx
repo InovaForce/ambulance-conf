@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
-
+import styles from '@/styles/components/footer.module.scss'
 const Footer = () => {
     useEffect(() => {
         const copyrightDate = document.querySelector(".copyright-date");
@@ -8,11 +8,11 @@ const Footer = () => {
         copyrightDate.innerText = date.getFullYear();
       }, []);
   return (
-    <footer className="footer">
-      <span className="copyright">
+    <footer className={styles.footer}>
+      <span className={styles.copyright}>
          &copy;
-        <span className="copyright-date"></span>
-        <span className="copyright-link">
+        <span className={styles.copyright-date}></span>
+        <span className={styles.copyright-link}>
            Made by InovaForce. All rights reserved.
         </span>
       </span>
