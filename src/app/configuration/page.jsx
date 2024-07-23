@@ -1,11 +1,12 @@
+
 "use client"
 
 import MedicalEqiupment from '@/components/medical-eqiupment'
 import PyschicalEqiupment from '@/components/pyschical-eqiupment'
 import React, { useEffect, useState } from 'react'
-import './page.scss'
+import styles from './conf_page.module.scss'
 
-const ConfigurationPage = ({section, setActive, active, setSection}) => {
+const ConfigurationPage = ({section, setActive, active, setSection, generally, setGenerally}) => {
   
 
   const [type, setType] = useState("")
@@ -18,7 +19,7 @@ const ConfigurationPage = ({section, setActive, active, setSection}) => {
 console.log("section", section, "type", type);
 
   return (
-    <div className="configuration">
+    <div className={styles.configuration}>
       {type && type === "pyschical" && (
         <PyschicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} />
       )}

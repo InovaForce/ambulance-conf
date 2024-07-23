@@ -1,4 +1,5 @@
 "use client";
+import HomeComp from "@/components/home";
 import Progress from "@/components/progress/progress";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
@@ -24,7 +25,7 @@ const Home = () => {
 
   return (
     <div>
-      
+      <HomeComp />
     </div>
   );
 };
