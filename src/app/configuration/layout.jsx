@@ -12,7 +12,7 @@ const ambulance={
     tractionType:"",
     ambulanceType:"",
     vehicleType:"",
-    extraFeatures:[]
+    extraFeatures:[]	
 
   },
   medical:{
@@ -34,7 +34,7 @@ const ambulance={
     portablePatientMonitor:"",
     suctionAspiration:""
   },
-  totalPrice:0
+  totalPrice:10
 }
 const LayoutConfiguartion = () => {
   const [section, setSection] = useState("pyschical");

@@ -12,11 +12,27 @@
     text-align: center;
     position: relative;
 
+   
+    h3{
+        font-size: 17px;
+        color: red;
+        font-weight: 700;
+        
+        
+    }
+    h4{
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 14px;
+    }
 
     .total{
-        position: absolute;
-        bottom: 0;
+       // position: absolute;
+       // bottom: 0;
        
+    }
+    ul{
+        list-style: none;
     }
 }
 
