@@ -11,8 +11,8 @@ const Footer = () => {
     <footer className={styles.footer}>
       <span className={styles.copyright}>
          &copy;
-        <span className={styles.copyright-date}></span>
-        <span className={styles.copyright-link}>
+        <span className="copyright-date"></span>
+        <span className="copyright-link">
            Made by InovaForce. All rights reserved.
         </span>
       </span>
