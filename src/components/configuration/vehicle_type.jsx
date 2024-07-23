@@ -1,30 +1,77 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const VehicleTypeSelector = ({setActive}) => {
+import { getAllInformation } from '@/services/api';
+import Image from 'next/image';
+
+const VehicleTypeSelector = ({ setActive }) => {
     const [selectedVehicleType, setSelectedVehicleType] = useState('');
+    const [vehicleData, setVehicleData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getAllInformation();
+                setVehicleData(data);
+            } catch (error) {
+                console.error("Araç verilerini alırken hata oluştu:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const handleSelectVehicleType = (type) => {
         setSelectedVehicleType(type);
-        setActive((prev) => prev + 1);
+       
     };
+
+    const handleNext= () =>{
+        setActive((prev) => prev + 1);
+    }
+
+    const handleBack= () =>{
+        setActive((prev) => prev - 1);
+    }
+    if (!vehicleData) {
+        return <div>Yükleniyor...</div>;
+    }
 
     return (
         <div>
-            <h1>CHOOSE VEHICLE TYPE</h1>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-                <button onClick={() => handleSelectVehicleType('Van Type')} style={{ backgroundColor: selectedVehicleType === 'Van Type' ? 'blue' : 'grey', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
-                    Van Type
-                </button>
-                <button onClick={() => handleSelectVehicleType('Box Type')} style={{ backgroundColor: selectedVehicleType === 'Box Type' ? 'blue' : 'grey', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
-                    Box Type
-                </button>
-            </div>
-            {selectedVehicleType && (
-                <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                    <h2>Selected Vehicle Type: {selectedVehicleType}</h2>
+            <h1>ARAÇ TİPİNİ SEÇİN</h1>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' ,flexDirection:'column'}}>
+                {vehicleData[3].vehicle_type.map((type,i) => (
+                    <div style={selectedVehicleType===type ? {border:"2px solid green"} : null}> <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                    <h2>Seçilen Araç Tipi: {type}</h2>
+                    <Image
+                    width={300}
+                    height={200} 
+                        src={type === 'Box Type' ? vehicleData[3].image_url.box_type : vehicleData[3].image_url.van_type}
+                        alt={type} 
+                        style={{ objectFit: 'cover', borderRadius: '10px' }} 
+                    />
                 </div>
-            )}
+                   <button
+                       key={type}
+                       onClick={() => handleSelectVehicleType(type)}
+                       style={{
+                           backgroundColor: selectedVehicleType === type ? 'blue' : 'grey',
+                           color: 'white',
+                           padding: '10px 20px',
+                           border: 'none',
+                           borderRadius: '5px'
+                       }}
+                   >
+                       {type}
+
+                   </button></div>
+                ))}
+            </div>
+            <button onClick={handleBack}> Back </button>
+           <button onClick={handleNext}>Next </button>
+
+       
         </div>
     );
 };
