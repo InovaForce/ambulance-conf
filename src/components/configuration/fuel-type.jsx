@@ -13,14 +13,8 @@ const FuelTypeSelector = ({setActive}) => {
 
     return (
         <div>
-            <h1>CHOOSE YOUR FUEL TYPE</h1>
-            <Image
-              src="/images/fuel_type.jpg"
-              width={800}
-              height={500}
-              alt="fuel_type"
-            />
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+            <h1 className='title'>CHOOSE YOUR FUEL TYPE</h1>
+            <div className="fuelTypeImg" style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
             <div>
             <Image src="/images/fuel_type/gasoline.jpg"
              width={300}
