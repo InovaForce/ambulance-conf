@@ -6,7 +6,7 @@ import PyschicalEqiupment from '@/components/pyschical-eqiupment'
 import React, { useEffect, useState } from 'react'
 import styles from './conf_page.module.scss'
 
-const ConfigurationPage = ({section, setActive, active, setSection}) => {
+const ConfigurationPage = ({section, setActive, active, setSection, generally, setGenerally}) => {
   
 
   const [type, setType] = useState("")
