@@ -26,4 +26,6 @@ const HomeComp = () => {
     </div>
   )
 }
+
 export default HomeComp
+
