@@ -8,7 +8,8 @@ const Progress = ({step=5 ,active=0,setActive}) => {
           <button
             onClick={() => setActive(i + 1)}
             className="progress-dot"
-            style={{ backgroundColor: active - 1 === i ? "#0df155" : "" }}
+            style={{ backgroundColor: active - 1 === i ? "#da4d5e" : "" }}
+
           >
             {i + 1}
           </button>
@@ -16,7 +17,7 @@ const Progress = ({step=5 ,active=0,setActive}) => {
             className="progress-line"
             style={{
               width: `${100 / (step - 1)}%`,
-              backgroundColor: active - 1 > i ? "#0df155" : "",
+              backgroundColor: active - 1 > i ? "#da4d5e" : "",
             }}
           ></div>
         </>
@@ -24,7 +25,7 @@ const Progress = ({step=5 ,active=0,setActive}) => {
       <button
         onClick={() => setActive(step)}
         className="progress-dot"
-        style={{ backgroundColor: active  === step ? "#0df155" : "" }}
+        style={{ backgroundColor: active  === step ? "#da4d5e" : "" }}
       >
         {step}
       </button>
