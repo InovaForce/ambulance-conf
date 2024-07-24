@@ -60,15 +60,15 @@ const PortableSuctionUnitSelector = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[13].name} 
-                        value={vehicleData[13].price}
-                        onClick={() => handleSelect('Laerdal')}>Laerdal - $100</button>
-                <button key={vehicleData[13].name} 
-                        value={vehicleData[13].price}
-                        onClick={() => handleSelect('SSCOR')}>SSCOR - $200</button>
-                <button key={vehicleData[13].name} 
-                        value={vehicleData[13].price}
-                        onClick={() => handleSelect('DeVilbiss')}>DeVilbiss - $300</button>
+                <button key={vehicleData[13].portable_suction_unit[0].name} 
+                        value={vehicleData[13].portable_suction_unit[0].price}
+                        onClick={() => handleSelect('Laerdal')}>{vehicleData[13].portable_suction_unit[0].name} - {vehicleData[13].portable_suction_unit[0].price}</button>
+                <button key={vehicleData[13].portable_suction_unit[1].name} 
+                        value={vehicleData[13].portable_suction_unit[1].price}
+                        onClick={() => handleSelect('SSCOR')}>{vehicleData[13].portable_suction_unit[1].name} - {vehicleData[13].portable_suction_unit[1].price}</button>
+                <button key={vehicleData[13].portable_suction_unit[2].name}
+                        value={vehicleData[13].portable_suction_unit[2].price}
+                        onClick={() => handleSelect('DeVilbiss')}>{vehicleData[13].portable_suction_unit[2].name} - {vehicleData[13].portable_suction_unit[2].price}</button>
             </div>
             <div>
                 <h2>Selected Unit: {selectedUnit}</h2>

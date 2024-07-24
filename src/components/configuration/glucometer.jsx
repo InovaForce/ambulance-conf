@@ -59,15 +59,15 @@ const Glucometer = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[18].name} 
-                        value={vehicleData[18].price}
-                        onClick={() => handleSelect('Accu-Chek')}>{vehicleData[18].name} - {vehicleData[18].price}</button>
-                <button key={vehicleData[18].name} 
-                        value={vehicleData[18].price}
-                        onClick={() => handleSelect('OneTouch')}>OneTouch - $200</button>
-                <button key={vehicleData[18].name} 
-                        value={vehicleData[18].price}
-                        onClick={() => handleSelect('Contour')}>Contour - $300</button>
+                <button key={vehicleData[18].glucometer[0].name} 
+                        value={vehicleData[18].glucometer[0].price}
+                        onClick={() => handleSelect('Accu-Chek')}>{vehicleData[18].glucometer[0].name} - {vehicleData[18].glucometer[0].price}</button>
+                <button key={vehicleData[18].glucometer[1].name} 
+                        value={vehicleData[18].glucometer[1].price}
+                        onClick={() => handleSelect('OneTouch')}>{vehicleData[18].glucometer[1].name} - {vehicleData[18].glucometer[1].price}</button>
+                <button key={vehicleData[18].glucometer[2].name}
+                        value={vehicleData[18].glucometer[2].price}
+                        onClick={() => handleSelect('Contour')}>{vehicleData[18].glucometer[2].name} - {vehicleData[18].glucometer[2].price}</button>
             </div>
             <div>
                 <h2>Selected Glucometer: {selectedGlucometer}</h2>

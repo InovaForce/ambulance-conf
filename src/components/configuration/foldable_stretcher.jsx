@@ -60,15 +60,15 @@ const FoldableStretcherSelector = ({setActive}) => {
                     />
             <div>
                        
-                <button key={vehicleData[6].name} 
-                        value={vehicleData[6].price}
-                        onClick={() => handleSelect('Stryker')}>Stryker - $100</button>
-                <button key={vehicleData[6].name} 
-                        value={vehicleData[6].price}
-                        onClick={() => handleSelect('Junkin')}>Junkin - $200</button>
-                <button key={vehicleData[6].name} 
-                        value={vehicleData[6].price}
-                        onClick={() => handleSelect('Ferno')}>Ferno - $300</button>
+                <button key={vehicleData[6].foldable_stretcher[0].name}
+                        value={vehicleData[6].foldable_stretcher[0].price}
+                        onClick={() => handleSelect('Stryker')}>{vehicleData[6].foldable_stretcher[0].name}  - {vehicleData[6].foldable_stretcher[0].price}</button>
+                <button key={vehicleData[6].foldable_stretcher[1].name}
+                        value={vehicleData[6].foldable_stretcher[1].price}
+                        onClick={() => handleSelect('Junkin')}>{vehicleData[6].foldable_stretcher[1].name} - {vehicleData[6].foldable_stretcher[1].price}</button>
+                <button key={vehicleData[6].foldable_stretcher[2].name} 
+                        value={vehicleData[6].foldable_stretcher[2].price}
+                        onClick={() => handleSelect('Ferno')}>{vehicleData[6].foldable_stretcher[2].name} - {vehicleData[6].foldable_stretcher[2].price}</button>
             </div>
             <div>
                 <h2>Selected Stretcher: {selectedStretcher}</h2>

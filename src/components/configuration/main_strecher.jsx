@@ -49,7 +49,6 @@ const MainStretcher = ({setActive}) => {
         }
     };
    
-
     return (
         <div>
             <h1>Stretcher Selector</h1>
@@ -62,15 +61,15 @@ const MainStretcher = ({setActive}) => {
                     />
             <div>
    
-                <button  key={vehicleData[5].name} 
-                        value={vehicleData[5].price}
-                        onClick={() => handleSelect('Stryker')}>Stryker - $100</button>
-                <button key={vehicleData[5].name} 
-                        value={vehicleData[5].price}
-                        onClick={() => handleSelect('Ferno')}>Ferno - $200</button>
-                <button key={vehicleData[5].name} 
-                        value={vehicleData[5].price}
-                        onClick={() => handleSelect('Spencer')}>Spencer - $300</button>
+                <button  key={vehicleData[5].main_stretcher[0].name} 
+                        value={vehicleData[5].main_stretcher[0].price}
+                        onClick={() => handleSelect('Stryker')}>{vehicleData[5].main_stretcher[0].name} - {vehicleData[5].main_stretcher[0].price}</button>
+                <button key={vehicleData[5].main_stretcher[1].name} 
+                        value={vehicleData[5].main_stretcher[1].price}
+                        onClick={() => handleSelect('Ferno')}>{vehicleData[5].main_stretcher[1].name} - {vehicleData[5].main_stretcher[1].price}</button>
+                <button key={vehicleData[5].main_stretcher[2].name}
+                        value={vehicleData[5].main_stretcher[2].price}
+                        onClick={() => handleSelect('Spencer')}>{vehicleData[5].main_stretcher[2].name} - {vehicleData[5].main_stretcher[2].price}</button>
             </div>
             <div>
                 <h2>Selected Stretcher: {selectedStretcher}</h2>

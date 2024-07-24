@@ -61,15 +61,15 @@ const Defibrillator = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[11].name} 
-                        value={vehicleData[11].price}
-                        onClick={() => handleSelect('Zoll')}>Zoll - $100</button>
-                <button key={vehicleData[11].name} 
-                        value={vehicleData[11].price}
-                        onClick={() => handleSelect('Philips')}>Philips - $200</button>
-                <button key={vehicleData[11].name} 
-                        value={vehicleData[11].price}
-                        onClick={() => handleSelect('Physio-Control')}>Physio-Control - $300</button>
+                <button key={vehicleData[11].defibrillator[0].name} 
+                        value={vehicleData[11].defibrillator[0].price}
+                        onClick={() => handleSelect('Zoll')}>{vehicleData[11].defibrillator[0].name}  - {vehicleData[11].defibrillator[0].price}</button>
+                <button key={vehicleData[11].defibrillator[1].name} 
+                        value={vehicleData[11].defibrillator[1].price}
+                        onClick={() => handleSelect('Philips')}>{vehicleData[11].defibrillator[1].name}  - {vehicleData[11].defibrillator[1].price}</button>
+                <button key={vehicleData[11].defibrillator[2].name} 
+                        value={vehicleData[11].defibrillator[2].price}
+                        onClick={() => handleSelect('Physio-Control')}>{vehicleData[11].defibrillator[2].name}  - {vehicleData[11].defibrillator[2].price}</button>
             </div>
             <div>
                 <h2>Selected Defibrillator: {selectedDefibrillator}</h2>

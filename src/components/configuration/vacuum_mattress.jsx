@@ -60,15 +60,15 @@ const VacuumMattress = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button  key={vehicleData[17].name} 
-                        value={vehicleData[17].price}
-                        onClick={() => handleSelect('Hartwell')}>Hartwell - $100</button>
-                <button key={vehicleData[17].name} 
-                        value={vehicleData[17].price}
-                        onClick={() => handleSelect('RedVac')}>RedVac - $200</button>
-                <button key={vehicleData[17].name} 
-                        value={vehicleData[17].price}
-                        onClick={() => handleSelect('Ferno')}>Ferno - $300</button>
+                <button  key={vehicleData[17].vacuum_mattress[0].name} 
+                        value={vehicleData[17].vacuum_mattress[0].price}
+                        onClick={() => handleSelect('Hartwell')}>{vehicleData[17].vacuum_mattress[0].name} - {vehicleData[17].vacuum_mattress[0].price}</button>
+                <button key={vehicleData[17].vacuum_mattress[1].name} 
+                        value={vehicleData[17].vacuum_mattress[1].price}
+                        onClick={() => handleSelect('RedVac')}>{vehicleData[17].vacuum_mattress[1].name} - {vehicleData[17].vacuum_mattress[1].price}</button>
+                <button key={vehicleData[17].vacuum_mattress[2].name}
+                        value={vehicleData[17].vacuum_mattress[2].price}
+                        onClick={() => handleSelect('Ferno')}>{vehicleData[17].vacuum_mattress[2].name} - {vehicleData[17].vacuum_mattress[2].price}</button>
             </div>
             <div>
                 <h2>Selected Mattress: {selectedMattress}</h2>

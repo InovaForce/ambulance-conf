@@ -2,8 +2,9 @@
 import { useEffect, useState } from 'react';
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
+import NextBackButton from '../progress/next_back_button';
 
-const BluetoothTransmissionSelector = ({setActive}) => {
+const BluetoothTransmissionSelector = ({ setActive, totalPrice, setTotalPrice }) => {
     const [selectedSystem, setSelectedSystem] = useState('Philips');
     const [price, setPrice] = useState(100);
     const [vehicleData, setVehicleData] = useState(null);
@@ -21,13 +22,6 @@ const BluetoothTransmissionSelector = ({setActive}) => {
         fetchData();
     }, []);
 
-    const handleNext= () =>{
-        setActive((prev) => prev + 1);
-    }
-
-    const handleBack= () =>{
-        setActive((prev) => prev - 1);
-    }
     if (!vehicleData) {
         return <div>Yükleniyor...</div>;
     }
@@ -61,22 +55,22 @@ const BluetoothTransmissionSelector = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[12].name} 
-                        value={vehicleData[12].price}
-                        onClick={() => handleSelect('Philips')}>Philips - $100</button>
-                <button key={vehicleData[12].name} 
-                        value={vehicleData[12].price}
-                        onClick={() => handleSelect('GE Healthcare')}>GE Healthcare - $200</button>
-                <button key={vehicleData[12].name} 
-                        value={vehicleData[12].price}
-                        onClick={() => handleSelect('Welch Allyn')}>Welch Allyn - $300</button>
+                <button key={vehicleData[12].bluetooth_transmission[0].name}
+                        value={vehicleData[12].bluetooth_transmission[0].price}
+                        onClick={() => handleSelect('Philips')}>{vehicleData[12].bluetooth_transmission[0].name} - {vehicleData[12].bluetooth_transmission[0].price}</button>
+                <button key={vehicleData[12].bluetooth_transmission[1].name}
+                        value={vehicleData[12].bluetooth_transmission[1].price}
+                        onClick={() => handleSelect('GE Healthcare')}>{vehicleData[12].bluetooth_transmission[1].name} - {vehicleData[12].bluetooth_transmission[1].price}</button>
+                <button key={vehicleData[12].bluetooth_transmission[2].name}
+                        value={vehicleData[12].bluetooth_transmission[2].price}
+                        onClick={() => handleSelect('Welch Allyn')}>{vehicleData[12].bluetooth_transmission[2].name}- {vehicleData[12].bluetooth_transmission[2].price}</button>
             </div>
             <div>
                 <h2>Selected System: {selectedSystem}</h2>
                 <h2>Price: ${price}</h2>
             </div>
-            <button onClick={handleBack}> Back </button>
-            <button onClick={handleNext}>Next </button>
+            
+            <NextBackButton setActive={setActive} price={price} setTotalPrice={setTotalPrice} />
         </div>
     );
 };

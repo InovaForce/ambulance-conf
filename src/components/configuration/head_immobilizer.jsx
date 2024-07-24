@@ -59,15 +59,15 @@ const HeadImmobilizer = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[16].name} 
-                        value={vehicleData[16].price}
-                        onClick={() => handleSelect('Ferno')}>Ferno - $100</button>
-                <button key={vehicleData[16].name} 
-                        value={vehicleData[16].price}
-                        onClick={() => handleSelect('Laerdal')}>Laerdal - $200</button>
-                <button key={vehicleData[16].name} 
-                        value={vehicleData[16].price}
-                        onClick={() => handleSelect('Ambu')}>Ambu - $300</button>
+                <button key={vehicleData[16].head_immobilizer[0].name} 
+                        value={vehicleData[16].head_immobilizer[0].price}
+                        onClick={() => handleSelect('Ferno')}>{vehicleData[16].head_immobilizer[0].name} - {vehicleData[16].head_immobilizer[0].price}</button>
+                <button key={vehicleData[16].head_immobilizer[1].name} 
+                        value={vehicleData[16].head_immobilizer[1].price}
+                        onClick={() => handleSelect('Laerdal')}>{vehicleData[16].head_immobilizer[1].name} - {vehicleData[16].head_immobilizer[1].price}</button>
+                <button key={vehicleData[16].head_immobilizer[2].name} 
+                        value={vehicleData[16].head_immobilizer[2].price}
+                        onClick={() => handleSelect('Ambu')}>{vehicleData[16].head_immobilizer[2].name} - {vehicleData[16].head_immobilizer[2].price}</button>
             </div>
             <div>
                 <h2>Selected Immobilizer: {selectedImmobilizer}</h2>
