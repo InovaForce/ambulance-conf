@@ -5,6 +5,7 @@ import ConfigurationPage from "./page";
 import { Col, Row } from "react-bootstrap";
 import SideBar from "@/components/sideBar";
 import MainStretcher from "@/components/configuration/main_strecher";
+import styles from "@/app/configuration/layout.scss"
 
 const ambulance={
   pyschical:{

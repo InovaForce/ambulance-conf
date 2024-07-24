@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Label from '../label';
 
 const AmbulanceType = ({setActive}) => {
     const [selectedAmbulanceType, setSelectedAmbulanceType] = useState('');
@@ -17,8 +18,8 @@ const AmbulanceType = ({setActive}) => {
 
     return (
         <div>
-            <h1>CHOOSE AMBULANCE TYPE</h1>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+            <Label title="CHOOSE AMBULANCE TYPE" />
+            <div className={style.ambulance_type}>
                 <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? 'lightblue' : 'grey' }}>
                     Basic Life Support
                 </button>

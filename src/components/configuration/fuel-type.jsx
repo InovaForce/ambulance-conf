@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Label from "../label";
+import styles from "@/styles/components/fuel_type.module.scss";
 
 const FuelTypeSelector = ({ setActive }) => {
   const [selectedFuelType, setSelectedFuelType] = useState("");
@@ -24,18 +25,19 @@ const FuelTypeSelector = ({ setActive }) => {
       <Image
         src="/images/fuel_type.jpg"
         width={800}
-        height={500}
+        height={400}
         alt="fuel_type"
       />
-      <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+      <div className={styles.fuel_type}>
         <div>
           <button
             onClick={() => handleSelectFuelType("Gasoline")}
             style={{
+              marginTop: "10px",
               padding: "10px",
-              fontSize: "16px",
+              fontSize: "14px",
               backgroundColor:
-                selectedFuelType === "Gasoline" ? "green" : "grey",
+                selectedFuelType === "Gasoline" ? "blue" : "grey",
               color: "white",
               border: "none",
               borderRadius: "5px",
@@ -48,8 +50,10 @@ const FuelTypeSelector = ({ setActive }) => {
           <button
             onClick={() => handleSelectFuelType("Diesel")}
             style={{
+              marginLeft: "35px",
+              marginTop: "10px",
               padding: "10px",
-              fontSize: "16px",
+              fontSize: "14px",
               backgroundColor:
                 selectedFuelType === "Diesel" ? "blue" : "grey",
               color: "white",
