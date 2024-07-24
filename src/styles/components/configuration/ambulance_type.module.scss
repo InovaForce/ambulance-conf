@@ -1,21 +1,30 @@
 
 .ambulance_type_lablel{
-
-    display: flex;  
+    display: flex;
     width: 800px;
     justify-content: center;
     margin-bottom: 60px;
-    
+    border-radius:5px ;
+    -webkit-border-radius:5px ;
+    -moz-border-radius:5px ;
+    -ms-border-radius:5px ;
+    -o-border-radius:5px ;
 }
 .ambulance_type_button{
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 30px;
+   
 
     button{
-        padding: 50px 30px;;
-    }
+         padding: 50px 30px;
+         border-radius: '5px !important';
+         -webkit-border-radius: '5px !important';
+         -moz-border-radius: '5px !important';
+         -ms-border-radius: '5px !important';
+         -o-border-radius: '5px !important';
+}
     
     
 }
