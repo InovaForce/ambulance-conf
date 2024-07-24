@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from 'react';
-
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
 import Label from '../label';
+import styles from '@/styles/components/configuration/vehicle_type.module.scss';
 
 const VehicleTypeSelector = ({ setActive }) => {
     const [selectedVehicleType, setSelectedVehicleType] = useState('');
@@ -41,9 +41,9 @@ const VehicleTypeSelector = ({ setActive }) => {
     return (
         <div>
             <Label title="CHOOSE YOUR VEHICLE TYPE" />
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' ,flexDirection:'column'}}>
+            <div className={styles.vehicle_type} style={{ display: 'flex', justifyContent: 'center', gap: '20px' ,flexDirection:'row'}}>
                 {vehicleData[3].vehicle_type.map((type,i) => (
-                    <div style={selectedVehicleType===type ? {border:"2px solid green"} : null}> <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                    <div style={selectedVehicleType===type ? {border:"4px solid rgb(62,59,133)"} : null}> <div style={{ marginTop: '20px', textAlign: 'center' }}>
                     <h5>Seçilen Araç Tipi: {type}</h5>
                     <Image
                     width={300}
@@ -57,11 +57,14 @@ const VehicleTypeSelector = ({ setActive }) => {
                        key={type}
                        onClick={() => handleSelectVehicleType(type)}
                        style={{
-                           backgroundColor: selectedVehicleType === type ? 'blue' : 'grey',
-                           color: 'white',
+                           backgroundColor: selectedVehicleType === type ? '#fbf79e' : 'lightgrey',
+                           color:"rgb(27,25,23",
                            padding: '10px 20px',
-                           border: 'none',
-                           borderRadius: '5px'
+                           border: '2px solid rgb(205,202,141)',
+                           borderRadius: '5px',
+                           display: 'flex',
+                           margin: '10px auto',
+                           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
                        }}
                    >
                        {type}
