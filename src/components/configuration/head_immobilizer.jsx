@@ -1,82 +1,142 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { getAllInformation } from '@/services/api';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import { getAllInformation } from "@/services/api";
+import Image from "next/image";
+import SelectButton from "../select-button"; // Eğer bu bileşen varsa, yeniden kullanmak için import ettik
 
-const HeadImmobilizer = ({setActive}) => {
-    const [selectedImmobilizer, setSelectedImmobilizer] = useState('Ferno');
-    const [price, setPrice] = useState(100);
-    const [vehicleData, setVehicleData] = useState(null);
+const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
+  const [selectedImmobilizer, setSelectedImmobilizer] = useState("");
+  const [price, setPrice] = useState(100);
+  const [vehicleData, setVehicleData] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getAllInformation();
-                setVehicleData(data);
-            } catch (error) {
-                console.error("Araç verilerini alırken hata oluştu:", error);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    const handleNext= () =>{
-        setActive((prev) => prev + 1);
-    }
-
-    const handleBack= () =>{
-        setActive((prev) => prev - 1);
-    }
-    if (!vehicleData) {
-        return <div>Yükleniyor...</div>;
-    }
-    const handleSelect = (immobilizer) => {
-        setSelectedImmobilizer(immobilizer);
-        switch (immobilizer) {
-            case 'Ferno':
-                setPrice(100);
-                break;
-            case 'Laerdal':
-                setPrice(200);
-                break;
-            case 'Ambu':
-                setPrice(300);
-                break;
-            default:
-                setPrice(0);
-        }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllInformation();
+        setVehicleData(data);
+      } catch (error) {
+        console.error("Araç verilerini alırken hata oluştu:", error);
+      }
     };
 
-    return (
-        <div>
-            <h1>Head Immobilizer Selector</h1>
-            <Image
-                    width={300}
-                    height={200} 
-                        src={vehicleData[16].image_url}
-                        alt={vehicleData} 
-                        style={{ objectFit: 'cover', borderRadius: '10px' }} 
-                    />
-            <div>
-                <button key={vehicleData[16].head_immobilizer[0].name} 
-                        value={vehicleData[16].head_immobilizer[0].price}
-                        onClick={() => handleSelect('Ferno')}>{vehicleData[16].head_immobilizer[0].name} - {vehicleData[16].head_immobilizer[0].price}</button>
-                <button key={vehicleData[16].head_immobilizer[1].name} 
-                        value={vehicleData[16].head_immobilizer[1].price}
-                        onClick={() => handleSelect('Laerdal')}>{vehicleData[16].head_immobilizer[1].name} - {vehicleData[16].head_immobilizer[1].price}</button>
-                <button key={vehicleData[16].head_immobilizer[2].name} 
-                        value={vehicleData[16].head_immobilizer[2].price}
-                        onClick={() => handleSelect('Ambu')}>{vehicleData[16].head_immobilizer[2].name} - {vehicleData[16].head_immobilizer[2].price}</button>
-            </div>
-            <div>
-                <h2>Selected Immobilizer: {selectedImmobilizer}</h2>
-                <h2>Price: ${price}</h2>
-            </div>
-            <button onClick={handleBack}> Back </button>
-            <button onClick={handleNext}> Next </button>
-        </div>
-    );
+    fetchData();
+  }, []);
+
+  const handleNext = () => {
+    setActive((prev) => prev + 1);
+  };
+
+  const handleBack = () => {
+    setActive((prev) => prev - 1);
+  };
+
+  if (!vehicleData) {
+    return <div>Yükleniyor...</div>;
+  }
+
+  const handleSelect = (immobilizer) => {
+    // Seçilen immobilizer'ın fiyatını güncelle
+    let newPrice = 0;
+    switch (immobilizer) {
+      case "Ferno":
+        newPrice = parseFloat(
+          vehicleData[16].head_immobilizer[0].price.replace("$", "")
+        );
+        break;
+      case "Laerdal":
+        newPrice = parseFloat(
+          vehicleData[16].head_immobilizer[1].price.replace("$", "")
+        );
+        break;
+      case "Ambu":
+        newPrice = parseFloat(
+          vehicleData[16].head_immobilizer[2].price.replace("$", "")
+        );
+        break;
+      default:
+        newPrice = 0;
+    }
+
+    // Eğer daha önce seçilmiş bir immobilizer varsa, eski immobilizer'ın fiyatını çıkart
+    let oldPrice = 0;
+    if (selectedImmobilizer !== "None") {
+      switch (selectedImmobilizer) {
+        case "Ferno":
+          oldPrice = parseFloat(
+            vehicleData[16].head_immobilizer[0].price.replace("$", "")
+          );
+          break;
+        case "Laerdal":
+          oldPrice = parseFloat(
+            vehicleData[16].head_immobilizer[1].price.replace("$", "")
+          );
+          break;
+        case "Ambu":
+          oldPrice = parseFloat(
+            vehicleData[16].head_immobilizer[2].price.replace("$", "")
+          );
+          break;
+        default:
+          oldPrice = 0;
+      }
+    }
+
+    // `selectedImmobilizer`'ı güncelle ve fiyatı ayarla
+    setSelectedImmobilizer(immobilizer);
+    setPrice(newPrice);
+
+    // `totalPrice` ve `headImmobilizer`'ı güncelle
+    setGenerally((prev) => ({
+      ...prev,
+      totalPrice: prev.totalPrice - oldPrice + newPrice,
+      medicalEquipment: {
+        ...prev.medicalEquipment,
+        headImmobilizer: immobilizer,
+      },
+    }));
+  };
+
+  return (
+    <div>
+      <h1>Head Immobilizer Selector</h1>
+      <Image
+        width={300}
+        height={200}
+        src={vehicleData[16].image_url}
+        alt={vehicleData[16].head_immobilizer[0].name}
+        style={{ objectFit: "cover", borderRadius: "10px" }}
+      />
+      <div>
+        <SelectButton
+          key={vehicleData[16].head_immobilizer[0].name}
+          value={vehicleData[16].head_immobilizer[0].price}
+          handleSelect={handleSelect}
+          option={vehicleData[16].head_immobilizer[0].name}
+          price={vehicleData[16].head_immobilizer[0].price}
+        />
+        <SelectButton
+          key={vehicleData[16].head_immobilizer[1].name}
+          value={vehicleData[16].head_immobilizer[1].price}
+          handleSelect={handleSelect}
+          option={vehicleData[16].head_immobilizer[1].name}
+          price={vehicleData[16].head_immobilizer[1].price}
+        />
+        <SelectButton
+          key={vehicleData[16].head_immobilizer[2].name}
+          value={vehicleData[16].head_immobilizer[2].price}
+          handleSelect={handleSelect}
+          option={vehicleData[16].head_immobilizer[2].name}
+          price={vehicleData[16].head_immobilizer[2].price}
+        />
+      </div>
+      <div>
+        <h2>Selected Immobilizer: {selectedImmobilizer}</h2>
+        <h2>Price: ${price}</h2>
+      </div>
+      <button onClick={handleBack}>Back</button>
+      <button onClick={handleNext}>Next</button>
+    </div>
+  );
 };
 
 export default HeadImmobilizer;
