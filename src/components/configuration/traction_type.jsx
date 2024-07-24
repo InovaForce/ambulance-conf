@@ -8,6 +8,13 @@ const TractionTypeSelector = ({setActive}) => {
         setSelectedTractionType(type);
         setActive((prev) => prev + 1);
     };
+    const handleNext= () =>{
+        setActive((prev) => prev + 1);
+    }
+
+    const handleBack= () =>{
+        setActive((prev) => prev - 1);
+    }
 
     return (
         <div>
@@ -25,6 +32,8 @@ const TractionTypeSelector = ({setActive}) => {
                     <h2>Selected Traction Type: {selectedTractionType}</h2>
                 </div>
             )}
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>
         </div>
     );
 };

@@ -17,27 +17,27 @@ import PortableVentilator from "./configuration/portable_ventilator";
 import PortablePatientMonitor from "./configuration/portable_patient_monior";
 import SuctionAspiration from "./configuration/suction_aspiration";
 
-const MedicalEqiupment = ({ setActive, active, setSection, section }) => {
+const MedicalEqiupment = ({ setActive, active, setSection, section , generally, setGenerally}) => {
     console.log("active-medical", active);
   return (
     <>
-      {active === 1 && section==="medical"  && <MainStretcher setActive={setActive} />}
-      {active === 2 && section==="medical" && <FoldableStretcherSelector setActive={setActive} />}
-      {active === 3 && section==="medical" && <FirstAidKit setActive={setActive} />}
-      {active === 4 && section==="medical" && <OxygenSystem setActive={setActive} />}
-      {active === 5 && section==="medical" && <PortableOxygenSystem setActive={setActive} />}
-      {active === 6 && section==="medical" && <SuctionAspiration setActive={setActive} />}
-      {active === 7 && section==="medical" && <Defibrillator setActive={setActive} />}
-      {active === 8 && section==="medical" && <BluetoothTransmissionSelector setActive={setActive} />}
-      {active === 9 && section==="medical" && <PortableSuctionUnitSelector setActive={setActive} />}
-      {active === 10 && section==="medical" && <ManualSuctionUnit setActive={setActive} />}
-      {active === 11 && section==="medical" && <SpineBoard setActive={setActive} />}
-      {active === 12 && section==="medical" && <HeadImmobilizer setActive={setActive} />}
-      {active === 13 && section==="medical" && <ScoopStretcher setActive={setActive} />}
-      {active === 14 && section==="medical" && <VacuumMattress setActive={setActive} />}
-      {active === 15 && section==="medical" && <Glucometer setActive={setActive} />}
-      {active === 16 && section==="medical" && <PortableVentilator setActive={setActive} />}
-      {active === 17 && section==="medical" && <PortablePatientMonitor setActive={setActive} />}
+      {active === 1 && section==="medical"  && <MainStretcher setActive={setActive} generally={generally} setGenerally={setGenerally} />}
+      {active === 2 && section==="medical" && <FoldableStretcherSelector setActive={setActive} generally={generally} setGenerally={setGenerally} />}
+      {active === 3 && section==="medical" && <FirstAidKit setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 4 && section==="medical" && <OxygenSystem setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 5 && section==="medical" && <PortableOxygenSystem setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 6 && section==="medical" && <SuctionAspiration setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 7 && section==="medical" && <Defibrillator setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 8 && section==="medical" && <BluetoothTransmissionSelector setActive={setActive} generally={generally} setGenerally={setGenerally} />}
+      {active === 9 && section==="medical" && <PortableSuctionUnitSelector setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 10 && section==="medical" && <ManualSuctionUnit setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 11 && section==="medical" && <SpineBoard setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 12 && section==="medical" && <HeadImmobilizer setActive={setActive} generally={generally} setGenerally={setGenerally} />}
+      {active === 13 && section==="medical" && <ScoopStretcher setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 14 && section==="medical" && <VacuumMattress setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 15 && section==="medical" && <Glucometer setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 16 && section==="medical" && <PortableVentilator setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 17 && section==="medical" && <PortablePatientMonitor setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
     </>
   );
 };

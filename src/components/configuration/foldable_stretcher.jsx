@@ -35,13 +35,37 @@ const FoldableStretcherSelector = ({setActive}) => {
         setSelectedStretcher(stretcher);
         switch (stretcher) {
             case 'Stryker':
-                setPrice(100);
+                setPrice(vehicleData[6].main_stretcher[0].price)
+                setGenerally((prev) => ({
+        ...prev,
+        totalPrice: (prev.totalPrice) + price,
+        medicalEquipment: {
+            ...prev.medicalEquipment,
+            mainStretcher: 'Stryker'
+        }
+    }));
                 break;
             case 'Junkin':
-                setPrice(200);
+                setPrice(vehicleData[6].main_stretcher[1].price)
+                setGenerally((prev) => ({
+        ...prev,
+        totalPrice: (prev.totalPrice) + price,
+        medicalEquipment: {
+            ...prev.medicalEquipment,
+            mainStretcher: 'Stryker'
+        }
+    }));
                 break;
             case 'Ferno':
-                setPrice(300);
+                setPrice(vehicleData[6].main_stretcher[2].price)
+                setGenerally((prev) => ({
+        ...prev,
+        totalPrice: (prev.totalPrice) + price,
+        medicalEquipment: {
+            ...prev.medicalEquipment,
+            mainStretcher: 'Stryker'
+        }
+    }));
                 break;
             default:
                 setPrice(0);
