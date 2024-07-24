@@ -2,9 +2,10 @@
 import { useEffect, useState } from 'react';
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
+import SelectButton from '../select-button';
 
 const MainStretcher = ({ setActive, generally, setGenerally }) => {
-    const [selectedStretcher, setSelectedStretcher] = useState('Stryker');
+    const [selectedStretcher, setSelectedStretcher] = useState('');
     const [price, setPrice] = useState(100);
     const [vehicleData, setVehicleData] = useState(null);
 
@@ -84,42 +85,44 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     };
 
     return (
+      <div>
+        <h1>Stretcher Selector</h1>
+        <Image
+          width={300}
+          height={200}
+          src={vehicleData[5].image_url}
+          alt={vehicleData[5].main_stretcher[0].name}
+          style={{ objectFit: "cover", borderRadius: "10px" }}
+        />
         <div>
-            <h1>Stretcher Selector</h1>
-            <Image
-                width={300}
-                height={200}
-                src={vehicleData[5].image_url}
-                alt={vehicleData[5].main_stretcher[0].name}
-                style={{ objectFit: 'cover', borderRadius: '10px' }}
-            />
-            <div>
-                <button
-                    key={vehicleData[5].main_stretcher[0].name}
-                    value={vehicleData[5].main_stretcher[0].price}
-                    onClick={() => handleSelect('Stryker')}>
-                    {vehicleData[5].main_stretcher[0].name} - {vehicleData[5].main_stretcher[0].price}
-                </button>
-                <button
-                    key={vehicleData[5].main_stretcher[1].name}
-                    value={vehicleData[5].main_stretcher[1].price}
-                    onClick={() => handleSelect('Ferno')}>
-                    {vehicleData[5].main_stretcher[1].name} - {vehicleData[5].main_stretcher[1].price}
-                </button>
-                <button
-                    key={vehicleData[5].main_stretcher[2].name}
-                    value={vehicleData[5].main_stretcher[2].price}
-                    onClick={() => handleSelect('Spencer')}>
-                    {vehicleData[5].main_stretcher[2].name} - {vehicleData[5].main_stretcher[2].price}
-                </button>
-            </div>
-            <div>
-                <h2>Selected Stretcher: {selectedStretcher}</h2>
-                <h2>Price: ${price}</h2>
-                <h2>Total Price: ${generally.totalPrice}</h2>
-            </div>
-            <button onClick={handleNext}>Next</button>
+          <SelectButton
+            key={vehicleData[5].main_stretcher[0].name}
+            value={vehicleData[5].main_stretcher[0].price}
+            handleSelect={handleSelect}
+            option={vehicleData[5].main_stretcher[0].name}
+            price={vehicleData[5].main_stretcher[0].price}
+          />
+          <SelectButton
+            key={vehicleData[5].main_stretcher[1].name}
+            value={vehicleData[5].main_stretcher[1].price}
+            handleSelect={handleSelect}
+            option={vehicleData[5].main_stretcher[1].name}
+            price={vehicleData[5].main_stretcher[1].price}
+          />
+          <SelectButton
+            key={vehicleData[5].main_stretcher[2].name}
+            value={vehicleData[5].main_stretcher[2].price}
+            handleSelect={handleSelect}
+            option={vehicleData[5].main_stretcher[2].name}
+            price={vehicleData[5].main_stretcher[2].price}
+          />
         </div>
+        <div>
+          <h2>Selected Stretcher: {selectedStretcher}</h2>
+          <h2>Price: ${price}</h2>
+        </div>
+        <button onClick={handleNext}>Next</button>
+      </div>
     );
 };
 
