@@ -1,6 +1,12 @@
+'use client'
 import styles from "@/styles/components/sideBar.module.scss";
+import { useEffect } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 const SideBar = ({ generally }) => {
+
+  useEffect (()=>{
+
+  },[generally])
   return (
     <div className={styles.sideBar}>
       <h2>Your Ambulance</h2>

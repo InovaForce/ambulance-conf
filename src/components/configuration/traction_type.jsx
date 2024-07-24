@@ -11,13 +11,15 @@ const TractionTypeSelector = ({setActive}) => {
         setSelectedTractionType(type);
         setActive((prev) => prev + 1);
     };
-    const handleNext = () => {
+
+    const handleNext= () =>{
         setActive((prev) => prev + 1);
-      };
-    
-      const handleBack = () => {
+    }
+
+    const handleBack= () =>{
         setActive((prev) => prev - 1);
-      };
+    }
+
 
     return (
         <div className={styles.traction_type}>
@@ -37,10 +39,10 @@ const TractionTypeSelector = ({setActive}) => {
                     <h5>Selected Traction Type: {selectedTractionType}</h5>
                 </div>
             )}
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+
                 <button className="back" onClick={handleBack}> Back </button>
                 <button className="next" onClick={handleNext}> Next </button>
-            </div>
+
         </div>
         
     );

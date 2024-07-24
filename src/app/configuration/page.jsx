@@ -21,10 +21,10 @@ console.log("section", section, "type", type);
   return (
     <div className={styles.configuration}>
       {type && type === "pyschical" && (
-        <PyschicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} />
+        <PyschicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} generally={generally} setGenerally={setGenerally} />
       )}
       {type && type === "medical" && (
-        <MedicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} />
+        <MedicalEqiupment setActive={setActive} active={active} setSection={setSection} section={section} generally={generally} setGenerally={setGenerally}/>
       )}
     </div>
   );
