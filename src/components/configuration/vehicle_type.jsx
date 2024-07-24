@@ -44,7 +44,7 @@ const VehicleTypeSelector = ({ setActive }) => {
             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' ,flexDirection:'column'}}>
                 {vehicleData[3].vehicle_type.map((type,i) => (
                     <div style={selectedVehicleType===type ? {border:"2px solid green"} : null}> <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                    <h2>Seçilen Araç Tipi: {type}</h2>
+                    <h5>Seçilen Araç Tipi: {type}</h5>
                     <Image
                     width={300}
                     height={200} 
@@ -69,9 +69,10 @@ const VehicleTypeSelector = ({ setActive }) => {
                    </button></div>
                 ))}
             </div>
-            <button onClick={handleBack}> Back </button>
-           <button onClick={handleNext}>Next </button>
-
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>  
        
         </div>
     );

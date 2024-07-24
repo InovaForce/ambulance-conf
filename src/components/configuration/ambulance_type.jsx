@@ -16,12 +16,20 @@ const AmbulanceType = ({setActive}) => {
         setSelectedSubType(subtype);
         setActive((prev) => prev + 1);
     };
+    const handleNext= () =>{
+        setActive((prev) => prev + 1);
+    }
+
+    const handleBack= () =>{
+        setActive((prev) => prev - 1);
+    }
 
 
     return (
         <div>
-            <Label title="CHOOSE YOUR AMBULANCE TYPE" />
-            <div className={styles.ambulance_type}>
+            <div className={styles.ambulance_type_lablel}><Label title="CHOOSE YOUR AMBULANCE TYPE" /></div>
+            
+            <div className={styles.ambulance_type_button}>
                 <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? 'lightblue' : 'grey' }}>
                     Basic Life Support
                 </button>
@@ -33,7 +41,7 @@ const AmbulanceType = ({setActive}) => {
                 </button>
             </div>
             {selectedAmbulanceType === 'Basic Life Support' && (
-                <div style={{ marginTop: '20px' }}>
+                <div  className={styles.ambulance_type_button} style={{ marginTop: '20px' }}>
                     <button onClick={() => handleSelectSubType('Pediatric Ambulance')} style={{ backgroundColor: selectedSubType === 'Pediatric Ambulance' ? 'lightgreen' : 'grey' }}>
                         Pediatric Ambulance
                     </button>
@@ -43,9 +51,13 @@ const AmbulanceType = ({setActive}) => {
                 </div>
             )}
             <div style={{ marginTop: '20px' }}>
-                <h4>Selected Type: {selectedAmbulanceType}</h4>
+                <h5>Selected Type: {selectedAmbulanceType}</h5>
                 {selectedSubType && <h5>Sub-Type: {selectedSubType}</h5>}
             </div>
+            <div className={styles.next_back} style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>  
             
         </div>
     );
