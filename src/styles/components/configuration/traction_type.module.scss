@@ -1,0 +1,24 @@
+@use "@/styles/variable" as v;
+@use "@/styles/mixins" as m;
+
+.traction_type {
+    width: 800px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -40px;
+    
+    .btn_traction_type{
+        display: flex;
+        font-weight: 600;        
+        justify-content: space-evenly;
+       
+    
+    
+    }
+    
+
+
+   
+}

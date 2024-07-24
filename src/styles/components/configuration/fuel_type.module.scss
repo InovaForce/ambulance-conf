@@ -5,4 +5,10 @@
     display: flex;
     justify-content: center;
     gap: 230px;
+    .btn_fuel_type{
+        display: flex;
+        font-weight: 600;        
+        justify-content: space-evenly;
+        
+    }
 }

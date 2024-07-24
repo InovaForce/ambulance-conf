@@ -50,7 +50,8 @@ const BluetoothTransmissionSelector = ({ setActive}) => {
         }
 
     };
-
+    
+    
     return (
         <div>
             <h1>Bluetooth Transmission System Selector</h1>
@@ -77,9 +78,10 @@ const BluetoothTransmissionSelector = ({ setActive}) => {
                 <h2>Price: ${price}</h2>
             </div>
             
-            <button onClick={handleBack}> Back </button>
-            <button onClick={handleNext}>Next </button>
+
+
         </div>
+        
     );
 };
 

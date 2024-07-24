@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
+import Label from '../label';
 
 const VehicleTypeSelector = ({ setActive }) => {
     const [selectedVehicleType, setSelectedVehicleType] = useState('');
@@ -39,7 +40,7 @@ const VehicleTypeSelector = ({ setActive }) => {
 
     return (
         <div>
-            <h1>ARAÇ TİPİNİ SEÇİN</h1>
+            <Label title="CHOOSE YOUR VEHICLE TYPE" />
             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' ,flexDirection:'column'}}>
                 {vehicleData[3].vehicle_type.map((type,i) => (
                     <div style={selectedVehicleType===type ? {border:"2px solid green"} : null}> <div style={{ marginTop: '20px', textAlign: 'center' }}>
