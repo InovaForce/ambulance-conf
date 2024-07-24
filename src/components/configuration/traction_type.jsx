@@ -40,8 +40,10 @@ const TractionTypeSelector = ({setActive}) => {
                 </div>
             )}
 
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>
-                <button className="next" onClick={handleNext}> Next </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>    
 
         </div>
         

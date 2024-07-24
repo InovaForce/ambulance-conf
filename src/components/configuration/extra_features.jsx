@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Label from '../label';
 
 const ExtraFeaturesSelector = ({setActive, setSection}) => {
     const [selectedFeatures, setSelectedFeatures] = useState([]);
@@ -16,10 +17,17 @@ const ExtraFeaturesSelector = ({setActive, setSection}) => {
         setActive(0);
         setSection("medical");
     };
+    const handleNext= () =>{
+        setActive((prev) => prev + 1);
+    }
+
+    const handleBack= () =>{
+        setActive((prev) => prev - 1);
+    }
    
     return (
         <div>
-            <h1>SELECT EXTRA FEATURES</h1>
+            <Label title="CHOOSE EXTRA FEATURES" />
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
                 <button onClick={() => handleSelectFeature('Defibrillator')} style={{ backgroundColor: selectedFeatures.includes('Defibrillator') ? 'lightgreen' : 'grey', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
                     Defibrillator
@@ -38,16 +46,22 @@ const ExtraFeaturesSelector = ({setActive, setSection}) => {
                 </button>
             </div>
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                <h2>Selected Features:</h2>
+                <h5>Selected Features:</h5>
                 <ul>
                     {selectedFeatures.map((feature, index) => (
                         <li key={index}>{feature}</li>
                     ))}
                 </ul>
-                <button className='btn' onClick={handleSection}>bitir</button>
+                <button className='btn' onClick={handleSection}>FINISH</button>
             </div>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>  
+       
            
         </div>
+        
     );
 };
 
