@@ -60,15 +60,15 @@ const FirstAidKit = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[7].name} 
-                        value={vehicleData[7].price}
-                        onClick={() => handleSelect('Johnson & Johnson')}>Johnson & Johnson - $100</button>
-                <button key={vehicleData[6].name} 
-                        value={vehicleData[6].price}
-                        onClick={() => handleSelect('First Aid Only')}>First Aid Only - $200</button>
-                <button key={vehicleData[6].name} 
-                        value={vehicleData[6].price}
-                        onClick={() => handleSelect('Beiersdorf')}>Beiersdorf - $300</button>
+                <button key={vehicleData[7].first_aid_kit[0].name}
+                        value={vehicleData[7].first_aid_kit[0].price}
+                        onClick={() => handleSelect('Johnson & Johnson')}>{vehicleData[7].first_aid_kit[0].name}-{vehicleData[7].first_aid_kit[0].price}</button>
+                <button key={vehicleData[7].first_aid_kit[1].name} 
+                        value={vehicleData[7].first_aid_kit[1].price}
+                        onClick={() => handleSelect('First Aid Only')}>{vehicleData[7].first_aid_kit[1].name} -{vehicleData[7].first_aid_kit[1].price}</button>
+                <button key={vehicleData[7].first_aid_kit[2].name} 
+                        value={vehicleData[7].first_aid_kit[2].price}
+                        onClick={() => handleSelect('Beiersdorf')}>{vehicleData[7].first_aid_kit[2].name} - {vehicleData[7].first_aid_kit[2].price}</button>
             </div>
             <div>
                 <h2>Selected Kit: {selectedKit}</h2>

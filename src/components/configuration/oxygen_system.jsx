@@ -59,15 +59,15 @@ const OxygenSystem = ({setActive}) => {
                         style={{ objectFit: 'cover', borderRadius: '10px' }} 
                     />
             <div>
-                <button key={vehicleData[8].name} 
-                        value={vehicleData[8].price}
-                        onClick={() => handleSelect('Intersurgical')}>Intersurgical - $100</button>
-                <button key={vehicleData[8].name} 
-                        value={vehicleData[8].price}
-                        onClick={() => handleSelect('Dräger')}>Dräger - $200</button>
-                <button key={vehicleData[8].name} 
-                        value={vehicleData[8].price}
-                        onClick={() => handleSelect('Air Liquide')}>Air Liquide - $300</button>
+                <button key={vehicleData[8].central_oxygen_system[0].name} 
+                        value={vehicleData[8].central_oxygen_system[0].price}
+                        onClick={() => handleSelect('Intersurgical')}>{vehicleData[8].central_oxygen_system[0].name}  -  {vehicleData[8].central_oxygen_system[0].price}</button>
+                <button key={vehicleData[8].central_oxygen_system[1].name}
+                        value={vehicleData[8].central_oxygen_system[1].price}
+                        onClick={() => handleSelect('Dräger')}>{vehicleData[8].central_oxygen_system[1].name} - {vehicleData[8].central_oxygen_system[1].price}</button>
+                <button key={vehicleData[8].central_oxygen_system[2].name} 
+                        value={vehicleData[8].central_oxygen_system[2].price}
+                        onClick={() => handleSelect('Air Liquide')}>{vehicleData[8].central_oxygen_system[2].name} - {vehicleData[8].central_oxygen_system[2].price}</button>
             </div>
             <div>
                 <h2>Selected System: {selectedSystem}</h2>
