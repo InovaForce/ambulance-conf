@@ -8,7 +8,6 @@ const OxygenSystem = ({setActive}) => {
     const [price, setPrice] = useState(100);
     const [vehicleData, setVehicleData] = useState(null);
 
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -75,7 +74,7 @@ const OxygenSystem = ({setActive}) => {
                 <h2>Price: ${price}</h2>
             </div>
             <button onClick={handleBack}> Back </button>
-            <button onClick={handleNext}>Next </button>
+            <button onClick={handleNext}> Next </button>
         </div>
     );
 };
