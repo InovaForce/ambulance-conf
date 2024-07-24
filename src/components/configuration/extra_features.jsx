@@ -16,7 +16,7 @@ const ExtraFeaturesSelector = ({setActive, setSection}) => {
         setActive(0);
         setSection("medical");
     };
-
+   
     return (
         <div>
             <h1>SELECT EXTRA FEATURES</h1>
@@ -46,6 +46,7 @@ const ExtraFeaturesSelector = ({setActive, setSection}) => {
                 </ul>
                 <button className='btn' onClick={handleSection}>bitir</button>
             </div>
+           
         </div>
     );
 };

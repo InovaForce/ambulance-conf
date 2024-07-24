@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Label from '../label';
+import styles from '@/styles/components/configuration/ambulance_type.module.scss';
 
 const AmbulanceType = ({setActive}) => {
     const [selectedAmbulanceType, setSelectedAmbulanceType] = useState('');
@@ -16,10 +17,11 @@ const AmbulanceType = ({setActive}) => {
         setActive((prev) => prev + 1);
     };
 
+
     return (
         <div>
-            <Label title="CHOOSE AMBULANCE TYPE" />
-            <div className={style.ambulance_type}>
+            <Label title="CHOOSE YOUR AMBULANCE TYPE" />
+            <div className={styles.ambulance_type}>
                 <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? 'lightblue' : 'grey' }}>
                     Basic Life Support
                 </button>
@@ -41,9 +43,10 @@ const AmbulanceType = ({setActive}) => {
                 </div>
             )}
             <div style={{ marginTop: '20px' }}>
-                <h2>Selected Type: {selectedAmbulanceType}</h2>
-                {selectedSubType && <h3>Sub-Type: {selectedSubType}</h3>}
+                <h4>Selected Type: {selectedAmbulanceType}</h4>
+                {selectedSubType && <h5>Sub-Type: {selectedSubType}</h5>}
             </div>
+            
         </div>
     );
 };

@@ -22,13 +22,7 @@ const Defibrillator = ({setActive}) => {
         fetchData();
     }, []);
 
-    const handleNext= () =>{
-        setActive((prev) => prev + 1);
-    }
-
-    const handleBack= () =>{
-        setActive((prev) => prev - 1);
-    }
+   
     if (!vehicleData) {
         return <div>Yükleniyor...</div>;
     }
@@ -75,8 +69,7 @@ const Defibrillator = ({setActive}) => {
                 <h2>Selected Defibrillator: {selectedDefibrillator}</h2>
                 <h2>Price: ${price}</h2>
             </div>
-            <button onClick={handleBack}> Back </button>
-            <button onClick={handleNext}>Next </button>
+            
         </div>
     );
 };
