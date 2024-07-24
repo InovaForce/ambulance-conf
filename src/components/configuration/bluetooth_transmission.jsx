@@ -2,9 +2,9 @@
 import { useEffect, useState } from 'react';
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
-import NextBackButton from '../progress/next_back_button';
 
-const BluetoothTransmissionSelector = ({ setActive, totalPrice, setTotalPrice }) => {
+
+const BluetoothTransmissionSelector = ({ setActive}) => {
     const [selectedSystem, setSelectedSystem] = useState('Philips');
     const [price, setPrice] = useState(100);
     const [vehicleData, setVehicleData] = useState(null);
@@ -24,6 +24,13 @@ const BluetoothTransmissionSelector = ({ setActive, totalPrice, setTotalPrice })
 
     if (!vehicleData) {
         return <div>Yükleniyor...</div>;
+    }
+    const handleNext= () =>{
+        setActive((prev) => prev + 1);
+    }
+
+    const handleBack= () =>{
+        setActive((prev) => prev - 1);
     }
 
     const handleSelect = (system) => {
@@ -70,7 +77,8 @@ const BluetoothTransmissionSelector = ({ setActive, totalPrice, setTotalPrice })
                 <h2>Price: ${price}</h2>
             </div>
             
-            <NextBackButton setActive={setActive} price={price} setTotalPrice={setTotalPrice} />
+            <button onClick={handleBack}> Back </button>
+            <button onClick={handleNext}>Next </button>
         </div>
     );
 };
