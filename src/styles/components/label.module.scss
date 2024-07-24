@@ -1,0 +1,21 @@
+@use "@/styles/variable" as v;
+@use "@/styles/mixins" as m;
+
+.label{
+    
+    
+    .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    width: 90%;
+    height: 40px;
+    background-color: v.$label-background-color;
+    color: v.$text-color;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+       
+    }
+}
