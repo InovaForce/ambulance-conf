@@ -9,7 +9,7 @@ const TractionTypeSelector = ({setActive}) => {
 
     const handleSelectTractionType = (type) => {
         setSelectedTractionType(type);
-        setActive((prev) => prev + 1);
+      
     };
 
     const handleNext= () =>{

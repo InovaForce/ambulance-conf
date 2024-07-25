@@ -87,10 +87,10 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
       </div>
       <div>
         <h2>Selected Monitor: {selectedMonitor}</h2>
-        <h2>Price: ${price}</h2>
+        <h2>Price: {price}</h2>
       </div>
-      <button onClick={handleBack}>Back</button>
-      <button onClick={handleNext}>Next</button>
+      <button className="back" onClick={handleBack}>Back</button>
+      <button className="next" onClick={handleNext}>Next</button>
     </div>
   );
 };

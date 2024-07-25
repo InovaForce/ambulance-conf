@@ -19,6 +19,7 @@ import SuctionAspiration from "./configuration/suction_aspiration";
 
 const MedicalEqiupment = ({ setActive, active, setSection, section , generally, setGenerally}) => {
     console.log("active-medical", active);
+  
   return (
     <>
       {active === 1 && section==="medical"  && <MainStretcher setActive={setActive} generally={generally} setGenerally={setGenerally} />}

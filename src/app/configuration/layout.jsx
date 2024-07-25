@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import ConfigurationPage from "./page";
 import { Col, Row } from "react-bootstrap";
 import SideBar from "@/components/sideBar";
-import MainStretcher from "@/components/configuration/main_strecher";
 import styles from "@/app/configuration/layout.scss"
 
 const ambulance={
@@ -35,7 +34,7 @@ const ambulance={
     portablePatientMonitor:"",
     suctionAspiration:""
   },
-  totalPrice:10
+  totalPrice:0
 }
 const LayoutConfiguartion = () => {
   const [section, setSection] = useState("pyschical");

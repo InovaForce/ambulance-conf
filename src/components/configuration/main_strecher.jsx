@@ -35,22 +35,26 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     }
 
     const handleSelect = (stretcher) => {
-        // Yeni seçilen stretcher'ın fiyatını al
+        // Yeni seçilen stretcher'ın fiyatını ve key'ini al
         let newPrice = 0;
+        
         switch (stretcher) {
             case 'Stryker':
+                
                 newPrice = parseFloat(vehicleData[5].main_stretcher[0].price.replace('$', ''));
                 break;
             case 'Ferno':
+               
                 newPrice = parseFloat(vehicleData[5].main_stretcher[1].price.replace('$', ''));
                 break;
             case 'Spencer':
+                
                 newPrice = parseFloat(vehicleData[5].main_stretcher[2].price.replace('$', ''));
                 break;
             default:
                 newPrice = 0;
-        }
-
+                
+    
         // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
         let oldPrice = 0;
         if (selectedStretcher !== 'None') {
@@ -68,22 +72,23 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
                     oldPrice = 0;
             }
         }
-
+    
         // `selectedStretcher`'ı güncelle
         setSelectedStretcher(stretcher);
         setPrice(newPrice);
-
+    
         // `totalPrice` hesapla ve güncelle
         setGenerally((prev) => ({
             ...prev,
             totalPrice: prev.totalPrice - oldPrice + newPrice,
             medicalEquipment: {
                 ...prev.medicalEquipment,
-                mainStretcher: stretcher
+                mainStretcher: stretcher,
             }
         }));
     };
-
+    
+    
     return (
       <div>
         <h1>Stretcher Selector</h1>
@@ -119,11 +124,11 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
         </div>
         <div>
           <h2>Selected Stretcher: {selectedStretcher}</h2>
-          <h2>Price: ${price}</h2>
+          <h2>Price: {price}</h2>
         </div>
-        <button onClick={handleNext}>Next</button>
+        <button className="next" onClick={handleNext}>Next</button>
       </div>
     );
 };
-
+}
 export default MainStretcher;
