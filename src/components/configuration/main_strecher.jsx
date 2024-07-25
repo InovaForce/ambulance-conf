@@ -36,6 +36,7 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     }
 
     const handleSelect = (stretcher) => {
+
       // Yeni seçilen stretcher'ın fiyatını al
       console.log("generally", generally);
       let newPrice = 0;
@@ -103,6 +104,7 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     };
 
 
+
     return (
       <div>
         <Label title="Main Stretcher" />
@@ -137,15 +139,18 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
           />
         </div>
         <div>
-          <h5>Selected Stretcher: {selectedStretcher}</h5>
-          <h5>Price: ${price}</h5>
+
+          <h2>Selected Stretcher: {selectedStretcher}</h2>
+          <h2>Price: {price}</h2>
         </div>
+         
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>
                 <button className="next" onClick={handleNext}> Next </button>                
             </div>  
+
       </div>
     );
 };
-
+}
 export default MainStretcher;

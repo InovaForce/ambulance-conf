@@ -7,6 +7,40 @@ const SideBar = ({ generally }) => {
   useEffect (()=>{
 
   },[generally])
+
+  const renderSection = (section, sectionName) => {
+    return (
+      <div>
+        <p className="border-bottom mt-3">{sectionName}</p>
+        {Object.keys(section).map((key, index) => {
+          const value = section[key];
+          if (Array.isArray(value) && value.length > 0) {
+            return (
+              <div key={index}>
+                <h3>{key}:</h3>
+                {value.map((item, i) => (
+                  <h4 key={i}>
+                    <AiOutlineCaretRight />
+                    {item}
+                  </h4>
+                ))}
+              </div>
+            );
+          } else if (value && typeof value === 'string') {
+            return (
+              <div key={index}>
+                <h3>{key}:</h3>
+                <h4>{value}</h4>
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className={styles.sideBar}>
       <h2>Your Ambulance</h2>
