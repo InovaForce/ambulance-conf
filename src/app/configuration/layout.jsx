@@ -6,36 +6,35 @@ import { Col, Row } from "react-bootstrap";
 import SideBar from "@/components/sideBar";
 import styles from "@/app/configuration/layout.scss"
 
-const ambulance={
-  pyschical:{
-    fuelType:"",
-    tractionType:"",
-    ambulanceType:"",
-    vehicleType:"",
-    extraFeatures:[]	
-
+const ambulance = {
+  pyschical: {
+    fuelType: "",
+    tractionType: "",
+    ambulanceType: "",
+    vehicleType: "",
+    extraFeatures: [],
   },
-  medical:{
-    mainStretcher:"",
-    foldableStretcher:"",
-    firstAidKit:"",
-    oxygenSystem:"",
-    portableOxygenSystem:"",
-    defibrillator:"",
-    bluetoothTransmission:"",
-    portableSuctionUnit:"",
-    manualSuctionUnit:"",
-    spineBoard:"",
-    headImmobilizer:"",
-    scoopStretcher:"",
-    vacuumMattress:"",
-    glucometer:"",
-    portableVentilator:"",
-    portablePatientMonitor:"",
-    suctionAspiration:""
+  medical: {
+    mainStretcher: "",
+    foldableStretcher: "",
+    firstAidKit: "",
+    oxygenSystem: "",
+    portableOxygenSystem: "",
+    defibrillator: "",
+    bluetoothTransmission: "",
+    portableSuctionUnit: "",
+    manualSuctionUnit: "",
+    spineBoard: "",
+    headImmobilizer: "",
+    scoopStretcher: "",
+    vacuumMattress: "",
+    glucometer: "",
+    portableVentilator: "",
+    portablePatientMonitor: "",
+    suctionAspiration: "",
   },
-  totalPrice:0
-}
+  totalPrice: 0,
+};
 const LayoutConfiguartion = () => {
   const [section, setSection] = useState("pyschical");
   const [step, setStep] = useState(5);

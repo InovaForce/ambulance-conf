@@ -6,14 +6,45 @@ import AmbulanceType from "./configuration/ambulance_type";
 import VehicleTypeSelector from "./configuration/vehicle_type";
 import ExtraFeaturesSelector from "./configuration/extra_features";
 
-const PyschicalEqiupment = ({ setActive, active, setSection, section }) => {
+const PyschicalEqiupment = ({ setActive, active, setSection, section,generally,setGenerally }) => {
   return (
     <>
-      {active === 1 && section==="pyschical"  && <FuelTypeSelector setActive={setActive} />}
-      {active === 2 && section==="pyschical" && <TractionTypeSelector setActive={setActive} />}
-      {active === 3 && section==="pyschical" && <AmbulanceType setActive={setActive} />}
-      {active === 4 && section==="pyschical" && <VehicleTypeSelector setActive={setActive} />}
-      {active === 5 && section==="pyschical" && <ExtraFeaturesSelector setActive={setActive} setSection={setSection} />}
+      {active === 1 && section === "pyschical" && (
+        <FuelTypeSelector
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+        />
+      )}
+      {active === 2 && section === "pyschical" && (
+        <TractionTypeSelector
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+        />
+      )}
+      {active === 3 && section === "pyschical" && (
+        <AmbulanceType
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+        />
+      )}
+      {active === 4 && section === "pyschical" && (
+        <VehicleTypeSelector
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+        />
+      )}
+      {active === 5 && section === "pyschical" && (
+        <ExtraFeaturesSelector
+          setActive={setActive}
+          setSection={setSection}
+          generally={generally}
+          setGenerally={setGenerally}
+        />
+      )}
     </>
   );
 };

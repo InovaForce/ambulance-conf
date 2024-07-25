@@ -1,35 +1,163 @@
 "use client";
-import { useState } from 'react';
-import Label from '../label';
-import styles from '@/styles/components/configuration/ambulance_type.module.scss';
+import { useEffect, useState } from "react";
+import Label from "../label";
+import styles from "@/styles/components/configuration/ambulance_type.module.scss";
+import { getAllInformation } from "@/services/api";
+import SelectButton from "../select-button";
 
-const AmbulanceType = ({setActive}) => {
-    const [selectedAmbulanceType, setSelectedAmbulanceType] = useState('');
-    const [selectedSubType, setSelectedSubType] = useState('');
+const AmbulanceType = ({ setActive, generally, setGenerally }) => {
+  const [selectedAmbulanceType, setSelectedAmbulanceType] = useState("");
+  const [vehicleData, setVehicleData] = useState(null);
+  const [price, setPrice] = useState(100);
 
-    const handleSelectAmbulanceType = (type) => {
-        setSelectedAmbulanceType(type);
-        setSelectedSubType('');
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllInformation();
+        setVehicleData(data);
+      } catch (error) {
+        console.error("Araç verilerini alırken hata oluştu:", error);
+      }
     };
+    fetchData();
+  }, []);
 
-    const handleSelectSubType = (subtype) => {
-        setSelectedSubType(subtype);
-        setActive((prev) => prev + 1);
-    };
-    const handleNext= () =>{
-        setActive((prev) => prev + 1);
+  if (!vehicleData) {
+    return <div>Yükleniyor...</div>;
+  }
+
+  const handleSelect = (vehicle) => {
+    let newPrice = 0;
+    switch (vehicle) {
+      case "Basic Life Support":
+        newPrice = parseFloat(
+          vehicleData[2].ambulance_type[0].price.replace("$", "")
+        );
+        break;
+      case "Advanced Life Support":
+        newPrice = parseFloat(
+          vehicleData[2].ambulance_type[1].price.replace("$", "")
+        );
+        break;
+      case "Intensive Care Ambulance":
+        newPrice = parseFloat(
+          vehicleData[2].ambulance_type[2].price.replace("$", "")
+        );
+        break;
+      case "Pediatric Ambulance":
+        newPrice = parseFloat(
+          vehicleData[2].ambulance_type[3].price.replace("$", "")
+        );
+        break;
+      case "Newborn Ambulance":
+        newPrice = parseFloat(
+          vehicleData[2].ambulance_type[4].price.replace("$", "")
+        );
+        break;
+      default:
+        newPrice = 0;
     }
 
-    const handleBack= () =>{
-        setActive((prev) => prev - 1);
+    let oldPrice = 0;
+    if (
+      generally.pyschical.ambulanceType &&
+      generally.pyschical.ambulanceType !== vehicle
+    ) {
+      switch (generally.pyschical.ambulanceType) {
+        case "Basic Life Support":
+          oldPrice = parseFloat(
+            vehicleData[2].ambulance_type[0].price.replace("$", "")
+          );
+          break;
+        case "Advanced Life Support":
+          oldPrice = parseFloat(
+            vehicleData[2].ambulance_type[1].price.replace("$", "")
+          );
+          break;
+        case "Intensive Care Ambulance":
+          oldPrice = parseFloat(
+            vehicleData[2].ambulance_type[2].price.replace("$", "")
+          );
+          break;
+        case "Pediatric Ambulance":
+          oldPrice = parseFloat(
+            vehicleData[2].ambulance_type[3].price.replace("$", "")
+          );
+          break;
+        case "Newborn Ambulance":
+          oldPrice = parseFloat(
+            vehicleData[2].ambulance_type[4].price.replace("$", "")
+          );
+          break;
+        default:
+          oldPrice = 0;
+      }
     }
 
+    setSelectedAmbulanceType(vehicle);
+    setPrice(newPrice);
+    setGenerally((prev) => ({
+      ...prev,
+      totalPrice: prev.totalPrice - oldPrice + newPrice,
+      pyschical: {
+        ...prev.pyschical,
+        ambulanceType: vehicle,
+      },
+    }));
+  };
 
-    return (
+  const handleNext = () => {
+    setActive((prev) => prev + 1);
+  };
+
+  const handleBack = () => {
+    setActive((prev) => prev - 1);
+  };
+
+  return (
+    <div>
+      <Label title="CHOOSE YOUR AMBULANCE TYPE"></Label>
+      <div className={styles.ambulance_type}>
         <div>
-            <div className={styles.ambulance_type_lablel}><Label title="CHOOSE YOUR AMBULANCE TYPE" /></div>
-            
-            <div className={styles.ambulance_type_button}>
+          {vehicleData[2].ambulance_type.map((type) => (
+            <SelectButton
+              key={type.name}
+              value={type.price}
+              handleSelect={handleSelect}
+              option={type.name}
+              price={type.price}
+            />
+          ))}
+        </div>
+      </div>
+      {selectedAmbulanceType && (
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <h5>Selected Ambulance Type: {selectedAmbulanceType}</h5>
+        </div>
+      )}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
+        }}
+      >
+        <button className="back" onClick={handleBack}>
+          {" "}
+          Back{" "}
+        </button>
+        <button className="next" onClick={handleNext}>
+          {" "}
+          Next{" "}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default AmbulanceType;
+
+/*<div className={styles.ambulance_type_button}>
                 <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? '#fbf79e' : 'grey', borderRadius: "5px",border: " 2px solid #cdca8d",
               boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)"}}>
                     Basic Life Support
@@ -42,26 +170,4 @@ const AmbulanceType = ({setActive}) => {
               boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
                     Intensive Care Unit
                 </button>
-            </div>
-            {selectedAmbulanceType === 'Basic Life Support' && (
-                <div  className={styles.ambulance_type_button} style={{ marginTop: '20px' }}>
-                    <button onClick={() => handleSelectSubType('Pediatric Ambulance')} style={{ backgroundColor: selectedSubType === 'Pediatric Ambulance' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
-              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
-                        Pediatric Ambulance
-                    </button>
-                    <button onClick={() => handleSelectSubType('Neonatal Ambulance')} style={{ backgroundColor: selectedSubType === 'Neonatal Ambulance' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
-              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)"}}>
-                        Neonatal Ambulance
-                    </button>
-                </div>
-            )}          
-            <div className={styles.next_back} style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-                <button className="back" onClick={handleBack}> Back </button>
-                <button className="next" onClick={handleNext}> Next </button>                
-            </div>  
-            
-        </div>
-    );
-};
-
-export default AmbulanceType;
+            </div>*/
