@@ -70,11 +70,6 @@ const FuelTypeSelector = ({ setActive }) => {
           </button>
         </div>
       </div>
-      {selectedFuelType && (
-        <div style={{ marginTop: "10px", textAlign: "center" }}>
-          <h6>Selected Fuel Type: {selectedFuelType}</h6>
-        </div>
-      )}
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
         <button className="back" onClick={handleBack}> Back </button>
         <button className="next" onClick={handleNext}> Next </button>

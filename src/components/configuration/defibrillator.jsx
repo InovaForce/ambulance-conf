@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const Defibrillator = ({ setActive, generally, setGenerally }) => {
   const [selectedDefibrillator, setSelectedDefibrillator] = useState("");
@@ -97,15 +98,15 @@ const Defibrillator = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Defibrillator Selector</h1>
+      <Label title="Defibrillator Selector" />
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[11].image_url}
         alt={vehicleData[11].image_url}
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         <SelectButton
           key={vehicleData[11].defibrillator[0].name}
           value={vehicleData[11].defibrillator[0].price}
@@ -128,12 +129,10 @@ const Defibrillator = ({ setActive, generally, setGenerally }) => {
           price={vehicleData[11].defibrillator[2].price}
         />
       </div>
-      <div>
-        <h2>Selected Defibrillator: {selectedDefibrillator}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>
     </div>
   );
 };

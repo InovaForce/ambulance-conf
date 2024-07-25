@@ -105,12 +105,12 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
       <Label title=" Foldable Stretcher Selector"/>
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[6].image_url}
         alt={vehicleData[6].foldable_stretcher[0].name}
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         <SelectButton
           key={vehicleData[6].foldable_stretcher[0].name}
           value={vehicleData[6].foldable_stretcher[0].price}
@@ -133,12 +133,10 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
           price={vehicleData[6].foldable_stretcher[2].price}
         />
       </div>
-      <div>
-        <h2>Selected Stretcher: {selectedStretcher}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>  
     </div>
   );
 };

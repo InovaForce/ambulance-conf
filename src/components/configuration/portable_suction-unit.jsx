@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const PortableSuctionUnitSelector = ({
   setActive,
@@ -105,15 +106,15 @@ const PortableSuctionUnitSelector = ({
 
   return (
     <div>
-      <h1>Portable Suction Unit Selector</h1>
+      <Label title=" Portable Suction Unit Selector" /> 
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[13].image_url}
         alt={vehicleData[13].portable_suction_unit[0].name}
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         <SelectButton
           key={vehicleData[13].portable_suction_unit[0].name}
           value={vehicleData[13].portable_suction_unit[0].price}
@@ -136,12 +137,10 @@ const PortableSuctionUnitSelector = ({
           price={vehicleData[13].portable_suction_unit[2].price}
         />
       </div>
-      <div>
-        <h2>Selected Unit: {selectedUnit}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>  
     </div>
   );
 };

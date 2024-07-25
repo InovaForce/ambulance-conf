@@ -54,11 +54,7 @@ const AmbulanceType = ({setActive}) => {
                         Neonatal Ambulance
                     </button>
                 </div>
-            )}
-            <div style={{ marginTop: '20px' }}>
-                <h6>Selected Type: {selectedAmbulanceType}</h6>
-                {selectedSubType && <h6>Sub-Type: {selectedSubType}</h6>}
-            </div>
+            )}          
             <div className={styles.next_back} style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>
                 <button className="next" onClick={handleNext}> Next </button>                

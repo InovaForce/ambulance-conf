@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const OxygenSystem = ({ setActive, generally, setGenerally }) => {
   const [selectedSystem, setSelectedSystem] = useState("");
@@ -101,15 +102,15 @@ const OxygenSystem = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Central Oxygen System Selector</h1>
+     <Label title='Oxygen System Selector'/>
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[8].image_url}
         alt={vehicleData[8].central_oxygen_system[0].name}
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         <SelectButton
           key={vehicleData[8].central_oxygen_system[0].name}
           value={vehicleData[8].central_oxygen_system[0].price}
@@ -132,12 +133,10 @@ const OxygenSystem = ({ setActive, generally, setGenerally }) => {
           price={vehicleData[8].central_oxygen_system[2].price}
         />
       </div>
-      <div>
-        <h2>Selected System: {selectedSystem}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div> 
     </div>
   );
 };

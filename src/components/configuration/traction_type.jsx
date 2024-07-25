@@ -29,11 +29,6 @@ const TractionTypeSelector = ({setActive}) => {
                     4x2
                 </button>
             </div>
-            {selectedTractionType && (
-                <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                    <h6>Selected Traction Type: {selectedTractionType}</h6>
-                </div>
-            )}
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>
                 <button className="next" onClick={handleNext}> Next </button>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button"; // SelectButton bileşenini import ediyoruz
+import Label from "../label";
 
 const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
   const [selectedMonitor, setSelectedMonitor] = useState("");
@@ -69,15 +70,15 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Portable Patient Monitor</h1>
+      <Label title="Portable Patient Monitor" / >
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[20].image_url}
         alt="Portable Patient Monitor"
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         {vehicleData[20].portable_patient_monitor.map((monitor, index) => (
           <SelectButton
             key={index}
@@ -88,12 +89,10 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div>
-        <h2>Selected Monitor: {selectedMonitor}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>  
     </div>
   );
 };

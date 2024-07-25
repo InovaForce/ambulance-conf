@@ -46,15 +46,7 @@ const ExtraFeaturesSelector = ({setActive, setSection}) => {
                     Defibrillator
                 </button>
             </div>
-            <div style={{ marginTop: '5px', textAlign: 'center' }}>
-                <h6>Selected Features:</h6>
-                <ul>
-                    {selectedFeatures.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                    ))}
-                </ul>
-                <button className='btn' style={{background: '#cc4e5b', color: 'white',fontSize:"16px",fontWeight:"600" , border: '2px solid black', padding: '3px 20px', borderRadius: '5px', display: 'flex', margin: '10px auto', boxShadow: '0 1px 2px rgba(0, 0, 0, 0.25)'}} onClick={handleSection}>FINISH</button>
-            </div>
+            
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>
                 <button className="next" onClick={handleNext}> Next </button>                

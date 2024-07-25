@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button"; // SelectButton bileşenini import ediyoruz
+import Label from "../label";
 
 const Glucometer = ({ setActive, generally, setGenerally }) => {
   const [selectedGlucometer, setSelectedGlucometer] = useState("");
@@ -71,15 +72,15 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Glucometer Selector</h1>
+      <Label title="Glucometer Selector" />
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[18].image_url}
         alt="Glucometer"
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         {vehicleData[18].glucometer.map((glucometer, index) => (
           <SelectButton
             key={index}
@@ -90,12 +91,11 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div>
-        <h2>Selected Glucometer: {selectedGlucometer}</h2>
-        <h2>Price: ${price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+     
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>  
     </div>
   );
 };
