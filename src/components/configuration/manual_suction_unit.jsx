@@ -59,8 +59,11 @@ const ManualSuctionUnit = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir unit daha önce seçilmişse, eski unit'in fiyatını çıkart
     let oldPrice = 0;
-    if (selectedUnit !== "None") {
-      switch (selectedUnit) {
+    if (
+      generally.medical.manualSuctionUnit &&
+      generally.medical.manualSuctionUnit !== unit
+    ) {
+      switch (generally.medical.manualSuctionUnit) {
         case "Laerdal":
           oldPrice = parseFloat(
             vehicleData[14].manuel_suction_unit[0].price.replace("$", "")
@@ -89,8 +92,8 @@ const ManualSuctionUnit = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         manualSuctionUnit: unit,
       },
     }));

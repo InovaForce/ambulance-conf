@@ -35,14 +35,17 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
   }
 
   const handleSelect = (mattress) => {
-    // Yeni seçilen yatak fiyatını al
+    // Yeni seçilen yatağın fiyatını al
     const newPrice = parseFloat(mattress.price.replace("$", ""));
 
     // Eğer bir yatak daha önce seçilmişse, eski yatağın fiyatını çıkart
     let oldPrice = 0;
-    if (selectedMattress) {
+    if (
+      generally.medical.vacuumMattress &&
+      generally.medical.vacuumMattress !== mattress.name
+    ) {
       const oldMattress = vehicleData[17].vacuum_mattress.find(
-        (m) => m.name === selectedMattress
+        (m) => m.name === generally.medical.vacuumMattress
       );
       if (oldMattress) {
         oldPrice = parseFloat(oldMattress.price.replace("$", ""));
@@ -57,12 +60,13 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         vacuumMattress: mattress.name,
       },
     }));
   };
+
 
   return (
     <div>

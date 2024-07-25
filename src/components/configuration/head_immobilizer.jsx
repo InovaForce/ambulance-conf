@@ -59,8 +59,11 @@ const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
 
     // Eğer daha önce seçilmiş bir immobilizer varsa, eski immobilizer'ın fiyatını çıkart
     let oldPrice = 0;
-    if (selectedImmobilizer !== "None") {
-      switch (selectedImmobilizer) {
+    if (
+      generally.medical.headImmobilizer &&
+      generally.medical.headImmobilizer !== immobilizer
+    ) {
+      switch (generally.medical.headImmobilizer) {
         case "Ferno":
           oldPrice = parseFloat(
             vehicleData[16].head_immobilizer[0].price.replace("$", "")
@@ -89,8 +92,8 @@ const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         headImmobilizer: immobilizer,
       },
     }));

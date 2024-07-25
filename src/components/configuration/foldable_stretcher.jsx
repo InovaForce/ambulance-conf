@@ -60,8 +60,11 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
     let oldPrice = 0;
-    if (selectedStretcher !== "None") {
-      switch (selectedStretcher) {
+    if (
+      generally.medical.foldableStretcher &&
+      generally.medical.foldableStretcher !== stretcher
+    ) {
+      switch (generally.medical.foldableStretcher) {
         case "Stryker":
           oldPrice = parseFloat(
             vehicleData[6].foldable_stretcher[0].price.replace("$", "")
@@ -90,8 +93,8 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         foldableStretcher: stretcher,
       },
     }));

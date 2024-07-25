@@ -55,8 +55,11 @@ const ScoopStretcher = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
     let oldPrice = 0;
-    if (selectedStretcher !== "None") {
-      switch (selectedStretcher) {
+    if (
+      generally.medical.scoopStretcher &&
+      generally.medical.scoopStretcher !== stretcher
+    ) {
+      switch (generally.medical.scoopStretcher) {
         case "Ferno":
           oldPrice = parseFloat(
             vehicleData[21].scoop_stretcher[0].price.replace("$", "")
@@ -85,8 +88,8 @@ const ScoopStretcher = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         scoopStretcher: stretcher,
       },
     }));

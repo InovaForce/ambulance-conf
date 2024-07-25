@@ -57,8 +57,11 @@ const Defibrillator = ({ setActive, generally, setGenerally }) => {
     }
 
     let oldPrice = 0;
-    if (selectedDefibrillator !== "None") {
-      switch (selectedDefibrillator) {
+    if (
+      generally.medical.defibrillator &&
+      generally.medical.defibrillator !== defibrillator
+    ) {
+      switch (generally.medical.defibrillator) {
         case "Zoll":
           oldPrice = parseFloat(
             vehicleData[11].defibrillator[0].price.replace("$", "")
@@ -85,8 +88,8 @@ const Defibrillator = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         defibrillator: defibrillator,
       },
     }));

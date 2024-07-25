@@ -60,8 +60,11 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir kit daha önce seçilmişse, eski kit'in fiyatını çıkart
     let oldPrice = 0;
-    if (selectedKit !== "None") {
-      switch (selectedKit) {
+    if (
+      generally.medical.firstAidKit &&
+      generally.medical.firstAidKit !== kit
+    ) {
+      switch (generally.medical.firstAidKit) {
         case "Johnson & Johnson":
           oldPrice = parseFloat(
             vehicleData[7].first_aid_kit[0].price.replace("$", "")
@@ -90,8 +93,8 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         firstAidKit: kit,
       },
     }));
