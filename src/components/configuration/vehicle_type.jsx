@@ -46,8 +46,7 @@ const VehicleTypeSelector = ({ setActive }) => {
                 {vehicleData[3].vehicle_type.map((type, i) => (
                     <div 
                         key={type} 
-                        style={{
-                            border: selectedVehicleType === type ? "2px solid blue" : "none",
+                        style={{            
                             textAlign: 'center',
                             display: 'flex',
                             flexDirection: 'column',
@@ -56,7 +55,7 @@ const VehicleTypeSelector = ({ setActive }) => {
                     > 
                         
                         <Image
-                            width={400}
+                            width={380}
                             height={300} 
                             src={type === 'Box Type' ? vehicleData[3].image_url.box_type : vehicleData[3].image_url.van_type}
                             alt={type} 
@@ -65,12 +64,15 @@ const VehicleTypeSelector = ({ setActive }) => {
                         <button
                             onClick={() => handleSelectVehicleType(type)}
                             style={{
-                                backgroundColor: selectedVehicleType === type ? 'blue' : 'grey',
-                                color: 'white',
-                                padding: '10px 20px',
-                                border: 'none',
+                                backgroundColor: selectedVehicleType === type ? '#fbf79e' : 'grey',
+                                color: 'black',
+                                padding: '5px 20px',
+                                border: " 2px solid #cdca8d",
+                                boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)",
                                 borderRadius: '5px',
-                                marginTop: '10px'
+                                marginTop: '10px',
+                                fontSize: '16px',
+                                fontWeight: '600',
                             }}
                         >
                             {type}
