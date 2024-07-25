@@ -59,8 +59,11 @@ const OxygenSystem = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir sistem daha önce seçilmişse, eski sistemin fiyatını çıkart
     let oldPrice = 0;
-    if (selectedSystem !== "None") {
-      switch (selectedSystem) {
+    if (
+      generally.medical.oxygenSystem &&
+      generally.medical.oxygenSystem !== system
+    ) {
+      switch (generally.medical.mainStretcher) {
         case "Intersurgical":
           oldPrice = parseFloat(
             vehicleData[8].central_oxygen_system[0].price.replace("$", "")
@@ -89,8 +92,8 @@ const OxygenSystem = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         oxygenSystem: system,
       },
     }));

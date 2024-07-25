@@ -57,8 +57,11 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally }) => {
     }
 
     let oldPrice = 0;
-    if (selectedSystem !== "None") {
-      switch (selectedSystem) {
+    if (
+      generally.medical.mainStretcher &&
+      generally.medical.mainStretcher !== system
+    ) {
+      switch (generally.medical.mainStretcher) {
         case "Philips Respironics":
           oldPrice = parseFloat(
             vehicleData[9].portable_oxygen_system[0].price.replace("$", "")
@@ -85,8 +88,8 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         portableOxygenSystem: system,
       },
     }));

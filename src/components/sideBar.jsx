@@ -170,7 +170,7 @@ const SideBar = ({ generally }) => {
           </>
         ) : null}
 
-        <h2 className={styles.total}>Total Price :{generally.totalPrice}</h2>
+        <h2 className={styles.total}>Total Price :{generally.totalPrice}$</h2>
       </div>
     </div>
   );

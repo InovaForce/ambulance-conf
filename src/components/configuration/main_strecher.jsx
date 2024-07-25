@@ -35,54 +35,72 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     }
 
     const handleSelect = (stretcher) => {
-        // Yeni seçilen stretcher'ın fiyatını al
-        let newPrice = 0;
-        switch (stretcher) {
-            case 'Stryker':
-                newPrice = parseFloat(vehicleData[5].main_stretcher[0].price.replace('$', ''));
-                break;
-            case 'Ferno':
-                newPrice = parseFloat(vehicleData[5].main_stretcher[1].price.replace('$', ''));
-                break;
-            case 'Spencer':
-                newPrice = parseFloat(vehicleData[5].main_stretcher[2].price.replace('$', ''));
-                break;
-            default:
-                newPrice = 0;
+      // Yeni seçilen stretcher'ın fiyatını al
+      console.log("generally", generally);
+      let newPrice = 0;
+      switch (stretcher) {
+        case "Stryker":
+          newPrice = parseFloat(
+            vehicleData[5].main_stretcher[0].price.replace("$", "")
+          );
+          break;
+        case "Ferno":
+          newPrice = parseFloat(
+            vehicleData[5].main_stretcher[1].price.replace("$", "")
+          );
+          break;
+        case "Spencer":
+          newPrice = parseFloat(
+            vehicleData[5].main_stretcher[2].price.replace("$", "")
+          );
+          break;
+        default:
+          newPrice = 0;
+      }
+
+      // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
+      let oldPrice = 0;
+      if (
+        generally.medical.mainStretcher &&
+        generally.medical.mainStretcher !== stretcher
+      ) {
+        switch (generally.medical.mainStretcher) {
+          case "Stryker":
+            oldPrice = parseFloat(
+              vehicleData[5].main_stretcher[0].price.replace("$", "")
+            );
+            break;
+          case "Ferno":
+            oldPrice = parseFloat(
+              vehicleData[5].main_stretcher[1].price.replace("$", "")
+            );
+            break;
+          case "Spencer":
+            oldPrice = parseFloat(
+              vehicleData[5].main_stretcher[2].price.replace("$", "")
+            );
+            break;
+          default:
+            oldPrice = 0;
         }
+      }
 
-        // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
-        let oldPrice = 0;
-        if (selectedStretcher !== 'None') {
-            switch (selectedStretcher) {
-                case 'Stryker':
-                    oldPrice = parseFloat(vehicleData[5].main_stretcher[0].price.replace('$', ''));
-                    break;
-                case 'Ferno':
-                    oldPrice = parseFloat(vehicleData[5].main_stretcher[1].price.replace('$', ''));
-                    break;
-                case 'Spencer':
-                    oldPrice = parseFloat(vehicleData[5].main_stretcher[2].price.replace('$', ''));
-                    break;
-                default:
-                    oldPrice = 0;
-            }
-        }
+      // `selectedStretcher`'ı güncelle
+      setSelectedStretcher(stretcher);
+      setPrice(newPrice);
 
-        // `selectedStretcher`'ı güncelle
-        setSelectedStretcher(stretcher);
-        setPrice(newPrice);
-
-        // `totalPrice` hesapla ve güncelle
-        setGenerally((prev) => ({
-            ...prev,
-            totalPrice: prev.totalPrice - oldPrice + newPrice,
-            medicalEquipment: {
-                ...prev.medicalEquipment,
-                mainStretcher: stretcher
-            }
-        }));
+      // `totalPrice` hesapla ve güncelle
+      setGenerally((prev) => ({
+        ...prev,
+        totalPrice: prev.totalPrice - oldPrice + newPrice,
+        medical: {
+          ...prev.medical,
+          mainStretcher: stretcher,
+        },
+      }));
+      console.log("generally", generally);
     };
+
 
     return (
       <div>
