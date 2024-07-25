@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
 import SelectButton from '../select-button';
+import Label from '../label';
 
 const MainStretcher = ({ setActive, generally, setGenerally }) => {
     const [selectedStretcher, setSelectedStretcher] = useState('');
@@ -35,63 +36,78 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     }
 
     const handleSelect = (stretcher) => {
-        // Yeni seçilen stretcher'ın fiyatını ve key'ini al
-        let newPrice = 0;
-        
-        switch (stretcher) {
-            case 'Stryker':
-                
-                newPrice = parseFloat(vehicleData[5].main_stretcher[0].price.replace('$', ''));
-                break;
-            case 'Ferno':
-               
-                newPrice = parseFloat(vehicleData[5].main_stretcher[1].price.replace('$', ''));
-                break;
-            case 'Spencer':
-                
-                newPrice = parseFloat(vehicleData[5].main_stretcher[2].price.replace('$', ''));
-                break;
-            default:
-                newPrice = 0;
-                
-    
-        // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
-        let oldPrice = 0;
-        if (selectedStretcher !== 'None') {
-            switch (selectedStretcher) {
-                case 'Stryker':
-                    oldPrice = parseFloat(vehicleData[5].main_stretcher[0].price.replace('$', ''));
-                    break;
-                case 'Ferno':
-                    oldPrice = parseFloat(vehicleData[5].main_stretcher[1].price.replace('$', ''));
-                    break;
-                case 'Spencer':
-                    oldPrice = parseFloat(vehicleData[5].main_stretcher[2].price.replace('$', ''));
-                    break;
-                default:
-                    oldPrice = 0;
-            }
+
+      // Yeni seçilen stretcher'ın fiyatını al
+      console.log("generally", generally);
+      let newPrice = 0;
+      switch (stretcher) {
+        case "Stryker":
+          newPrice = parseFloat(
+            vehicleData[5].main_stretcher[0].price.replace("$", "")
+          );
+          break;
+        case "Ferno":
+          newPrice = parseFloat(
+            vehicleData[5].main_stretcher[1].price.replace("$", "")
+          );
+          break;
+        case "Spencer":
+          newPrice = parseFloat(
+            vehicleData[5].main_stretcher[2].price.replace("$", "")
+          );
+          break;
+        default:
+          newPrice = 0;
+      }
+
+      // Eğer bir stretcher daha önce seçilmişse, eski stretcher'ın fiyatını çıkart
+      let oldPrice = 0;
+      if (
+        generally.medical.mainStretcher &&
+        generally.medical.mainStretcher !== stretcher
+      ) {
+        switch (generally.medical.mainStretcher) {
+          case "Stryker":
+            oldPrice = parseFloat(
+              vehicleData[5].main_stretcher[0].price.replace("$", "")
+            );
+            break;
+          case "Ferno":
+            oldPrice = parseFloat(
+              vehicleData[5].main_stretcher[1].price.replace("$", "")
+            );
+            break;
+          case "Spencer":
+            oldPrice = parseFloat(
+              vehicleData[5].main_stretcher[2].price.replace("$", "")
+            );
+            break;
+          default:
+            oldPrice = 0;
         }
-    
-        // `selectedStretcher`'ı güncelle
-        setSelectedStretcher(stretcher);
-        setPrice(newPrice);
-    
-        // `totalPrice` hesapla ve güncelle
-        setGenerally((prev) => ({
-            ...prev,
-            totalPrice: prev.totalPrice - oldPrice + newPrice,
-            medicalEquipment: {
-                ...prev.medicalEquipment,
-                mainStretcher: stretcher,
-            }
-        }));
+      }
+
+      // `selectedStretcher`'ı güncelle
+      setSelectedStretcher(stretcher);
+      setPrice(newPrice);
+
+      // `totalPrice` hesapla ve güncelle
+      setGenerally((prev) => ({
+        ...prev,
+        totalPrice: prev.totalPrice - oldPrice + newPrice,
+        medical: {
+          ...prev.medical,
+          mainStretcher: stretcher,
+        },
+      }));
+      console.log("generally", generally);
     };
-    
-    
+
+
+
     return (
       <div>
-        <h1>Stretcher Selector</h1>
+        <Label title="Main Stretcher" />
         <Image
           width={300}
           height={200}
@@ -123,10 +139,16 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
           />
         </div>
         <div>
+
           <h2>Selected Stretcher: {selectedStretcher}</h2>
           <h2>Price: {price}</h2>
         </div>
-        <button className="next" onClick={handleNext}>Next</button>
+         
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>  
+
       </div>
     );
 };

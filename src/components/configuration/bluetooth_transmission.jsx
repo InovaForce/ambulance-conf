@@ -63,8 +63,11 @@ const BluetoothTransmissionSelector = ({
 
     // Eğer bir sistem daha önce seçilmişse, eski sistemin fiyatını çıkart
     let oldPrice = 0;
-    if (selectedSystem !== "None") {
-      switch (selectedSystem) {
+    if (
+      generally.medical.bluetoothTransmission &&
+      generally.medical.bluetoothTransmission !== system
+    ) {
+      switch (generally.medical.bluetoothTransmission) {
         case "Philips":
           oldPrice = parseFloat(
             vehicleData[12].bluetooth_transmission[0].price.replace("$", "")
@@ -93,8 +96,8 @@ const BluetoothTransmissionSelector = ({
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         bluetoothTransmission: system,
       },
     }));

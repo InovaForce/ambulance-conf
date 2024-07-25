@@ -59,8 +59,11 @@ const SpineBoard = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir board daha önce seçilmişse, eski board'ın fiyatını çıkart
     let oldPrice = 0;
-    if (selectedBoard !== "None") {
-      switch (selectedBoard) {
+    if (
+      generally.medical.spineBoard &&
+      generally.medical.spineBoard !== board
+    ) {
+      switch (generally.medical.spineBoard) {
         case "Ferno":
           oldPrice = parseFloat(
             vehicleData[15].spine_board[0].price.replace("$", "")
@@ -89,8 +92,8 @@ const SpineBoard = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         spineBoard: board,
       },
     }));

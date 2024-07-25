@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from 'react';
-
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
 import Label from '../label';
+import styles from '@/styles/components/configuration/vehicle_type.module.scss';
 
 const VehicleTypeSelector = ({ setActive }) => {
     const [selectedVehicleType, setSelectedVehicleType] = useState('');
@@ -41,6 +41,7 @@ const VehicleTypeSelector = ({ setActive }) => {
     return (
         <div>
             <Label title="CHOOSE YOUR VEHICLE TYPE" />
+
             <div style={{ display: 'flex', justifyContent: 'center', gap: '25px' }}>
                 {vehicleData[3].vehicle_type.map((type, i) => (
                     <div 
@@ -75,6 +76,7 @@ const VehicleTypeSelector = ({ setActive }) => {
                             {type}
                         </button>
                     </div>
+
                 ))}
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>

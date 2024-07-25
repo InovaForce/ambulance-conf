@@ -40,9 +40,12 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir ventilatör daha önce seçilmişse, eski ventilatörün fiyatını çıkart
     let oldPrice = 0;
-    if (selectedVentilator) {
+    if (
+      generally.medical.portableVentilator &&
+      generally.medical.portableVentilator !== ventilator.name
+    ) {
       const oldVentilator = vehicleData[19].portable_ventilator.find(
-        (v) => v.name === selectedVentilator
+        (v) => v.name === generally.medical.portableVentilator
       );
       if (oldVentilator) {
         oldPrice = parseFloat(oldVentilator.price.replace("$", ""));
@@ -57,12 +60,13 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         portableVentilator: ventilator.name,
       },
     }));
   };
+
 
   return (
     <div>

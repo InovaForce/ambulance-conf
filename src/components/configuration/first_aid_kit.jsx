@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const FirstAidKit = ({ setActive, generally, setGenerally }) => {
   const [selectedKit, setSelectedKit] = useState("");
@@ -59,8 +60,11 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir kit daha önce seçilmişse, eski kit'in fiyatını çıkart
     let oldPrice = 0;
-    if (selectedKit !== "None") {
-      switch (selectedKit) {
+    if (
+      generally.medical.firstAidKit &&
+      generally.medical.firstAidKit !== kit
+    ) {
+      switch (generally.medical.firstAidKit) {
         case "Johnson & Johnson":
           oldPrice = parseFloat(
             vehicleData[7].first_aid_kit[0].price.replace("$", "")
@@ -89,8 +93,8 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         firstAidKit: kit,
       },
     }));
@@ -98,7 +102,7 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>First Aid Kit Selector</h1>
+      <Label title="First Aid Kit Selector"/>
       <Image
         width={300}
         height={200}

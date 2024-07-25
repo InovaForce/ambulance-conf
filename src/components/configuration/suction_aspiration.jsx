@@ -57,8 +57,11 @@ const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
     }
 
     let oldPrice = 0;
-    if (selectedDevice !== "None") {
-      switch (selectedDevice) {
+    if (
+      generally.medical.suctionAspiration &&
+      generally.medical.suctionAspiration !== device
+    ) {
+      switch (generally.medical.suctionAspiration) {
         case "Laerdal":
           oldPrice = parseFloat(
             vehicleData[10].suction_aspiration[0].price.replace("$", "")
@@ -85,8 +88,8 @@ const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         suctionAspiration: device,
       },
     }));

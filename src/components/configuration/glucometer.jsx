@@ -40,9 +40,12 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
 
     // Eğer bir glukometre daha önce seçilmişse, eski glukometrenin fiyatını çıkart
     let oldPrice = 0;
-    if (selectedGlucometer) {
+    if (
+      generally.medical.glucometer &&
+      generally.medical.glucometer !== glucometer.name
+    ) {
       const oldGlucometer = vehicleData[18].glucometer.find(
-        (g) => g.name === selectedGlucometer
+        (g) => g.name === generally.medical.glucometer
       );
       if (oldGlucometer) {
         oldPrice = parseFloat(oldGlucometer.price.replace("$", ""));
@@ -57,12 +60,14 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
     setGenerally((prev) => ({
       ...prev,
       totalPrice: prev.totalPrice - oldPrice + newPrice,
-      medicalEquipment: {
-        ...prev.medicalEquipment,
+      medical: {
+        ...prev.medical,
         glucometer: glucometer.name,
       },
     }));
+    console.log("generally", generally);
   };
+
 
   return (
     <div>
