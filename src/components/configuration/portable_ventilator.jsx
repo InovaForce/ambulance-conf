@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button"; // SelectButton bileşenini import ediyoruz
+import Label from "../label";
 
 const PortableVentilator = ({ setActive, generally, setGenerally }) => {
   const [selectedVentilator, setSelectedVentilator] = useState("");
@@ -70,15 +71,15 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Portable Ventilator Selector</h1>
+      <Label title="Portable Ventilator Selector"/>
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[19].image_url}
         alt="Portable Ventilator"
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         {vehicleData[19].portable_ventilator.map((ventilator, index) => (
           <SelectButton
             key={index}
@@ -89,12 +90,10 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div>
-        <h2>Selected Ventilator: {selectedVentilator}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>  
     </div>
   );
 };

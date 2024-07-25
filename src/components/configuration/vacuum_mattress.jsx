@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const VacuumMattress = ({ setActive, generally, setGenerally }) => {
   const [selectedMattress, setSelectedMattress] = useState("");
@@ -70,15 +71,15 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Vacuum Mattress Selector</h1>
+      <Label title="Vacuum Mattress Selector"/>
       <Image
         width={300}
-        height={200}
+        height={250}
         src={vehicleData[17].image_url} // Varsayılan olarak ilk vakum yatak görselini gösteriyoruz
         alt="Vacuum Mattress"
-        style={{ objectFit: "cover", borderRadius: "10px" }}
+        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
       />
-      <div>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
         {vehicleData[17].vacuum_mattress.map((mattress, index) => (
           <SelectButton
             key={index}
@@ -89,12 +90,10 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div>
-        <h2>Selected Mattress: {selectedMattress}</h2>
-        <h2>Price: {price}</h2>
-      </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <button className="back" onClick={handleBack}> Back </button>
+            <button className="next" onClick={handleNext}> Next </button>                
+          </div>  
     </div>
   );
 };
