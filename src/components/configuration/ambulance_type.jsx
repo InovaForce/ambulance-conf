@@ -30,29 +30,34 @@ const AmbulanceType = ({setActive}) => {
             <div className={styles.ambulance_type_lablel}><Label title="CHOOSE YOUR AMBULANCE TYPE" /></div>
             
             <div className={styles.ambulance_type_button}>
-                <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? 'lightblue' : 'lightgrey' }}>
+                <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? '#fbf79e' : 'grey', borderRadius: "5px",border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)"}}>
                     Basic Life Support
                 </button>
-                <button onClick={() => handleSelectAmbulanceType('Advanced Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Advanced Life Support' ? 'lightblue' : 'lightgrey' }}>
+                <button onClick={() => handleSelectAmbulanceType('Advanced Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Advanced Life Support' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
                     Advanced Life Support
                 </button>
-                <button onClick={() => handleSelectAmbulanceType('Intensive Care Unit')} style={{ backgroundColor: selectedAmbulanceType === 'Intensive Care Unit' ? 'lightblue' : 'lightgrey' }}>
+                <button onClick={() => handleSelectAmbulanceType('Intensive Care Unit')} style={{ backgroundColor: selectedAmbulanceType === 'Intensive Care Unit' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
                     Intensive Care Unit
                 </button>
             </div>
             {selectedAmbulanceType === 'Basic Life Support' && (
                 <div  className={styles.ambulance_type_button} style={{ marginTop: '20px' }}>
-                    <button onClick={() => handleSelectSubType('Pediatric Ambulance')} style={{ backgroundColor: selectedSubType === 'Pediatric Ambulance' ? 'lightgreen' : 'lightgrey' }}>
+                    <button onClick={() => handleSelectSubType('Pediatric Ambulance')} style={{ backgroundColor: selectedSubType === 'Pediatric Ambulance' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
                         Pediatric Ambulance
                     </button>
-                    <button onClick={() => handleSelectSubType('Neonatal Ambulance')} style={{ backgroundColor: selectedSubType === 'Neonatal Ambulance' ? 'lightgreen' : 'lightgrey'}}>
+                    <button onClick={() => handleSelectSubType('Neonatal Ambulance')} style={{ backgroundColor: selectedSubType === 'Neonatal Ambulance' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)"}}>
                         Neonatal Ambulance
                     </button>
                 </div>
             )}
             <div style={{ marginTop: '20px' }}>
-                <h5>Selected Type: {selectedAmbulanceType}</h5>
-                {selectedSubType && <h5>Sub-Type: {selectedSubType}</h5>}
+                <h6>Selected Type: {selectedAmbulanceType}</h6>
+                {selectedSubType && <h6>Sub-Type: {selectedSubType}</h6>}
             </div>
             <div className={styles.next_back} style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>

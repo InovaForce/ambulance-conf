@@ -25,7 +25,7 @@ const FuelTypeSelector = ({ setActive }) => {
       <Image
         src="/images/fuel_type.jpg"
         width={800}
-        height={330}
+        height={310}
         alt="fuel_type"
       />
       <div className={styles.fuel_type}>
@@ -35,13 +35,14 @@ const FuelTypeSelector = ({ setActive }) => {
             onClick={() => handleSelectFuelType("Gasoline")}
             style={{
               marginTop: "10px",
-              padding: "5px 25px",
+              padding: "3px 25px",
               fontSize: "16px",
               fontWeight: "600",
               backgroundColor:
-                selectedFuelType === "Gasoline" ? "blue" : "grey",
-              color: "white",
-              border: "none",
+                selectedFuelType === "Gasoline" ? "#fbf79e" : "grey",
+              color: "black",
+              border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)",
               borderRadius: "5px",
             }}
           >
@@ -54,13 +55,14 @@ const FuelTypeSelector = ({ setActive }) => {
               onClick={() => handleSelectFuelType("Diesel")}
               style={{
               marginTop: "10px",
-              padding: "5px 30px",
-              fontSize: "18px",
+              padding: "3px 25px",
+              fontSize: "16px",
               fontWeight: "600",
               backgroundColor:
-                selectedFuelType === "Diesel" ? "blue" : "grey",
-              color: "white",
-              border: "none",
+                selectedFuelType === "Diesel" ? "#fbf79e" : "grey",
+              color: "black",
+              border: " 2px solid #cdca8d",
+              boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.25)",
               borderRadius: "5px",
             }}
           >
@@ -69,8 +71,8 @@ const FuelTypeSelector = ({ setActive }) => {
         </div>
       </div>
       {selectedFuelType && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h5>Selected Fuel Type: {selectedFuelType}</h5>
+        <div style={{ marginTop: "10px", textAlign: "center" }}>
+          <h6>Selected Fuel Type: {selectedFuelType}</h6>
         </div>
       )}
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>

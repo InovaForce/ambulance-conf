@@ -140,8 +140,8 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
         </div>
         <div>
 
-          <h2>Selected Stretcher: {selectedStretcher}</h2>
-          <h2>Price: {price}</h2>
+          <h6>Selected Stretcher: {selectedStretcher}</h6>
+          <h6>Price: {price}</h6>
         </div>
          
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
