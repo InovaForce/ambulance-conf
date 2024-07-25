@@ -92,8 +92,10 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
         <h2>Selected Monitor: {selectedMonitor}</h2>
         <h2>Price: {price}</h2>
       </div>
-      <button className="back" onClick={handleBack}>Back</button>
-      <button className="next" onClick={handleNext}>Next</button>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>  
     </div>
   );
 };
