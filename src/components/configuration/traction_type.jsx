@@ -3,24 +3,18 @@ import { useState } from 'react';
 import Label from '../label';
 import styles from '@/styles/components/configuration/traction_type.module.scss';
 import { AiOutlineHtml5 } from 'react-icons/ai';
-
 const TractionTypeSelector = ({setActive}) => {
     const [selectedTractionType, setSelectedTractionType] = useState('');
-
     const handleSelectTractionType = (type) => {
         setSelectedTractionType(type);
-      
+        setActive((prev) => prev + 1);
     };
-
     const handleNext= () =>{
         setActive((prev) => prev + 1);
     }
-
     const handleBack= () =>{
         setActive((prev) => prev - 1);
     }
-
-
     return (
         <div className={styles.traction_type}>
             <Label title="CHOOSE YOUR TRACTION TYPE "/>
@@ -39,15 +33,11 @@ const TractionTypeSelector = ({setActive}) => {
                     <h5>Selected Traction Type: {selectedTractionType}</h5>
                 </div>
             )}
-
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
                 <button className="back" onClick={handleBack}> Back </button>
-                <button className="next" onClick={handleNext}> Next </button>                
-            </div>    
-
+                <button className="next" onClick={handleNext}> Next </button>
+            </div>
         </div>
-        
     );
 };
-
 export default TractionTypeSelector;

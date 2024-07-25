@@ -152,5 +152,5 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
       </div>
     );
 };
-}
+
 export default MainStretcher;
