@@ -111,7 +111,7 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
           height={200}
           src={vehicleData[5].image_url}
           alt={vehicleData[5].main_stretcher[0].name}
-          style={{ objectFit: "cover", borderRadius: "10px" }}
+          style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
         />
         <div>
           <SelectButton

@@ -21,11 +21,11 @@ const FuelTypeSelector = ({ setActive }) => {
 
   return (
     <div>
-      <Label title=" CHOOSE YOUR FUEL TYPE"></Label>
+      <Label title=" CHOOSE YOUR FUEL TYPE"/>
       <Image
         src="/images/fuel_type.jpg"
         width={800}
-        height={350}
+        height={330}
         alt="fuel_type"
       />
       <div className={styles.fuel_type}>
@@ -36,7 +36,7 @@ const FuelTypeSelector = ({ setActive }) => {
             style={{
               marginTop: "10px",
               padding: "5px 25px",
-              fontSize: "18px",
+              fontSize: "16px",
               fontWeight: "600",
               backgroundColor:
                 selectedFuelType === "Gasoline" ? "blue" : "grey",
