@@ -87,7 +87,7 @@ const TractionTypeSelector = ({setActive,generally,setGenerally}) => {
     return (
       <div>
         <Label title="CHOOSE YOUR TRACTION TYPE"></Label>
-{/*        <Image
+        {/*        <Image
           src="/images/traction_type.jpg"
           width={800}
           height={350}
@@ -95,20 +95,16 @@ const TractionTypeSelector = ({setActive,generally,setGenerally}) => {
         />*/}
         <div className={styles.traction_type}>
           <div>
-            <SelectButton
-              key={vehicleData[1].traction_type[0].name}
-              value={vehicleData[1].traction_type[0].price}
-              handleSelect={handleSelect}
-              option={vehicleData[1].traction_type[0].name}
-              price={vehicleData[1].traction_type[0].price}
-            />
-            <SelectButton
-              key={vehicleData[1].traction_type[1].name}
-              value={vehicleData[1].traction_type[1].price}
-              handleSelect={handleSelect}
-              option={vehicleData[1].traction_type[1].name}
-              price={vehicleData[1].traction_type[1].price}
-            />
+            {vehicleData[1].traction_type.map((type) => (
+              <SelectButton
+                key={type.name}
+                value={type.price}
+                handleSelect={handleSelect}
+                option={type.name}
+                price={type.price}
+                disabled={selectedTractionType === type.name}
+              />
+            ))}
           </div>
         </div>
         {selectedTractionType && (

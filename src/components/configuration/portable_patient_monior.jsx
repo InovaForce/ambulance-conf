@@ -86,6 +86,7 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(monitor)}
             option={monitor.name}
             price={monitor.price}
+            disabled={selectedMonitor===monitor.name}
           />
         ))}
       </div>

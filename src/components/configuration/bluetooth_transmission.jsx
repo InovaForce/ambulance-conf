@@ -112,35 +112,43 @@ const BluetoothTransmissionSelector = ({
         height={250}
         src={vehicleData[12].image_url}
         alt={vehicleData[12].bluetooth_transmission[0].name}
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
-        <SelectButton
-          key={vehicleData[12].bluetooth_transmission[0].name}
-          value={vehicleData[12].bluetooth_transmission[0].price}
-          handleSelect={handleSelect}
-          option={vehicleData[12].bluetooth_transmission[0].name}
-          price={vehicleData[12].bluetooth_transmission[0].price}
-        />
-        <SelectButton
-          key={vehicleData[12].bluetooth_transmission[1].name}
-          value={vehicleData[12].bluetooth_transmission[1].price}
-          handleSelect={handleSelect}
-          option={vehicleData[12].bluetooth_transmission[1].name}
-          price={vehicleData[12].bluetooth_transmission[1].price}
-        />
-        <SelectButton
-          key={vehicleData[12].bluetooth_transmission[2].name}
-          value={vehicleData[12].bluetooth_transmission[2].price}
-          handleSelect={handleSelect}
-          option={vehicleData[12].bluetooth_transmission[2].name}
-          price={vehicleData[12].bluetooth_transmission[2].price}
-        />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {vehicleData[12].bluetooth_transmission.map((type) => (
+          <SelectButton
+            key={type.name}
+            value={type.price}
+            handleSelect={handleSelect}
+            option={type.name}
+            price={type.price}
+            disabled={selectedSystem === type.name}
+          />
+        ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
+        }}
+      >
+        <button className="back" onClick={handleBack}>
+          {" "}
+          Back{" "}
+        </button>
+        <button className="next" onClick={handleNext}>
+          {" "}
+          Next{" "}
+        </button>
+      </div>
     </div>
   );
 };

@@ -71,15 +71,22 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Portable Ventilator Selector"/>
+      <Label title="Portable Ventilator Selector" />
       <Image
         width={300}
         height={250}
         src={vehicleData[19].image_url}
         alt="Portable Ventilator"
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
         {vehicleData[19].portable_ventilator.map((ventilator, index) => (
           <SelectButton
             key={index}
@@ -87,13 +94,26 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(ventilator)}
             option={ventilator.name}
             price={ventilator.price}
+            disabled={selectedVentilator === ventilator.name}
           />
         ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
+        }}
+      >
+        <button className="back" onClick={handleBack}>
+          {" "}
+          Back{" "}
+        </button>
+        <button className="next" onClick={handleNext}>
+          {" "}
+          Next{" "}
+        </button>
+      </div>
     </div>
   );
 };

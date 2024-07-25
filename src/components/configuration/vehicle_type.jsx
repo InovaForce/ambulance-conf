@@ -94,20 +94,16 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally }) => {
         />
         <div className={styles.vehicle_type}>
           <div>
-            <SelectButton
-              key={vehicleData[3].vehicle_type[0].name}
-              value={vehicleData[3].vehicle_type[0].price}
-              handleSelect={handleSelect}
-              option={vehicleData[3].vehicle_type[0].name}
-              price={vehicleData[3].vehicle_type[0].price}
-            />
-            <SelectButton
-              key={vehicleData[3].vehicle_type[1].name}
-              value={vehicleData[3].vehicle_type[1].price}
-              handleSelect={handleSelect}
-              option={vehicleData[3].vehicle_type[1].name}
-              price={vehicleData[3].vehicle_type[1].price}
-            />
+            {vehicleData[3].vehicle_type.map((type) => (
+              <SelectButton
+                key={type.name}
+                value={type.price}
+                handleSelect={handleSelect}
+                option={type.name}
+                price={type.price}
+                disabled={selectedVehicleType === type.name}
+              />
+            ))}
           </div>
         </div>
         {selectedVehicleType && (

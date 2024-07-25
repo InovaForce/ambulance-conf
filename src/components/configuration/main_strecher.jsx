@@ -106,7 +106,7 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
 
 
     return (
-      <div >
+      <div>
         <Label title="Main Stretcher" />
         <Image
           width={300}
@@ -115,36 +115,42 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
           alt={vehicleData[5].main_stretcher[0].name}
           style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
         />
-        <div  style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
-          <SelectButton
-            key={vehicleData[5].main_stretcher[0].name}
-            value={vehicleData[5].main_stretcher[0].price}
-            handleSelect={handleSelect}
-            option={vehicleData[5].main_stretcher[0].name}
-            price={vehicleData[5].main_stretcher[0].price}
-          />
-          <SelectButton
-            key={vehicleData[5].main_stretcher[1].name}
-            value={vehicleData[5].main_stretcher[1].price}
-            handleSelect={handleSelect}
-            option={vehicleData[5].main_stretcher[1].name}
-            price={vehicleData[5].main_stretcher[1].price}
-          />
-          <SelectButton
-            key={vehicleData[5].main_stretcher[2].name}
-            value={vehicleData[5].main_stretcher[2].price}
-            handleSelect={handleSelect}
-            option={vehicleData[5].main_stretcher[2].name}
-            price={vehicleData[5].main_stretcher[2].price}
-          />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          {vehicleData[5].main_stretcher.map((type) => (
+            <SelectButton
+              key={type.name}
+              value={type.price}
+              handleSelect={handleSelect}
+              option={type.name}
+              price={type.price}
+              disabled={selectedStretcher === type.name}
+            />
+          ))}
         </div>
-       
-         
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-                <button className="back" onClick={handleBack}> Back </button>
-                <button className="next" onClick={handleNext}> Next </button>                
-            </div>  
 
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "10px",
+          }}
+        >
+          <button className="back" onClick={handleBack}>
+            {" "}
+            Back{" "}
+          </button>
+          <button className="next" onClick={handleNext}>
+            {" "}
+            Next{" "}
+          </button>
+        </div>
       </div>
     );
 };

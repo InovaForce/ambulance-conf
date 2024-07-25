@@ -102,41 +102,49 @@ const OxygenSystem = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-     <Label title='Oxygen System Selector'/>
+      <Label title="Oxygen System Selector" />
       <Image
         width={300}
         height={250}
         src={vehicleData[8].image_url}
         alt={vehicleData[8].central_oxygen_system[0].name}
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
-        <SelectButton
-          key={vehicleData[8].central_oxygen_system[0].name}
-          value={vehicleData[8].central_oxygen_system[0].price}
-          handleSelect={handleSelect}
-          option={vehicleData[8].central_oxygen_system[0].name}
-          price={vehicleData[8].central_oxygen_system[0].price}
-        />
-        <SelectButton
-          key={vehicleData[8].central_oxygen_system[1].name}
-          value={vehicleData[8].central_oxygen_system[1].price}
-          handleSelect={handleSelect}
-          option={vehicleData[8].central_oxygen_system[1].name}
-          price={vehicleData[8].central_oxygen_system[1].price}
-        />
-        <SelectButton
-          key={vehicleData[8].central_oxygen_system[2].name}
-          value={vehicleData[8].central_oxygen_system[2].price}
-          handleSelect={handleSelect}
-          option={vehicleData[8].central_oxygen_system[2].name}
-          price={vehicleData[8].central_oxygen_system[2].price}
-        />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {vehicleData[8].central_oxygen_system.map((type) => (
+          <SelectButton
+            key={type.name}
+            value={type.price}
+            handleSelect={handleSelect}
+            option={type.name}
+            price={type.price}
+            disabled={selectedSystem === type.name}
+          />
+        ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div> 
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
+        }}
+      >
+        <button className="back" onClick={handleBack}>
+          {" "}
+          Back{" "}
+        </button>
+        <button className="next" onClick={handleNext}>
+          {" "}
+          Next{" "}
+        </button>
+      </div>
     </div>
   );
 };
