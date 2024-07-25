@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const FirstAidKit = ({ setActive, generally, setGenerally }) => {
   const [selectedKit, setSelectedKit] = useState("");
@@ -98,7 +99,7 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>First Aid Kit Selector</h1>
+      <Label title="First Aid Kit Selector"/>
       <Image
         width={300}
         height={200}

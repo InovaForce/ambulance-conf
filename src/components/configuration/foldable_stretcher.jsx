@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
+import Label from "../label";
 
 const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
   const [selectedStretcher, setSelectedStretcher] = useState("");
@@ -98,7 +99,7 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <h1>Foldable Stretcher Selector</h1>
+      <Label title=" Foldable Stretcher Selector"/>
       <Image
         width={300}
         height={200}

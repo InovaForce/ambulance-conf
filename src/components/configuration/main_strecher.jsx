@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getAllInformation } from '@/services/api';
 import Image from 'next/image';
 import SelectButton from '../select-button';
+import Label from '../label';
 
 const MainStretcher = ({ setActive, generally, setGenerally }) => {
     const [selectedStretcher, setSelectedStretcher] = useState('');
@@ -86,7 +87,7 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
 
     return (
       <div>
-        <h1>Stretcher Selector</h1>
+        <Label title="Main Stretcher" />
         <Image
           width={300}
           height={200}
@@ -118,10 +119,13 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
           />
         </div>
         <div>
-          <h2>Selected Stretcher: {selectedStretcher}</h2>
-          <h2>Price: ${price}</h2>
+          <h5>Selected Stretcher: {selectedStretcher}</h5>
+          <h5>Price: ${price}</h5>
         </div>
-        <button onClick={handleNext}>Next</button>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                <button className="back" onClick={handleBack}> Back </button>
+                <button className="next" onClick={handleNext}> Next </button>                
+            </div>  
       </div>
     );
 };
