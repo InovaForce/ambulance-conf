@@ -1,11 +1,12 @@
+import FirmContactForm from '@/components/contact/contactForm'
 import React from 'react'
 
-const ContactPage = () => {
+const Contact = () => {
   return (
     <div>
-      Contact
+      <FirmContactForm />
     </div>
   )
 }
 
-export default ContactPage
+export default Contact
