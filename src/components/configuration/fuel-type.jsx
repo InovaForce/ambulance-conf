@@ -90,20 +90,16 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
       />
       <div className={styles.fuel_type}>
         <div>
-          <SelectButton
-            key={vehicleData[0].fuel_type[0].name}
-            value={vehicleData[0].fuel_type[0].price}
-            handleSelect={handleSelect}
-            option={vehicleData[0].fuel_type[0].name}
-            price={vehicleData[0].fuel_type[0].price}
-          />
-          <SelectButton
-            key={vehicleData[0].fuel_type[1].name}
-            value={vehicleData[0].fuel_type[1].price}
-            handleSelect={handleSelect}
-            option={vehicleData[0].fuel_type[1].name}
-            price={vehicleData[0].fuel_type[1].price}
-          />
+          {vehicleData[0].fuel_type.map((type) => (
+            <SelectButton
+              key={type.name}
+              value={type.price}
+              handleSelect={handleSelect}
+              option={type.name}
+              price={type.price}
+              disabled={selectedFuelType === type.name}
+            />
+          ))}
         </div>
       </div>
       {selectedFuelType && (

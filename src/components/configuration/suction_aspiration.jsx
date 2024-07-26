@@ -104,35 +104,44 @@ const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
         height={250}
         src={vehicleData[10].image_url}
         alt={vehicleData[10].image_url}
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
-        <SelectButton
-          key={vehicleData[10].suction_aspiration[0].name}
-          value={vehicleData[10].suction_aspiration[0].price}
-          handleSelect={handleSelect}
-          option={vehicleData[10].suction_aspiration[0].name}
-          price={vehicleData[10].suction_aspiration[0].price}
-        />
-        <SelectButton
-          key={vehicleData[10].suction_aspiration[1].name}
-          value={vehicleData[10].suction_aspiration[1].price}
-          handleSelect={handleSelect}
-          option={vehicleData[10].suction_aspiration[1].name}
-          price={vehicleData[10].suction_aspiration[1].price}
-        />
-        <SelectButton
-          key={vehicleData[10].suction_aspiration[2].name}
-          value={vehicleData[10].suction_aspiration[2].price}
-          handleSelect={handleSelect}
-          option={vehicleData[10].suction_aspiration[2].name}
-          price={vehicleData[10].suction_aspiration[2].price}
-        />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {vehicleData[10].suction_aspiration.map((type) => (
+          <SelectButton
+            key={type.name}
+            value={type.price}
+            handleSelect={handleSelect}
+            option={type.name}
+            price={type.price}
+            disabled={selectedDevice=== type.name}
+          />
+        ))}
+       
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
+        }}
+      >
+        <button className="back" onClick={handleBack}>
+          {" "}
+          Back{" "}
+        </button>
+        <button className="next" onClick={handleNext}>
+          {" "}
+          Next{" "}
+        </button>
+      </div>
     </div>
   );
 };

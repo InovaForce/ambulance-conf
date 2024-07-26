@@ -126,6 +126,7 @@ const AmbulanceType = ({ setActive, generally, setGenerally }) => {
               handleSelect={handleSelect}
               option={type.name}
               price={type.price}
+              disabled={selectedAmbulanceType === type.name}
             />
           ))}
         </div>

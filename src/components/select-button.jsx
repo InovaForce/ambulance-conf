@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const SelectButton = ({ key, value, option, price, handleSelect, selectedType, type }) => {
+const SelectButton = ({ key, value, option, price, handleSelect, selectedType, type,disabled }) => {
   
   const buttonStyle = {
     backgroundColor: selectedType === type ? '#fbf79e' : 'grey',
@@ -25,6 +25,7 @@ const SelectButton = ({ key, value, option, price, handleSelect, selectedType, t
       key={key}
       value={value}
       onClick={() => handleSelect(option)}
+      disabled={disabled}
     >
       {option}{" - "}{price}
     </button>
