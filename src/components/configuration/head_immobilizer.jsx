@@ -125,7 +125,7 @@ const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedImmobilizer === type.name}
+            disabled={generally.medical.headImmobilizer === type.name}
           />
         ))}
       </div>

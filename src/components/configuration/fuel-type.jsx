@@ -76,9 +76,7 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
   const handleNext = () => {
     setActive((prev) => prev + 1);
   };
-  const handleBack = () => {
-    setActive((prev) => prev - 1);
-  };
+
   return (
     <div>
       <Label title="CHOOSE YOUR FUEL TYPE"></Label>
@@ -97,7 +95,7 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
               handleSelect={handleSelect}
               option={type.name}
               price={type.price}
-              disabled={selectedFuelType === type.name}
+              disabled={generally.pyschical.fuelTypeSelector === type.name}
             />
           ))}
         </div>
@@ -110,14 +108,10 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           marginTop: "10px",
         }}
       >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
         <button className="next" onClick={handleNext}>
           {" "}
           Next{" "}

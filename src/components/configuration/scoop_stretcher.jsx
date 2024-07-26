@@ -118,7 +118,7 @@ const ScoopStretcher = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={stretcher.name}
             price={stretcher.price}
-            disabled={selectedStretcher===stretcher.name}
+            disabled={generally.medical.scoopStretcher===stretcher.name}
           />
         ))}
       </div>

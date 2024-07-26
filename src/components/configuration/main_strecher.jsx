@@ -5,7 +5,7 @@ import Image from 'next/image';
 import SelectButton from '../select-button';
 import Label from '../label';
 
-const MainStretcher = ({ setActive, generally, setGenerally }) => {
+const MainStretcher = ({ setActive, generally, setGenerally,setSection }) => {
     const [selectedStretcher, setSelectedStretcher] = useState('');
     const [price, setPrice] = useState(100);
     const [vehicleData, setVehicleData] = useState(null);
@@ -28,7 +28,8 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
     }
 
     const handleBack = () => {
-        setActive((prev) => prev - 1);
+        setActive(5);
+        setSection("pyschical");
     }
 
     if (!vehicleData) {
@@ -130,7 +131,7 @@ const MainStretcher = ({ setActive, generally, setGenerally }) => {
               handleSelect={handleSelect}
               option={type.name}
               price={type.price}
-              disabled={selectedStretcher === type.name}
+              disabled={generally.medical.mainStretcher === type.name}
             />
           ))}
         </div>

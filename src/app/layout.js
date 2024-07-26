@@ -2,8 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Col, Row } from "react-bootstrap";
-import SideBar from "@/components/sideBar";
+
 
 const inter = Inter({ subsets: ["latin"] });
 

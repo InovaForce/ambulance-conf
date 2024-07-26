@@ -121,7 +121,7 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedSystem === type.name}
+            disabled={generally.medical.portableOxygenSystem === type.name}
           />
         ))}
       </div>

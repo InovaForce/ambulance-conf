@@ -125,7 +125,7 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedStretcher === type.name}
+            disabled={generally.medical.foldableStretcher === type.name}
           />
         ))}
       </div>

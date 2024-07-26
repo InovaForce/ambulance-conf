@@ -125,7 +125,7 @@ const ManualSuctionUnit = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedUnit === type.name}
+            disabled={generally.medical.manualSuctionUnit === type.name}
           />
         ))}
       </div>

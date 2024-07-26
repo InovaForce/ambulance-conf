@@ -121,7 +121,7 @@ const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedDevice=== type.name}
+            disabled={generally.medical.suctionAspiration=== type.name}
           />
         ))}
        

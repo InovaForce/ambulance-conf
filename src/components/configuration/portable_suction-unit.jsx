@@ -129,7 +129,7 @@ const PortableSuctionUnitSelector = ({
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedUnit === type.name}
+            disabled={generally.medical.portableSuctionUnit === type.name}
           />
         ))}
       </div>

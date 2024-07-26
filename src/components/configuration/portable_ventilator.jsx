@@ -94,7 +94,7 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(ventilator)}
             option={ventilator.name}
             price={ventilator.price}
-            disabled={selectedVentilator === ventilator.name}
+            disabled={generally.medical.portableVentilator === ventilator.name}
           />
         ))}
       </div>
