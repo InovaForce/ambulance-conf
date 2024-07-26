@@ -1,8 +1,7 @@
 "use client";
+import FirmContactForm from "@/components/contact/contactForm";
 import HomeComp from "@/components/home";
-import Progress from "@/components/progress/progress";
 import { getAllInformation } from "@/services/api";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const Home = () => {
@@ -22,10 +21,13 @@ const Home = () => {
 
     fetchData();
   }, []);
+  require('dotenv').config();
+
 
   return (
     <div>
       <HomeComp />
+      <FirmContactForm />
     </div>
   );
 };
