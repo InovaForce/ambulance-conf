@@ -30,13 +30,11 @@ const ExtraFeaturesSelector = ({
     }));
   }, [selectedFeatures, setGenerally]);
 
-  const handleSection = () => {
-    setActive(0);
-    setSection("medical");
-  };
+ 
 
   const handleNext = () => {
-    setActive((prev) => prev + 1);
+    setActive(1);
+    setSection("medical");
   };
 
   const handleBack = () => {

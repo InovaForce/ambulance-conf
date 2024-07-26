@@ -101,7 +101,7 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally }) => {
                 handleSelect={handleSelect}
                 option={type.name}
                 price={type.price}
-                disabled={selectedVehicleType === type.name}
+                disabled={generally.medical.vehicleTypeSelector === type.name}
               />
             ))}
           </div>

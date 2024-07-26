@@ -1,14 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // useRouter yerine useNavigation import ediliyor
 import { getAllInformation } from "@/services/api";
 import Image from "next/image";
-import SelectButton from "../select-button"; // SelectButton bileşenini import ediyoruz
+import SelectButton from "../select-button";
 import Label from "../label";
 
-const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
+const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset }) => {
   const [selectedMonitor, setSelectedMonitor] = useState("");
   const [price, setPrice] = useState(0);
   const [vehicleData, setVehicleData] = useState(null);
+  const [shouldNavigate, setShouldNavigate] = useState(false); // Yönlendirme durumu için state ekliyoruz
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,8 +26,14 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (shouldNavigate) {
+      router.push("/contact"); // shouldNavigate true olduğunda yönlendiriyoruz
+    }
+  }, [shouldNavigate, router]);
+
   const handleNext = () => {
-    setActive((prev) => prev + 1);
+    setShouldNavigate(true); // shouldNavigate'ı true yaparak yönlendirme başlatıyoruz
   };
 
   const handleBack = () => {
@@ -35,50 +44,51 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
     return <div>Yükleniyor...</div>;
   }
 
- const handleSelect = (monitor) => {
-   // Yeni seçilen monitörün fiyatını al
-   const newPrice = parseFloat(monitor.price.replace("$", ""));
+  const handleSelect = (monitor) => {
+    const newPrice = parseFloat(monitor.price.replace("$", ""));
+    let oldPrice = 0;
+    if (
+      generally.medical.portablePatientMonitor &&
+      generally.medical.portablePatientMonitor !== monitor.name
+    ) {
+      const oldMonitor = vehicleData[20].portable_patient_monitor.find(
+        (m) => m.name === generally.medical.portablePatientMonitor
+      );
+      if (oldMonitor) {
+        oldPrice = parseFloat(oldMonitor.price.replace("$", ""));
+      }
+    }
 
-   // Eğer bir monitör daha önce seçilmişse, eski monitörün fiyatını çıkar
-   let oldPrice = 0;
-   if (
-     generally.medical.portablePatientMonitor &&
-     generally.medical.portablePatientMonitor !== monitor.name
-   ) {
-     const oldMonitor = vehicleData[20].portable_patient_monitor.find(
-       (m) => m.name === generally.medical.portablePatientMonitor
-     );
-     if (oldMonitor) {
-       oldPrice = parseFloat(oldMonitor.price.replace("$", ""));
-     }
-   }
+    setSelectedMonitor(monitor.name);
+    setPrice(newPrice);
 
-   // `selectedMonitor`'ı güncelle
-   setSelectedMonitor(monitor.name);
-   setPrice(newPrice);
-
-   // `totalPrice` hesapla ve güncelle
-   setGenerally((prev) => ({
-     ...prev,
-     totalPrice: prev.totalPrice - oldPrice + newPrice,
-     medical: {
-       ...prev.medical,
-       portablePatientMonitor: monitor.name,
-     },
-   }));
- };
-
+    setGenerally((prev) => ({
+      ...prev,
+      totalPrice: prev.totalPrice - oldPrice + newPrice,
+      medical: {
+        ...prev.medical,
+        portablePatientMonitor: monitor.name,
+      },
+    }));
+  };
   return (
     <div>
-      <Label title="Portable Patient Monitor" / >
+      <Label title="Portable Patient Monitor" />
       <Image
         width={300}
         height={250}
         src={vehicleData[20].image_url}
         alt="Portable Patient Monitor"
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
         {vehicleData[20].portable_patient_monitor.map((monitor, index) => (
           <SelectButton
             key={index}
@@ -86,14 +96,27 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(monitor)}
             option={monitor.name}
             price={monitor.price}
-            disabled={selectedMonitor===monitor.name}
+            disabled={generally.medical.portablePatientMonitor === monitor.name}
           />
         ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
+        }}
+      >
+        <button className="back" onClick={handleBack}>
+          Back
+        </button>
+        <button className="btn btn-danger" onClick={handleReset}>
+          Reset Data
+        </button>
+        <button className="next" onClick={handleNext}>
+          Finish
+        </button>
+      </div>
     </div>
   );
 };

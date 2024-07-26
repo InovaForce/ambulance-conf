@@ -88,7 +88,7 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(glucometer)}
             option={glucometer.name}
             price={glucometer.price}
-            disabled={selectedGlucometer===glucometer.name}
+            disabled={generally.medical.glucometer===glucometer.name}
           />
         ))}
       </div>

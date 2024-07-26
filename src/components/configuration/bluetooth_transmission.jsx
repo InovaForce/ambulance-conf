@@ -129,7 +129,7 @@ const BluetoothTransmissionSelector = ({
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedSystem === type.name}
+            disabled={generally.medical.bluetoothTransmission === type.name}
           />
         ))}
       </div>

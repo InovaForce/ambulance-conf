@@ -2,11 +2,15 @@
 @use "@/styles/mixins" as m;
 
 .footer {
+    position: sticky;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 35px;  
     background-color: v.$footer-background-color;  
     color: whitesmoke;
+    bottom: 0;
+    left: 0;
+    right: 0;
   
 }

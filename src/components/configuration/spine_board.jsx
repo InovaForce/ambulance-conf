@@ -122,10 +122,10 @@ const SpineBoard = ({ setActive, generally, setGenerally }) => {
           <SelectButton
             key={index}
             value={spine.price}
-            handleSelect={() => handleSelect(spine)}
+            handleSelect={handleSelect}
             option={spine.name}
             price={spine.price}
-            disabled={selectedBoard === spine.name}
+            disabled={generally.medical.spineBoard === spine.name}
           />
         ))}
         

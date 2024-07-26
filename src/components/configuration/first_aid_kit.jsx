@@ -125,7 +125,7 @@ const FirstAidKit = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={selectedKit === type.name}
+            disabled={generally.medical.firstAidKit === type.name}
           />
         ))}
       </div>

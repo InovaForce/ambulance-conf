@@ -87,7 +87,7 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(mattress)}
             option={mattress.name}
             price={mattress.price}
-            disabled={selectedMattress===mattress.name}
+            disabled={generally.medical.vacuumMattress===mattress.name}
           />
         ))}
       </div>

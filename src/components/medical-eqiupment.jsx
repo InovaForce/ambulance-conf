@@ -17,12 +17,12 @@ import PortableVentilator from "./configuration/portable_ventilator";
 import PortablePatientMonitor from "./configuration/portable_patient_monior";
 import SuctionAspiration from "./configuration/suction_aspiration";
 
-const MedicalEqiupment = ({ setActive, active, setSection, section , generally, setGenerally}) => {
+const MedicalEqiupment = ({ setActive, active, setSection, section , generally, setGenerally,handleReset}) => {
     console.log("active-medical", active);
   
   return (
     <>
-      {active === 1 && section==="medical"  && <MainStretcher setActive={setActive} generally={generally} setGenerally={setGenerally} />}
+      {active === 1 && section==="medical"  && <MainStretcher setActive={setActive} generally={generally} setGenerally={setGenerally} setSection={setSection} />}
       {active === 2 && section==="medical" && <FoldableStretcherSelector setActive={setActive} generally={generally} setGenerally={setGenerally} />}
       {active === 3 && section==="medical" && <FirstAidKit setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
       {active === 4 && section==="medical" && <OxygenSystem setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
@@ -38,7 +38,7 @@ const MedicalEqiupment = ({ setActive, active, setSection, section , generally, 
       {active === 14 && section==="medical" && <VacuumMattress setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
       {active === 15 && section==="medical" && <Glucometer setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
       {active === 16 && section==="medical" && <PortableVentilator setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 17 && section==="medical" && <PortablePatientMonitor setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
+      {active === 17 && section==="medical" && <PortablePatientMonitor setActive={setActive} generally={generally} setGenerally={setGenerally} handleReset={handleReset}/>}
     </>
   );
 };
