@@ -9,13 +9,14 @@ function ModalComp(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className="modulhg"
     >
       <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
               How am I use this tool?
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{overflow: 'scroll-y'}}>
             <div>
               <h2 className={styles.title}>Ambulance Configuration Tool</h2>
               <h3><u>Overview:</u></h3>
@@ -39,11 +40,14 @@ function ModalComp(props) {
               <h4>Comprehensive Customization:</h4>
               <p>Customize the ambulance from the base model to advanced medical equipment to meet specific needs.</p>
               <p>This tool is designed to simplify the process of ambulance customization, ensuring that all necessary equipment and configurations are considered, helping medical service providers effectively prepare their vehicles.</p>
+              <div style={{width: '100%',display: 'flex',justifyContent: 'center'}}>
+              <Button style={{width: '100%',margin:"auto"}} className='text-center outline-danger' onClick={props.onHide}>Close</Button>
+              </div>
+              
             </div>
+           
           </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
+    
     </Modal>
   );
 }

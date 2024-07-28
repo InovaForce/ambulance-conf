@@ -1,11 +1,11 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import styles from '@/styles/components/homeComp.module.scss';
+//import  "@/styles/components/homeComp.scss"
 import ModalComp from './common/ModalComp';
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
+import "../styles/deneme.scss";
 function Home () {
     const [modalShow, setModalShow] = useState(false);
     const btn1 = useRef(null);
@@ -16,26 +16,30 @@ function Home () {
     router.push('/configuration');
   };
 
+ 
+
     return (
-    <div className={styles.container}>
-      <div className={styles.Button}>       
+    <div >
+          
         <ModalComp
           show={modalShow}
           onHide={() => setModalShow(false)}
+    
         />
+         <div className="helpButton">  
           <Button
           ref={btn1}
-          className={`${styles.helpButton1} ${styles.helpButton} btn-primary`}
+          className="btn outline-warning"
           onClick={() => setModalShow(true)}
         >
           Help
         </Button>
         <Button
           ref={btn2}
-          className={`${styles.helpButton2} ${styles.helpButton} btn-primary`}
-          onClick={() => setModalShow(true)}
+          className=""
+          onClick={handleStart}
         >
-          Help
+          Start
       </Button>
 
      </div>
