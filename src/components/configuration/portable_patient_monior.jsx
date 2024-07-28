@@ -5,13 +5,16 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset }) => {
+const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset,name, buttons }) => {
   const [selectedMonitor, setSelectedMonitor] = useState("");
   const [price, setPrice] = useState(0);
   const [vehicleData, setVehicleData] = useState(null);
   const [shouldNavigate, setShouldNavigate] = useState(false); // Yönlendirme durumu için state ekliyoruz
   const router = useRouter();
+
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +31,7 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset
 
   useEffect(() => {
     if (shouldNavigate) {
-      router.push("/contact"); // shouldNavigate true olduğunda yönlendiriyoruz
+      router.push(`contact`); // shouldNavigate true olduğunda yönlendiriyoruz
     }
   }, [shouldNavigate, router]);
 
@@ -71,9 +74,11 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset
       },
     }));
   };
+
+  
   return (
     <div>
-      <Label title="Portable Patient Monitor" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
@@ -100,23 +105,7 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset
           />
         ))}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          Back
-        </button>
-        <button className="btn btn-danger" onClick={handleReset}>
-          Reset Data
-        </button>
-        <button className="next" onClick={handleNext}>
-          Finish
-        </button>
-      </div>
+      <OptionButton handleNext={handleNext} handleBack={handleBack} finish={buttons.finish} back={buttons.back} reset={buttons.reset} handleReset={handleReset} />
     </div>
   );
 };

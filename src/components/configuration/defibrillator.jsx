@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const Defibrillator = ({ setActive, generally, setGenerally }) => {
+const Defibrillator = ({ setActive, generally, setGenerally,name, buttons }) => {
   const [selectedDefibrillator, setSelectedDefibrillator] = useState("");
   const [price, setPrice] = useState(100);
   const [vehicleData, setVehicleData] = useState(null);
@@ -98,7 +99,7 @@ const Defibrillator = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Defibrillator Selector" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
@@ -125,22 +126,12 @@ const Defibrillator = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

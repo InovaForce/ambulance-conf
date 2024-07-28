@@ -1,78 +1,30 @@
-"use client";
-import { getAllInformation } from "@/services/api";
-import { useState, useEffect} from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+"use client"
+import React from "react";
+import Link from "next/link";
 
-import Home from "@/components/Home";
+const languages = [
+  { code: "en", name: "English", flag: "/images/flags/gb.png" },
+  { code: "es", name: "Español", flag: "/images/flags/es.png" },
+  { code: "fr", name: "Français", flag: "/images/flags/fr.png" },
+  { code: "ru", name: "Русский", flag: "/images/flags/ru.png" },
+  { code: "ar", name: "العربية", flag: "/images/flags/sa.png" },
+];
 
-
-const HomePage = () => {
+const ChooseLanguage = () => {
   
-  const [data, setData] = useState([]);
-  console.log(data);
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getAllInformation();
-        setData(data);
-        console.log(data[0].image_url.ambulans_tipi_box);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
 
-    fetchData();
-  }, []);
-
-  
   return (
-
-    <>
-    <Home/>
-   </>
-
-
+    <div >
+      <h1>Please select your language</h1>
+      <div >
+        {languages.map((lang) => (
+          <Link href={`/${lang.code}`} key={lang.code}>
+            <img width={160} height={100} src={lang.flag} alt={lang.name}  />
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 };
 
-   export default HomePage;
-/*
-    <>
-      <div className="container">
-        <Button
-          ref={btn1}
-           className={`${styles.helpButton} ${styles.helpButton1} btn-primary`}
-          onClick={() => setModalShow(true)} 
-        >
-          Help
-        </Button>
-        { <HomeComp show={modalShow} onHide={() => setModalShow(false)} /> }
-        <Button
-          ref={btn2}
-           className={`${styles.helpButton} ${styles.helpButton2} btn-primary`} 
-          onClick={() => setModalShow(true)}
-        >
-          Help
-        </Button>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          width: "80%",
-          justifyContent:"center",         
-          margin : "auto",
-          marginBottom: "20px",
-        }}
-      >
-        <Button className="start" onClick={handleStart}>
-          Go to Configuration
-        </Button>
-      </div>
-    </>
-  );
-  
-};
-*/
-
+export default ChooseLanguage;

@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 const SelectButton = ({ key, value, option, price, handleSelect, selectedType, type,disabled }) => {
   
   const buttonStyle = {
-    display: 'inline-flex',  
-    justifyContent: 'center', 
     backgroundColor: selectedType === type ? '#fbf79e' : 'grey',
     color: 'black',
     padding: '5px 20px',
@@ -15,9 +13,7 @@ const SelectButton = ({ key, value, option, price, handleSelect, selectedType, t
     marginTop: '10px',
     fontSize: '16px',
     fontWeight: '600',
-    marginRight: '50px',
-    marginLeft: '150px',
-    
+    gap: '10px',
     
     
   };

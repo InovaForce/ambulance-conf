@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button"; // Eğer bu bileşen varsa, yeniden kullanmak için import ettik
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
+const HeadImmobilizer = ({ setActive, generally, setGenerally, name, buttons }) => {
   const [selectedImmobilizer, setSelectedImmobilizer] = useState("");
   const [price, setPrice] = useState(100);
   const [vehicleData, setVehicleData] = useState(null);
@@ -102,7 +103,7 @@ const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Head Immobilizer Selector" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
@@ -129,22 +130,12 @@ const HeadImmobilizer = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

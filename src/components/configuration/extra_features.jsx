@@ -1,12 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
 import Label from "../label";
+import OptionButton from "../option-button";
 
 const ExtraFeaturesSelector = ({
   setActive,
   setSection,
   generally,
   setGenerally,
+  name,
+  buttons
 }) => {
   const [selectedFeatures, setSelectedFeatures] = useState(
     generally.pyschical.extraFeatures || []
@@ -43,7 +46,7 @@ const ExtraFeaturesSelector = ({
 
   return (
     <div>
-      <Label title="CHOOSE EXTRA FEATURES" />
+      <Label title={name}></Label>
       <div
         style={{
           display: "flex",
@@ -132,22 +135,12 @@ const ExtraFeaturesSelector = ({
         </button>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

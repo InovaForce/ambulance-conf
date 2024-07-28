@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const ManualSuctionUnit = ({ setActive, generally, setGenerally }) => {
+const ManualSuctionUnit = ({ setActive, generally, setGenerally,name, buttons }) => {
   const [selectedUnit, setSelectedUnit] = useState("");
   const [price, setPrice] = useState(100);
   const [vehicleData, setVehicleData] = useState(null);
@@ -102,7 +103,7 @@ const ManualSuctionUnit = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Manual Suction Unit Selector" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
@@ -129,22 +130,12 @@ const ManualSuctionUnit = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

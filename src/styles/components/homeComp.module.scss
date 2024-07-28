@@ -1,41 +1,23 @@
+@use "@/styles/variable" as v;
+@use "@/styles/mixins" as m;
 
-
-
-
-
-
-/* .container {
+.container {
     display: flex;
-    justify-content:space-between;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    background: url('/images/ambulance_help_.jpg') no-repeat center center;
-    background-size: contain;
-    overflow: hidden;
-    
-  
-  .helpButton {
-    display: flex;
-    position: absolute;
-    height: 100vh; // Button yüksekliğini ayarlıyoruz
-    width: 100px; // İhtiyaca göre button genişliğini ayarlayabilirsiniz
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    @include m.container(90%); 
+    color: v.$text-color;
+    font-size: 18px;
+    .title{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+        color: v.$text-color;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+    }
+   
 
-    &.btn-primary {
-      height: 100% !important; // Button'un yüksekliğini kapsayıcısının yüksekliğine ayarlıyoruz
-    }
-    .helpButton1 {
-      bottom: 10px;
-      left: 10px;
-    }
-
-    .helpButton2 {
-      bottom: 10px;
-      right: 10px;
-    }
 }
-  
- 
-} */

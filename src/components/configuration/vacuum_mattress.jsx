@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const VacuumMattress = ({ setActive, generally, setGenerally }) => {
+const VacuumMattress = ({ setActive, generally, setGenerally, name, buttons }) => {
   const [selectedMattress, setSelectedMattress] = useState("");
   const [price, setPrice] = useState(0);
   const [vehicleData, setVehicleData] = useState(null);
@@ -71,15 +72,22 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Vacuum Mattress Selector"/>
+      <Label title={name} />
       <Image
         width={300}
         height={250}
         src={vehicleData[17].image_url} // Varsayılan olarak ilk vakum yatak görselini gösteriyoruz
         alt="Vacuum Mattress"
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
         {vehicleData[17].vacuum_mattress.map((mattress, index) => (
           <SelectButton
             key={index}
@@ -87,14 +95,16 @@ const VacuumMattress = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(mattress)}
             option={mattress.name}
             price={mattress.price}
-            disabled={generally.medical.vacuumMattress===mattress.name}
+            disabled={generally.medical.vacuumMattress === mattress.name}
           />
         ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

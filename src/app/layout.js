@@ -12,6 +12,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <head>
@@ -24,11 +25,9 @@ export default function RootLayout({ children }) {
           href="http://localhost:3000/_next/static/css/app/configuration/page.css?v=1721753072477"
         />
       </head>
-      <body className={`inter.className d-flex flex-column`}>
-      <div id="root"></div> 
-        <Header />
-        {children}
-        <Footer />
+      <body className={`inter.className d-flex flex-column`}>        
+        {children}  
+              
       </body>
     </html>
   );

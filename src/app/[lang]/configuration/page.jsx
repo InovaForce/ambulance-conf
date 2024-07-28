@@ -1,11 +1,10 @@
-"use client";
-import Progress from "@/components/progress/progress";
-import React, { useEffect, useState } from "react";
-import ConfigurationPage from "./page";
-import { Col, Row } from "react-bootstrap";
-import SideBar from "@/components/sideBar";
-import  "@/app/configuration/layout.scss";
-
+"use client"
+import MedicalEqiupment from '@/components/medical-eqiupment'
+import Progress from '@/components/progress/progress';
+import PyschicalEqiupment from '@/components/pyschical-eqiupment'
+import SideBar from '@/components/sideBar';
+import { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 const initialAmbulance = {
   pyschical: {
     fuelType: "",
@@ -36,7 +35,8 @@ const initialAmbulance = {
   totalPrice: 0,
 };
 
-const LayoutConfiguartion = () => {
+
+const ConfigurationPage = ({ dict}) => {
   const [section, setSection] = useState("pyschical");
   const [step, setStep] = useState(5);
   const [active, setActive] = useState(1);
@@ -45,9 +45,16 @@ const LayoutConfiguartion = () => {
     const savedData = localStorage.getItem("ambulanceData");
     return savedData ? JSON.parse(savedData) : initialAmbulance;
   });
+  
+
+  const {configurationPage,buttons,initAmbulance}=dict;
+  const { pyschalEquipment,medicalEquipment } = configurationPage;
 
   const handleId = (id) => {
     setSection(id);
+    if (id === "pyschical" || id=== "medical") {
+      setActive(1);
+    }
   };
 
   const handleReset = () => {
@@ -69,45 +76,61 @@ const LayoutConfiguartion = () => {
     localStorage.setItem("ambulanceData", JSON.stringify(generally));
   }, [generally]);
 
+ 
   return (
-    <>
-      <Row className="flex-grow-1" style={{ height: "100vh" }}>
-        <Col md={9}>
-          <div className="btn-group">
-            <button
-              id="pyschical"
-              className="btn btn-primary"
-              onClick={() => handleId("pyschical")}
-            >
-              Pyschal Equipment
-            </button>
-            <button
-              id="medical"
-              className="btn btn-primary"
-              onClick={() => handleId("medical")}
-            >
-              Medical Equipment
-            </button>
-
-          </div>
-          <Progress step={step} active={active} setActive={setActive} />
-
-          <ConfigurationPage
-            setSection={setSection}
-            section={section}
+    <Row>
+      <Col md={9}>
+        <div className="btn-group">
+          <button
+            id="pyschical"
+            className="btn btn-primary"
+            onClick={() => handleId("pyschical")}
+          >
+            {pyschalEquipment.title}
+          </button>
+          <button
+            id="medical"
+            className="btn btn-primary"
+            onClick={() => handleId("medical")}
+          >
+            {medicalEquipment.title}
+          </button>
+        </div>
+        <Progress step={step} active={active} setActive={setActive} />
+        {section && section === "pyschical" && (
+          <PyschicalEqiupment
             setActive={setActive}
             active={active}
+            setSection={setSection}
+            section={section}
+            generally={generally}
+            setGenerally={setGenerally}
+            dict={pyschalEquipment}
+            buttons={buttons}
+          />
+        )}
+        {section && section === "medical" && (
+          <MedicalEqiupment
+            setActive={setActive}
+            active={active}
+            setSection={setSection}
+            section={section}
             generally={generally}
             setGenerally={setGenerally}
             handleReset={handleReset}
+            dict={medicalEquipment}
+            buttons={buttons}
+          
           />
-        </Col>
-        <Col md={3}>
-          <SideBar generally={generally} />
-        </Col>
-      </Row>
-    </>
+        )}
+      </Col>
+      <Col md={3}>
+        <SideBar generally={generally} dict={initAmbulance} />
+      </Col>
+    </Row>
   );
 };
 
-export default LayoutConfiguartion;
+export default ConfigurationPage;
+
+

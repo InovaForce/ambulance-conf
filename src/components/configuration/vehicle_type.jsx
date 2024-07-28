@@ -5,8 +5,9 @@ import Image from 'next/image';
 import Label from '../label';
 import styles from '@/styles/components/configuration/vehicle_type.module.scss';
 import SelectButton from '../select-button';
+import OptionButton from '../option-button';
 
-const VehicleTypeSelector = ({ setActive,generally,setGenerally }) => {
+const VehicleTypeSelector = ({ setActive,generally,setGenerally,name,buttons }) => {
     const [selectedVehicleType, setSelectedVehicleType] = useState("");
     const [vehicleData, setVehicleData] = useState(null);
     const [price, setPrice] = useState(100);
@@ -85,7 +86,7 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally }) => {
     };
     return (
       <div>
-        <Label title="CHOOSE YOUR VEHICLE TYPE"></Label>
+        <Label title={name}></Label>
         <Image
           src="/images/vehicle_type.jpg"
           width={800}
@@ -111,22 +112,12 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally }) => {
             <h5>Selected Fuel Type: {selectedVehicleType}</h5>
           </div>
         )}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: "10px",
-          }}
-        >
-          <button className="back" onClick={handleBack}>
-            {" "}
-            Back{" "}
-          </button>
-          <button className="next" onClick={handleNext}>
-            {" "}
-            Next{" "}
-          </button>
-        </div>
+        <OptionButton
+          handleNext={handleNext}
+          handleBack={handleBack}
+          back={buttons.back}
+          next={buttons.next}
+        />
       </div>
     );
     };

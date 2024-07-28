@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
 
-const OptionButton = ({ setActive }) => {
-  const handleNext = () => {
-    setActive((prev) => prev + 1);
-  }
 
-  const handleBack = () => {
-    setActive((prev) => prev - 1);
-  }
+const OptionButton = ({ handleNext, handleBack, back, next,reset,handleReset,finish,justify }) => {
 
   return (
-    <div>
-      <button onClick={handleBack}>Back</button>
-      <button onClick={handleNext}>Next</button>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: justify ? justify : "space-between",
+        marginTop: "10px",
+      }}
+    >
+      {back && (
+        <button className="btn btn-primary" onClick={handleBack}>
+          {back}
+        </button>
+      )}
+      {reset && handleReset && (
+        <button className="btn btn-danger" onClick={handleReset}>
+          {reset}
+        </button>
+      )}
+      {next && (
+        <button className="btn btn-primary" onClick={handleNext}>
+          {next}
+        </button>
+      )}
+      {finish && (
+        <button className="btn btn-primary" onClick={handleNext}>
+          {finish}
+        </button>
+      )}
     </div>
   );
 };
 
-const ParentComponent = () => {
-  const [active, setActive] = useState(0);
-
-  return (
-    <div>
-      <h1>Active State: {active}</h1>
-      <OptionButton setActive={setActive} />
-    </div>
-  );
-};
-
-export default ParentComponent;
+export default OptionButton;
