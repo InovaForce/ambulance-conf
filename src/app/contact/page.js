@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Table, Button } from "react-bootstrap";
@@ -89,17 +89,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-=======
-import FirmContactForm from '@/components/contact/contactForm'
-import React from 'react'
-
-const Contact = () => {
-  return (
-    <div>
-      <FirmContactForm />
-    </div>
-  )
-}
-
-export default Contact
->>>>>>> 59d1e9eb8093d65c90c073dba29c29e4d1ccbfe8

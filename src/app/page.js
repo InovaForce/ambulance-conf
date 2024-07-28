@@ -1,13 +1,16 @@
 "use client";
-import FirmContactForm from "@/components/contact/contactForm";
-import HomeComp from "@/components/home";
 import { getAllInformation } from "@/services/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const Home = () => {
+import Home from "@/components/Home";
+
+
+const HomePage = () => {
+  
   const [data, setData] = useState([]);
   console.log(data);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,26 +24,55 @@ const Home = () => {
 
     fetchData();
   }, []);
-  require('dotenv').config();
 
-
+  
   return (
-    <div>
-      <HomeComp />
-      <FirmContactForm />
-    </div>
+
+    <>
+    <Home/>
+   </>
+
+
   );
 };
 
-export default Home;
-
+   export default HomePage;
 /*
-{data.length > 0 && (
-        <Image
-          src={data[0].image_url.ambulans_tipi_box}
-          alt="Ambulans Tipi Box"
-          width={200}
-          height={200}
-        />
-      )}
+    <>
+      <div className="container">
+        <Button
+          ref={btn1}
+           className={`${styles.helpButton} ${styles.helpButton1} btn-primary`}
+          onClick={() => setModalShow(true)} 
+        >
+          Help
+        </Button>
+        { <HomeComp show={modalShow} onHide={() => setModalShow(false)} /> }
+        <Button
+          ref={btn2}
+           className={`${styles.helpButton} ${styles.helpButton2} btn-primary`} 
+          onClick={() => setModalShow(true)}
+        >
+          Help
+        </Button>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          width: "80%",
+          justifyContent:"center",         
+          margin : "auto",
+          marginBottom: "20px",
+        }}
+      >
+        <Button className="start" onClick={handleStart}>
+          Go to Configuration
+        </Button>
+      </div>
+    </>
+  );
+  
+};
 */
+

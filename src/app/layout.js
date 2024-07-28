@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`inter.className d-flex flex-column`}>
+      <div id="root"></div> 
         <Header />
         {children}
         <Footer />
