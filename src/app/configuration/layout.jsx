@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ConfigurationPage from "./page";
 import { Col, Row } from "react-bootstrap";
 import SideBar from "@/components/sideBar";
-import styles from "@/app/configuration/layout.scss";
+import  "@/app/configuration/layout.scss";
 
 const initialAmbulance = {
   pyschical: {

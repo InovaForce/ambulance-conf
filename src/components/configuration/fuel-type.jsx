@@ -2,9 +2,9 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Label from "../label";
-import styles from "@/styles/components/configuration/fuel_type.module.scss";
 import { getAllInformation } from "@/services/api";
 import SelectButton from "../select-button";
+import styles from"@/styles/components/configuration/fuel_type.module.scss";
 const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
   const [selectedFuelType, setSelectedFuelType] = useState("");
   const [vehicleData, setVehicleData] = useState(null);
@@ -77,13 +77,18 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
     setActive((prev) => prev + 1);
   };
 
+  const handleBack = () => {
+    setActive((prev) => prev - 1);
+  };
+
+
   return (
     <div>
       <Label title="CHOOSE YOUR FUEL TYPE"></Label>
       <Image
         src="/images/fuel_type.jpg"
         width={800}
-        height={350}
+        height={330}
         alt="fuel_type"
       />
       <div className={styles.fuel_type}>
@@ -100,23 +105,24 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally }) => {
           ))}
         </div>
       </div>
-      {selectedFuelType && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h5>Selected Fuel Type: {selectedFuelType}</h5>
-        </div>
-      )}
-      <div
+    
+         <div
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           marginTop: "10px",
         }}
       >
+        <button className="back" onClick={handleBack}>
+          {" "}
+          Back{" "}
+        </button>
         <button className="next" onClick={handleNext}>
           {" "}
           Next{" "}
         </button>
       </div>
+      
     </div>
   );
 };
