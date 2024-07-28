@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button"; // SelectButton bileşenini import ediyoruz
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const PortableVentilator = ({ setActive, generally, setGenerally }) => {
+const PortableVentilator = ({ setActive, generally, setGenerally, name, buttons }) => {
   const [selectedVentilator, setSelectedVentilator] = useState("");
   const [price, setPrice] = useState(0);
   const [vehicleData, setVehicleData] = useState(null);
@@ -71,7 +72,7 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Portable Ventilator Selector" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
@@ -98,22 +99,12 @@ const PortableVentilator = ({ setActive, generally, setGenerally }) => {
           />
         ))}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

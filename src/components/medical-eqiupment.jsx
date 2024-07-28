@@ -17,28 +17,167 @@ import PortableVentilator from "./configuration/portable_ventilator";
 import PortablePatientMonitor from "./configuration/portable_patient_monior";
 import SuctionAspiration from "./configuration/suction_aspiration";
 
-const MedicalEqiupment = ({ setActive, active, setSection, section , generally, setGenerally,handleReset}) => {
+const MedicalEqiupment = ({ setActive, active, setSection, section , generally, setGenerally,handleReset,dict,buttons}) => {
     console.log("active-medical", active);
   
   return (
     <>
-      {active === 1 && section==="medical"  && <MainStretcher setActive={setActive} generally={generally} setGenerally={setGenerally} setSection={setSection} />}
-      {active === 2 && section==="medical" && <FoldableStretcherSelector setActive={setActive} generally={generally} setGenerally={setGenerally} />}
-      {active === 3 && section==="medical" && <FirstAidKit setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 4 && section==="medical" && <OxygenSystem setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 5 && section==="medical" && <PortableOxygenSystem setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 6 && section==="medical" && <SuctionAspiration setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 7 && section==="medical" && <Defibrillator setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 8 && section==="medical" && <BluetoothTransmissionSelector setActive={setActive} generally={generally} setGenerally={setGenerally} />}
-      {active === 9 && section==="medical" && <PortableSuctionUnitSelector setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 10 && section==="medical" && <ManualSuctionUnit setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 11 && section==="medical" && <SpineBoard setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 12 && section==="medical" && <HeadImmobilizer setActive={setActive} generally={generally} setGenerally={setGenerally} />}
-      {active === 13 && section==="medical" && <ScoopStretcher setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 14 && section==="medical" && <VacuumMattress setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 15 && section==="medical" && <Glucometer setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 16 && section==="medical" && <PortableVentilator setActive={setActive} generally={generally} setGenerally={setGenerally}/>}
-      {active === 17 && section==="medical" && <PortablePatientMonitor setActive={setActive} generally={generally} setGenerally={setGenerally} handleReset={handleReset}/>}
+      {active === 1 && section === "medical" && (
+        <MainStretcher
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          setSection={setSection}
+          name={dict.mainStretcher}
+          buttons={buttons}
+        />
+      )}
+      {active === 2 && section === "medical" && (
+        <FoldableStretcherSelector
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.foldableStretcher}
+          buttons={buttons}
+        />
+      )}
+      {active === 3 && section === "medical" && (
+        <FirstAidKit
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.firstAidKit}
+          buttons={buttons}
+        />
+      )}
+      {active === 4 && section === "medical" && (
+        <OxygenSystem
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.oxygenSystem}
+          buttons={buttons}
+        />
+      )}
+      {active === 5 && section === "medical" && (
+        <PortableOxygenSystem
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.portableOxygenSystem}
+          buttons={buttons}
+        />
+      )}
+      {active === 6 && section === "medical" && (
+        <SuctionAspiration
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.suctionAspiration}
+          buttons={buttons}
+        />
+      )}
+      {active === 7 && section === "medical" && (
+        <Defibrillator
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.defibrillator}
+          buttons={buttons}
+        />
+      )}
+      {active === 8 && section === "medical" && (
+        <BluetoothTransmissionSelector
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.bluetoothTransmissionSystem}
+          buttons={buttons}
+        />
+      )}
+      {active === 9 && section === "medical" && (
+        <PortableSuctionUnitSelector
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.portableSuctionUnit}
+          buttons={buttons}
+        />
+      )}
+      {active === 10 && section === "medical" && (
+        <ManualSuctionUnit
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.manualSuctionUnit}
+          buttons={buttons}
+        />
+      )}
+      {active === 11 && section === "medical" && (
+        <SpineBoard
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.spineBoard}
+          buttons={buttons}
+        />
+      )}
+      {active === 12 && section === "medical" && (
+        <HeadImmobilizer
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.headImmobilizer}
+          buttons={buttons}
+        />
+      )}
+      {active === 13 && section === "medical" && (
+        <ScoopStretcher
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.scoopStretcher}
+          buttons={buttons}
+        />
+      )}
+      {active === 14 && section === "medical" && (
+        <VacuumMattress
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.vacuumMattress}
+          buttons={buttons}
+        />
+      )}
+      {active === 15 && section === "medical" && (
+        <Glucometer
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.glucometer}
+          buttons={buttons}
+        />
+      )}
+      {active === 16 && section === "medical" && (
+        <PortableVentilator
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          name={dict.portableVentilator}
+          buttons={buttons}
+        />
+      )}
+      {active === 17 && section === "medical" && (
+        <PortablePatientMonitor
+          setActive={setActive}
+          generally={generally}
+          setGenerally={setGenerally}
+          handleReset={handleReset}
+          name={dict.portablePatientMonitor}
+          buttons={buttons}
+  
+        />
+      )}
     </>
   );
 };

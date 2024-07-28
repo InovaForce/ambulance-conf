@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button"; // SelectButton bileşenini import ediyoruz
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const Glucometer = ({ setActive, generally, setGenerally }) => {
+const Glucometer = ({ setActive, generally, setGenerally, name, buttons }) => {
   const [selectedGlucometer, setSelectedGlucometer] = useState("");
   const [price, setPrice] = useState(0);
   const [vehicleData, setVehicleData] = useState(null);
@@ -72,15 +73,22 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Glucometer Selector" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
         src={vehicleData[18].image_url}
         alt="Glucometer"
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
         {vehicleData[18].glucometer.map((glucometer, index) => (
           <SelectButton
             key={index}
@@ -88,15 +96,17 @@ const Glucometer = ({ setActive, generally, setGenerally }) => {
             handleSelect={() => handleSelect(glucometer)}
             option={glucometer.name}
             price={glucometer.price}
-            disabled={generally.medical.glucometer===glucometer.name}
+            disabled={generally.medical.glucometer === glucometer.name}
           />
         ))}
       </div>
-     
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

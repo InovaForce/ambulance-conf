@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
+const SuctionAspiration = ({ setActive, generally, setGenerally,name, buttons }) => {
   const [selectedDevice, setSelectedDevice] = useState("");
   const [price, setPrice] = useState(100);
   const [vehicleData, setVehicleData] = useState(null);
@@ -98,7 +99,7 @@ const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Suction Aspiration Selector" />
+      <Label title={name} />
       <Image
         width={300}
         height={250}
@@ -121,27 +122,16 @@ const SuctionAspiration = ({ setActive, generally, setGenerally }) => {
             handleSelect={handleSelect}
             option={type.name}
             price={type.price}
-            disabled={generally.medical.suctionAspiration=== type.name}
+            disabled={generally.medical.suctionAspiration === type.name}
           />
         ))}
-       
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

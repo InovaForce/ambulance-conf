@@ -4,8 +4,9 @@ import { getAllInformation } from "@/services/api";
 import Image from "next/image";
 import SelectButton from "../select-button";
 import Label from "../label";
+import OptionButton from "../option-button";
 
-const ScoopStretcher = ({ setActive, generally, setGenerally }) => {
+const ScoopStretcher = ({ setActive, generally, setGenerally, name, buttons }) => {
   const [selectedStretcher, setSelectedStretcher] = useState("");
   const [price, setPrice] = useState(100);
   const [vehicleData, setVehicleData] = useState(null);
@@ -102,30 +103,39 @@ const ScoopStretcher = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="Scoop Stretcher Selector"/>
+      <Label title={name} />
       <Image
         width={300}
         height={250}
         src={vehicleData[21].image_url}
         alt={vehicleData[21].id}
-        style={{ objectFit: "cover",display: "block", margin: "0 auto" }}
+        style={{ objectFit: "cover", display: "block", margin: "0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" , justifyContent: "space-evenly"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
         {vehicleData[21].scoop_stretcher.map((stretcher, index) => (
-          <SelectButton 
+          <SelectButton
             key={stretcher.name}
             value={stretcher.price}
             handleSelect={handleSelect}
             option={stretcher.name}
             price={stretcher.price}
-            disabled={generally.medical.scoopStretcher===stretcher.name}
+            disabled={generally.medical.scoopStretcher === stretcher.name}
           />
         ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <button className="back" onClick={handleBack}> Back </button>
-            <button className="next" onClick={handleNext}> Next </button>                
-          </div>  
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };

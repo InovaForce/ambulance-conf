@@ -4,8 +4,9 @@ import Label from "../label";
 import styles from "@/styles/components/configuration/ambulance_type.module.scss";
 import { getAllInformation } from "@/services/api";
 import SelectButton from "../select-button";
+import OptionButton from "../option-button";
 
-const AmbulanceType = ({ setActive, generally, setGenerally }) => {
+const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => {
   const [selectedAmbulanceType, setSelectedAmbulanceType] = useState("");
   const [vehicleData, setVehicleData] = useState(null);
   const [price, setPrice] = useState(100);
@@ -116,7 +117,7 @@ const AmbulanceType = ({ setActive, generally, setGenerally }) => {
 
   return (
     <div>
-      <Label title="CHOOSE YOUR AMBULANCE TYPE"></Label>
+      <Label title={name}></Label>
       <div className={styles.ambulance_type}>
         <div>
           {vehicleData[2].ambulance_type.map((type) => (
@@ -136,22 +137,12 @@ const AmbulanceType = ({ setActive, generally, setGenerally }) => {
           <h5>Selected Ambulance Type: {selectedAmbulanceType}</h5>
         </div>
       )}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
-        <button className="back" onClick={handleBack}>
-          {" "}
-          Back{" "}
-        </button>
-        <button className="next" onClick={handleNext}>
-          {" "}
-          Next{" "}
-        </button>
-      </div>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
     </div>
   );
 };
