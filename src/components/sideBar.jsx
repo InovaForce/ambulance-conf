@@ -8,7 +8,35 @@ const SideBar = ({ generally }) => {
 
   },[generally])
 
-  const renderSection = (section, sectionName) => {
+  const renderSection = (section, sectionName,setGenerally) => {
+
+
+ /*    const removeMedical = (unitToRemove) => {
+      setGenerally((prev)=>prev.medical.filter((item)=>item !== unitToRemove));
+    };
+
+    const removeMedicall = (unitToRemove) => {
+      setGenerally(...prev.medical.filter((item)=>item !== unitToRemove));
+    }; */
+
+
+    const removeMedical = (keyToRemove) => {
+      setGenerally((prev) => {
+        const updatedMedical = { ...prev.medical };
+        delete updatedMedical[keyToRemove];
+        return {
+          ...prev,
+          medical: updatedMedical
+        };
+      });
+    };
+
+
+    const handleRemoveMedical = (key) => {
+      removeMedical(key);
+    };
+
+
     return (
       <div>
         <p className="border-bottom mt-3">{sectionName}</p>
@@ -50,7 +78,7 @@ const SideBar = ({ generally }) => {
         {generally.pyschical.fuelType ? (
           <div>
             <h3>FuelType:</h3>
-            <h4>{generally.pyschical.fuelType}</h4>
+            <h4>{generally.pyschical.fuelType}<button onClick={() => handleRemoveMedical(generally.pyschical.fuelType)}> x</button></h4>
           </div>
         ) : null}
 

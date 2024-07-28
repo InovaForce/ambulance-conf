@@ -103,7 +103,7 @@ const LayoutConfiguartion = () => {
           />
         </Col>
         <Col md={3}>
-          <SideBar generally={generally} />
+          <SideBar generally={generally} setGenerally={setGenerally} />
         </Col>
       </Row>
     </>
