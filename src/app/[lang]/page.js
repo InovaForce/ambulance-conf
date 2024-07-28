@@ -1,9 +1,6 @@
 import Header from '@/components/header';
-import Layout from './layout'
-import HomeComp from "@/components/home";
-
 import { getDictionary } from "@/services/dictionaries";
-import Footer from '@/components/footer';
+import Language from '@/components/language';
 
 const Home = async ({ params }) => {
   
@@ -16,7 +13,7 @@ const Home = async ({ params }) => {
   return (
       <>
       <Header lang={lang} />
-      <HomeComp dict={dict} />
+      <Language dict={dict} />
       </>
 
   );
