@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import Image from "next/image";
@@ -14,14 +14,15 @@ const languages = [
 const ChooseLanguage = () => {
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
         Select Language
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
         {languages.map((lang) => (
           <Dropdown.Item href={`/${lang.code}`} key={lang.code}>
-            <Image src={lang.flag} alt={lang.name} width={20} height={15} /> {lang.name}
+            <Image src={lang.flag} alt={lang.name} width={20} height={15} />{" "}
+            {lang.name}
           </Dropdown.Item>
         ))}
       </Dropdown.Menu>

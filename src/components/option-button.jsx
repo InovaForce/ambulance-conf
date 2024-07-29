@@ -1,4 +1,4 @@
-
+import "@/styles/components/optionButton.module.scss";
 
 const OptionButton = ({ handleNext, handleBack, back, next,reset,handleReset,finish,justify }) => {
 

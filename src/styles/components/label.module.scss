@@ -1,12 +1,16 @@
 @use "@/styles/variable" as v;
 @use "@/styles/mixins" as m;
 
+ 
 .label{
+    display: flex;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    margin-bottom: 10px;
-    
-    
+    margin:auto;
+    margin-bottom: 50px;
+
+    width: 800px !important;
+
     .title{
     display: flex;
     justify-content: center;
@@ -19,6 +23,6 @@
     font-weight: 700;
     font-size: 18px;
     border-radius: 5px;
-       
+
     }
 }

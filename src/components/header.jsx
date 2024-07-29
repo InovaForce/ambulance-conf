@@ -45,9 +45,9 @@ const Header = ({ lang }) => {
       </div>
       <Nav className={styles.nav}>
         <ul className={styles.nav_link}>
-          <li>
+         {/*  <li>
             <Link href="/">{Language[lang]}</Link>
-          </li>
+          </li> */}
           <li>
             <Link href={`${lang}`}>{Home[lang]}</Link>
           </li>

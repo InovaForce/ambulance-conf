@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import "@/styles/components/modalComp.scss";
 import ModalComp from "../modalComp";
 import { useRouter } from "next/navigation";
-
+import { FcStart } from "react-icons/fc";  
 function ModalButton({ dict,lang }) {
   const [modalShow, setModalShow] = useState(false);
   const btn1 = useRef(null);

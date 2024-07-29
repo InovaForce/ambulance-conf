@@ -5,6 +5,7 @@ import PyschicalEqiupment from '@/components/pyschical-eqiupment'
 import SideBar from '@/components/sideBar';
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import "./layout.scss";
 const initialAmbulance = {
   pyschical: {
     fuelType: "",

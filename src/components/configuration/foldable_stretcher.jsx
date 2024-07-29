@@ -103,7 +103,7 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally,name, bu
 
   return (
     <div>
-      <Label title={name} />
+      <Label title="Select Foldable Stretcher" />
       <Image
         width={300}
         height={250}

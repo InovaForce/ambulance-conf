@@ -47,6 +47,7 @@ const ExtraFeaturesSelector = ({
   return (
     <div>
       <Label title={name}></Label>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
       <div
         style={{
           display: "flex",
@@ -134,7 +135,7 @@ const ExtraFeaturesSelector = ({
           Defibrillator
         </button>
       </div>
-
+      </div>
       <OptionButton
         handleNext={handleNext}
         handleBack={handleBack}

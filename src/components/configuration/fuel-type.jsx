@@ -80,14 +80,19 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
   };
 
   return (
-    <div>
+    <div >
       <Label title={name}></Label>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+
       <Image
         src="/images/fuel_type.jpg"
         width={800}
         height={350}
         alt="fuel_type"
+       
       />
+      </div>
+     
       <div className={styles.fuel_type}>
         <div>
           {vehicleData[0].fuel_type.map((type) => (

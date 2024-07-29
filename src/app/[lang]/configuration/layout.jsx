@@ -1,6 +1,7 @@
 import { Row } from "react-bootstrap";
 import ConfigurationPage from "./page";
 import { getDictionary } from "@/services/dictionaries";
+import Header from "@/components/header";
 
 const LayoutConfiguration = async ({ params }) => {
   const { lang } = params;
@@ -11,7 +12,8 @@ const LayoutConfiguration = async ({ params }) => {
 
   return (
     <>
-      <Row className="flex-grow-1" style={{ height: "100vh" }}>
+    <Header/>
+      <Row className="flex-grow-1">
         <ConfigurationPage dict={dict} />
       </Row>
     </>

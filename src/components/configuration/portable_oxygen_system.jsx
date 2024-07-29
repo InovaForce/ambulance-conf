@@ -99,7 +99,7 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally,name ,buttons
 
   return (
     <div>
-      <Label title={name} />
+      <Label title="Select Portable Oxygen System" />
       <Image
         width={300}
         height={250}

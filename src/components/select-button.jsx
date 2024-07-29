@@ -20,7 +20,7 @@ const SelectButton = ({ key, value, option, price, handleSelect, selectedType, t
 
   return (
     <button
-      
+      className='mt-5'
       style={buttonStyle}
       key={key}
       value={value}

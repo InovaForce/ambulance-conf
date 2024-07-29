@@ -119,7 +119,7 @@ const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => 
     <div>
       <Label title={name}></Label>
       <div className={styles.ambulance_type}>
-        <div>
+        <div className={styles.ambulance_type}>
           {vehicleData[2].ambulance_type.map((type) => (
             <SelectButton
               key={type.name}
