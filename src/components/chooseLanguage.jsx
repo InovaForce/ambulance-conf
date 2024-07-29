@@ -1,6 +1,7 @@
-/* "use client"
+"use client"
 import React from "react";
-import Link from "next/link";
+import { Dropdown } from "react-bootstrap";
+import Image from "next/image";
 
 const languages = [
   { code: "en", name: "English", flag: "/images/flags/gb.png" },
@@ -11,21 +12,21 @@ const languages = [
 ];
 
 const ChooseLanguage = () => {
-  
-
   return (
-    <div >
-      <h1>Please select your language</h1>
-      <div >
+    <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Select Language
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
         {languages.map((lang) => (
-          <Link href={`/${lang.code}`} key={lang.code}>
-            <img width={160} height={100} src={lang.flag} alt={lang.name}  />
-          </Link>
+          <Dropdown.Item href={`/${lang.code}`} key={lang.code}>
+            <Image src={lang.flag} alt={lang.name} width={20} height={15} /> {lang.name}
+          </Dropdown.Item>
         ))}
-      </div>
-    </div>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 
 export default ChooseLanguage;
- */

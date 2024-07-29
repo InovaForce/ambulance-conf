@@ -1,20 +1,18 @@
 "use client";
 import { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import "@/styles/components/modalComp.scss";
 import ModalComp from "../modalComp";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-function ModalButton({ dict }) {
+function ModalButton({ dict,lang }) {
   const [modalShow, setModalShow] = useState(false);
   const btn1 = useRef(null);
   const btn2 = useRef(null);
   const router=useRouter();
 
   const handleStart = () => {
-  router.push('en/configuration')
+  router.push(`${lang}/configuration`)
   };
 
   return (
