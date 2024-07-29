@@ -1,30 +1,41 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
-export default async (req, res) => {
-  const { senderEmail, receiverEmail, subject, text } = req.body;
+export async function POST(req, res) {
+  const { name, email, message } = await req.json();
 
-  let transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, // Çevre değişkeni kullanılıyor
-    port: process.env.SMTP_PORT, // Çevre değişkeni kullanılıyor
-    secure: true,
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
     auth: {
-      user: process.env.SMTP_USER, // Çevre değişkeni kullanılıyor
-      pass: process.env.SMTP_PASSWORD // Çevre değişkeni kullanılıyor
-    }
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASS,
+    },
   });
 
-  let mailOptions = {
-    from: `"Form Sender" <${senderEmail}>`,
-    to: receiverEmail,
-    subject: subject,
-    text: text,
-    html: `<b>${text}</b>`
+  const mailOptions = {
+    from: `"${email}" <${process.env.EMAIL}>`, // Burada ad ve sabit e-posta adresi kullanılıyor
+    replyTo: email, // Alıcı bu adrese yanıt verebilir
+    to: "gencaslan555@gmail.com",
+    subject: `Contact form submission from ${name}`,
+    text: message,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return res.status(500).json({ error: error.message });
-    }
-    res.status(200).json({ success: true });
-  });
-};
+  try {
+    await transporter.sendMail(mailOptions);
+    return new Response(
+      JSON.stringify({ message: "Email sent successfully" }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.toString() }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+}

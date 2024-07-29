@@ -13,7 +13,7 @@ const initValues = {
 
 const initState = { loading: false, error: "", values: initValues };
 
-const FirmContactForm = () => {
+const FirmContactForm = ({ dict }) => {
   const [state, setState] = useState(initState);
   const [touched, setTouched] = useState({});
 
@@ -55,7 +55,7 @@ const FirmContactForm = () => {
   return (
     <div>
       <Container className={styles.container}>
-        <h1>Contact Us</h1>
+        <h1>{dict.buttons.contact}</h1>
         {error && <p>{error}</p>}
         <Form className={styles.contactForm} onSubmit={onSubmit}>
           <Row>
@@ -65,14 +65,16 @@ const FirmContactForm = () => {
                   className="my-2 input-text"
                   name="name"
                   type="text"
-                  placeholder="Name & Surname"
+                  placeholder={dict.contact.namePlaceholder}
                   value={values.name}
                   onChange={handleChange}
                   onBlur={onBlur}
                   isInvalid={touched.name && !values.name}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {touched.name && !values.name && "Name is required"}
+                  {touched.name &&
+                    !values.name &&
+                    `${dict.conttact.requiredName}`}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -82,15 +84,17 @@ const FirmContactForm = () => {
                   className="my-2 input-text"
                   name="email"
                   type="email"
-                  placeholder="Enter your email address."
+                  placeholder={dict.contact.emailPlaceholder}
                   value={values.email}
                   onChange={handleChange}
                   onBlur={onBlur}
                   isInvalid={touched.email && !values.email}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {touched.email && !values.email && "Email is required"}
-                </Form.Control.Feedback> 
+                  {touched.email &&
+                    !values.email &&
+                    `${dict.conttact.requiredEmail}`}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
             <Col xs={12}>
@@ -98,7 +102,7 @@ const FirmContactForm = () => {
                 <Form.Control
                   className="my-2 input-text"
                   as="textarea"
-                  placeholder="Your message"
+                  placeholder={dict.contact.messagePlaceholder}
                   name="message"
                   rows={4}
                   value={values.message}
@@ -106,7 +110,9 @@ const FirmContactForm = () => {
                   onBlur={onBlur}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {touched.message && !values.message && "Message is required"}
+                  {touched.message &&
+                    !values.message &&
+                    `${dict.conttact.requiredMessage}`}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -115,9 +121,11 @@ const FirmContactForm = () => {
             className="firm-btn-primary"
             variant="primary"
             type="submit"
-            disabled={loading || !values.name || !values.email || !values.message}
+            disabled={
+              loading || !values.name || !values.email || !values.message
+            }
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "Sending..." : `${dict.buttons.send}`}
           </Button>
         </Form>
       </Container>

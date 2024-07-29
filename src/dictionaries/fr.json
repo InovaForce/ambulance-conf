@@ -124,7 +124,14 @@
   "contact": {
     "name": "Nom",
     "email": "Courriel",
-    "message": "Message"
+    "message": "Message",
+    "namePlaceholder": "Nom et Prénom",
+    "emailPlaceholder": "Votre Courriel",
+    "messagePlaceholder": "Votre Message",
+    "requiredName": "Nom est requis",
+    "requiredEmail": "Courriel est requis",
+    "requiredMessage": "Message est requis",
+    "invalidEmail": "Courriel invalide"
   }
 
 }

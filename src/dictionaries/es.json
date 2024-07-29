@@ -126,7 +126,14 @@
   "contact": {
     "name": "Nombre",
     "email": "Correo Electrónico",
-    "message": "Mensaje"
+    "message": "Mensaje",
+    "namePlaceholder": "Nombre y Apellidos",
+    "emailPlaceholder": "Su Correo Electrónico",
+    "messagePlaceholder": "Su Mensaje",
+    "requiredName": "Nombre es requerido",
+    "requiredEmail": "Correo Electrónico es requerido",
+    "requiredMessage": "Mensaje es requerido",
+    "invalidEmail": "Correo Electrónico no es valido"
   }
 
 }

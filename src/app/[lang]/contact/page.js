@@ -3,7 +3,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import Contact from "@/components/contact/contact";
+
+import FirmContactForm from "@/components/contact/contactForm";
 
 const ContactPage = ({ dict }) => {
   const [ambulanceData, setAmbulanceData] = useState(null);
@@ -130,7 +131,7 @@ const ContactPage = ({ dict }) => {
           <Modal.Title>{dict.buttons.contact}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Contact dict={dict} />
+          <FirmContactForm dict={dict} />
         </Modal.Body>
       </Modal>
     </>
