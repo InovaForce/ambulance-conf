@@ -1,10 +1,11 @@
 'use client'
 import styles from "@/styles/components/sideBar.module.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const SideBar = ({ setGenerally,generally,dict }) => {
+const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
+  const [vehicleData, setVehicleData] = useState(null);
 
   const { pyschical, medical } = dict;
 
@@ -13,10 +14,17 @@ const SideBar = ({ setGenerally,generally,dict }) => {
   },[generally])
 
 
-const handleRemove = (params) => {
-  
-  
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllInformation();
+        setVehicleData(data);
+      } catch (error) {
+        console.error("Araç verilerini alırken hata oluştu:", error);
+      }
+    };
+    fetchData();
+  }, []);
  
   
 
@@ -61,7 +69,7 @@ const handleRemove = (params) => {
 
         {generally.pyschical.fuelType ? (
           <div>
-            <h3>{pyschical.fuelType} <AiOutlineCloseCircle className={`${styles.hvr} hvr ms-4 text-black fs-4`}/></h3>
+            <h3>{pyschical.fuelType} <AiOutlineCloseCircle  onClick={() => handleRemove('pyschical', 'fuelType')} className={`${styles.hvr} hvr ms-4 text-black fs-4`}/></h3>
             <h4>{generally.pyschical.fuelType}</h4>
           </div>
         ) : null}

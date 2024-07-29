@@ -46,6 +46,7 @@ const ConfigurationPage = ({ dict}) => {
     return savedData ? JSON.parse(savedData) : initialAmbulance;
   });
   
+  
 
   const {configurationPage,buttons,initAmbulance}=dict;
   const { pyschalEquipment,medicalEquipment } = configurationPage;
@@ -77,6 +78,26 @@ const ConfigurationPage = ({ dict}) => {
     localStorage.setItem("ambulanceData", JSON.stringify(generally));
   }, [generally]);
 
+  const handleRemove = (section, key) => {
+    const newGenerally = { ...generally };
+    let priceToRemove = 0;
+
+    if (section === 'pyschical') {
+     //   priceToRemove = newGenerally.pyschical[key]?.price || 0;
+        delete newGenerally.pyschical[key];
+    } else if (section === 'medical') {
+     //   priceToRemove = newGenerally.medical[key]?.price || 0;
+        delete newGenerally.medical[key];
+    }
+
+  //  newGenerally.totalPrice -= priceToRemove;
+
+
+    localStorage.setItem("ambulanceData", JSON.stringify(newGenerally));
+    
+
+    setGenerally(newGenerally);
+};
  
   return (
     <Row>
@@ -126,7 +147,7 @@ const ConfigurationPage = ({ dict}) => {
         )}
       </Col>
       <Col md={3}>
-        <SideBar generally={generally} setGenerally={setGenerally} dict={initAmbulance} />
+        <SideBar handleRemove={handleRemove} generally={generally} setGenerally={setGenerally} dict={initAmbulance} />
       </Col>
     </Row>
   );

@@ -55,6 +55,7 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
           oldPrice = parseFloat(
             vehicleData[0].fuel_type[1].price.replace("$", "")
           );
+          
           break;
         default:
           oldPrice = 0;
