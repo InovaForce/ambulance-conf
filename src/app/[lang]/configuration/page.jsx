@@ -61,6 +61,7 @@ const ConfigurationPage = ({ dict}) => {
     // Local storage'ı temizle ve generally durumunu sıfırla
     localStorage.removeItem("ambulanceData");
     setGenerally(initialAmbulance);
+    localStorage.setItem("ambulanceData", JSON.stringify(initialAmbulance));
   };
 
   useEffect(() => {
