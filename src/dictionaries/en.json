@@ -124,7 +124,14 @@
 "contact":{
   "name":"Name",
   "email":"Email",
-  "message":"Message"
+  "message":"Message",
+  "namePlaceholder":"Name and Surname",
+  "emailPlaceholder":"Your Email",
+  "messagePlaceholder":"Your Message",
+  "requiredName":"Name is required",
+  "requiredEmail":"Email is required",
+  "requiredMessage":"Message is required",
+  "invalidEmail":"Invalid Email"
 }
 
 }

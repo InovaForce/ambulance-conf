@@ -124,7 +124,14 @@
   "contact": {
     "name": "Имя",
     "email": "Электронная почта",
-    "message": "Сообщение"
+    "message": "Сообщение",
+    "namePlaceholder": "Имя и Фамилия",
+    "emailPlaceholder": "Ваш адрес электронной почты",
+    "messagePlaceholder": "Ваше сообщение",
+    "requiredName": "Имя обязательно",
+    "requiredEmail": "Электронная почта обязательна",
+    "requiredMessage": "Сообщение обязательно",
+    "invalidEmail": "Неверный адрес электронной почты"
   }
 
 }

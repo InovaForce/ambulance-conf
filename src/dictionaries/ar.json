@@ -124,7 +124,14 @@
   "contact": {
     "name": "اسم",
     "email": "البريد الإلكتروني",
-    "message": "رسالة"
+    "message": "رسالة",
+    "namePlaceholder": "الاسم واللقب",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "messagePlaceholder": "رسالتك",
+    "requiredName": "الاسم مطلوب",
+    "requiredEmail":"البريد الإلكتروني مطلوب",
+    "requiredMessage": "رسالة مطلوبة",
+    "invalidEmail": "البريد الإلكتروني غير صالح"
   }
 
 }
