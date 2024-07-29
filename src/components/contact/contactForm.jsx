@@ -112,7 +112,7 @@ const FirmContactForm = ({ dict }) => {
                 <Form.Control.Feedback type="invalid">
                   {touched.message &&
                     !values.message &&
-                    `${dict.conttact.requiredMessage}`}
+                    `${dict.contact.requiredMessage}`}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>

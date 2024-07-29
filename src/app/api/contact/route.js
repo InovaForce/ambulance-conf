@@ -14,7 +14,7 @@ export async function POST(req, res) {
   const mailOptions = {
     from: `"${email}" <${process.env.EMAIL}>`, // Burada ad ve sabit e-posta adresi kullanılıyor
     replyTo: email, // Alıcı bu adrese yanıt verebilir
-    to: "gencaslan555@gmail.com",
+    to: process.env.EMAIL,
     subject: `Contact form submission from ${name}`,
     text: message,
   };
