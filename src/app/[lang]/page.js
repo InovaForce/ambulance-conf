@@ -9,7 +9,7 @@ const Home = async ({ params }) => {
   return (
     <>
       <Header lang={lang} />
-      <HomeComp dict={dict} />
+      <HomeComp dict={dict} lang={lang}/>
     </>
   );
 };

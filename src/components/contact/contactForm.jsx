@@ -72,9 +72,8 @@ const FirmContactForm = ({ dict }) => {
                   isInvalid={touched.name && !values.name}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {touched.name &&
-                    !values.name &&
-                    `${dict.conttact.requiredName}`}
+                {touched.name && !values.name && dict?.contact?.requiredName && `${dict.contact.requiredName}`}
+
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -93,7 +92,7 @@ const FirmContactForm = ({ dict }) => {
                 <Form.Control.Feedback type="invalid">
                   {touched.email &&
                     !values.email &&
-                    `${dict.conttact.requiredEmail}`}
+                    dict?.conttact?.requiredEmail && `${dict.contact.requiredEmail}`}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -112,7 +111,7 @@ const FirmContactForm = ({ dict }) => {
                 <Form.Control.Feedback type="invalid">
                   {touched.message &&
                     !values.message &&
-                    `${dict.contact.requiredMessage}`}
+                    `dict?.contact?.requiredMessage && ${dict.contact.requiredMessage}`}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
