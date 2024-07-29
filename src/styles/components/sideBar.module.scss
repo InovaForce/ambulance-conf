@@ -34,10 +34,20 @@
     ul{
         list-style: none;
     }
+
+    .hvr{
+        cursor: pointer;
+        transition: color 1.3s ease;
+        border-radius: 100%;
+        
+        &:hover {
+            background-color: rgb(139, 166, 255); 
+          }
+    }
+    
 }
 
 
-  
 
   
 
