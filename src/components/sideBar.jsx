@@ -2,13 +2,23 @@
 import styles from "@/styles/components/sideBar.module.scss";
 import { useEffect } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
-const SideBar = ({ generally,dict }) => {
+import { AiOutlineCloseCircle } from "react-icons/ai";
+
+const SideBar = ({ setGenerally,generally,dict }) => {
 
   const { pyschical, medical } = dict;
 
   useEffect (()=>{
 
   },[generally])
+
+
+const handleRemove = (params) => {
+  
+  
+}
+ 
+  
 
   const renderSection = (section, sectionName) => {
     return (
@@ -51,7 +61,7 @@ const SideBar = ({ generally,dict }) => {
 
         {generally.pyschical.fuelType ? (
           <div>
-            <h3>{pyschical.fuelType}</h3>
+            <h3>{pyschical.fuelType} <AiOutlineCloseCircle className={`${styles.hvr} hvr ms-4 text-black fs-4`}/></h3>
             <h4>{generally.pyschical.fuelType}</h4>
           </div>
         ) : null}

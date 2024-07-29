@@ -1,0 +1,20 @@
+.modalDiv{
+    background-image:  url("/images/ambulance.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
+    
+    .helpButton{
+        display: flex;
+        justify-content: space-between;
+        height: 92vh;
+        overflow: scroll;
+      
+    }
+}
+
+.modulhg{
+  max-height: 92vh;
+  overflow-y: scroll;
+}

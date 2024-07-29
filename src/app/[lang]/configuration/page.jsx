@@ -125,7 +125,7 @@ const ConfigurationPage = ({ dict}) => {
         )}
       </Col>
       <Col md={3}>
-        <SideBar generally={generally} dict={initAmbulance} />
+        <SideBar generally={generally} setGenerally={setGenerally} dict={initAmbulance} />
       </Col>
     </Row>
   );
