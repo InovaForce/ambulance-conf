@@ -87,7 +87,7 @@ const handleRemove = (params) => {
           </>
         ) : null}
 
-        {generally.pyschical.extraFeatures ? (
+        {generally.pyschical.extraFeatures.length>0 ? (
           <div>
             <h3>{pyschical.extraFeatures}</h3>
 
