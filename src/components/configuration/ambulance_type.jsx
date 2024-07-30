@@ -131,18 +131,13 @@ const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => 
             />
           ))}
         </div>
-      </div>
-      {selectedAmbulanceType && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h5>Selected Ambulance Type: {selectedAmbulanceType}</h5>
-        </div>
-      )}
-      <OptionButton
+        <OptionButton
         handleNext={handleNext}
         handleBack={handleBack}
         back={buttons.back}
         next={buttons.next}
       />
+      </div>
     </div>
   );
 };

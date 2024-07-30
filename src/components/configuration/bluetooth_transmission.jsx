@@ -39,7 +39,7 @@ const BluetoothTransmissionSelector = ({
   };
 
   if (!vehicleData) {
-    return <div>Yükleniyor...</div>;
+    return <div>Loading...</div>;
   }
 
   const handleSelect = (system) => {

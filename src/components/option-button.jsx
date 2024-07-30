@@ -1,4 +1,4 @@
-import "@/styles/components/optionButton.module.scss";
+import React from "react";
 
 const OptionButton = ({ handleNext, handleBack, back, next,reset,handleReset,finish,justify }) => {
 
