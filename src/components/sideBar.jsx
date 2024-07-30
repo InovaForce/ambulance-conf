@@ -163,7 +163,7 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
             <h3>
               {medical.firstAidKit}
               <AiOutlineCloseCircle
-                onClick={() => handleRemove("medical", "foldableStretcher")}
+                onClick={() => handleRemove("medical", "firstAidKit")}
                 className={`${styles.hvr} hvr ms-4 text-black fs-4`}
               />
             </h3>
@@ -176,7 +176,7 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
             <h3>
               {medical.oxygenSystem}
               <AiOutlineCloseCircle
-                onClick={() => handleRemove("medical", "foldableStretcher")}
+                onClick={() => handleRemove("medical", "oxygenSystem")}
                 className={`${styles.hvr} hvr ms-4 text-black fs-4`}
               />
             </h3>
@@ -189,7 +189,7 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
             <h3>
               {medical.portableOxygenSystem}
               <AiOutlineCloseCircle
-                onClick={() => handleRemove("medical", "foldableStretcher")}
+                onClick={() => handleRemove("medical", "portableOxygenSystem")}
                 className={`${styles.hvr} hvr ms-4 text-black fs-4`}
               />
             </h3>
@@ -202,7 +202,7 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
             <h3>
               {medical.defibrillator}
               <AiOutlineCloseCircle
-                onClick={() => handleRemove("medical", "foldableStretcher")}
+                onClick={() => handleRemove("medical", "defibrillator")}
                 className={`${styles.hvr} hvr ms-4 text-black fs-4`}
               />
             </h3>
@@ -215,7 +215,7 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
             <h3>
               {medical.bluetoothTransmission}
               <AiOutlineCloseCircle
-                onClick={() => handleRemove("medical", "foldableStretcher")}
+                onClick={() => handleRemove("medical", "bluetoothTransmission")}
                 className={`${styles.hvr} hvr ms-4 text-black fs-4`}
               />
             </h3>
