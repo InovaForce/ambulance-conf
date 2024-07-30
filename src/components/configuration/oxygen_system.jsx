@@ -98,6 +98,10 @@ const OxygenSystem = ({ setActive, generally, setGenerally,name, buttons }) => {
         ...prev.medical,
         oxygenSystem: system,
       },
+      prices: {
+        ...prev.prices,
+        oxygenSystem: newPrice,
+      },
     }));
   };
 

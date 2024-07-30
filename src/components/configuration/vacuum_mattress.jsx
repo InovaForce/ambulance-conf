@@ -66,6 +66,10 @@ const VacuumMattress = ({ setActive, generally, setGenerally, name, buttons }) =
         ...prev.medical,
         vacuumMattress: mattress.name,
       },
+      prices: {
+        ...prev.prices,
+        vacuumMattress: newPrice,
+      },
     }));
   };
 

@@ -69,33 +69,57 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
 
         {generally.pyschical.fuelType ? (
           <div>
-            <h3>{pyschical.fuelType} <AiOutlineCloseCircle  onClick={() => handleRemove('pyschical', 'fuelType')} className={`${styles.hvr} hvr ms-4 text-black fs-4`}/></h3>
+            <h3>
+              {pyschical.fuelType}{" "}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("pyschical", "fuelType")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.pyschical.fuelType}</h4>
           </div>
         ) : null}
 
         {generally.pyschical.tractionType ? (
           <>
-            <h3>{pyschical.tractionType}</h3>
+            <h3>
+              {pyschical.tractionType}{" "}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("pyschical", "tractionType")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.pyschical.tractionType}</h4>
           </>
         ) : null}
 
         {generally.pyschical.ambulanceType ? (
           <>
-            <h3>{pyschical.ambulanceType}</h3>
+            <h3>
+              {pyschical.ambulanceType}{" "}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("pyschical", "ambulanceType")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.pyschical.ambulanceType}</h4>
           </>
         ) : null}
 
         {generally.pyschical.vehicleType ? (
           <>
-            <h3>{pyschical.vehicleType}</h3>
+            <h3>
+              {pyschical.vehicleType}{" "}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("pyschical", "vehicleType")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.pyschical.vehicleType}</h4>
           </>
         ) : null}
 
-        {generally.pyschical.extraFeatures.length>0 ? (
+        {generally.pyschical.extraFeatures.length > 0 ? (
           <div>
             <h3>{pyschical.extraFeatures}</h3>
 
@@ -110,124 +134,232 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
 
         {generally.medical.mainStretcher ? (
           <>
-            <h3>{medical.mainStretcher}</h3>
+            <h3>
+              {medical.mainStretcher}{" "}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "mainStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.mainStretcher}</h4>
           </>
         ) : null}
 
         {generally.medical.foldableStretcher ? (
           <>
-            <h3>{medical.foldableStretcher}</h3>
+            <h3>
+              {medical.foldableStretcher}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "foldableStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.foldableStretcher}</h4>
           </>
         ) : null}
 
         {generally.medical.firstAidKit ? (
           <>
-            <h3>{medical.firstAidKit}</h3>
+            <h3>
+              {medical.firstAidKit}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "foldableStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.firstAidKit}</h4>
           </>
         ) : null}
 
         {generally.medical.oxygenSystem ? (
           <>
-            <h3>{medical.oxygenSystem}</h3>
+            <h3>
+              {medical.oxygenSystem}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "foldableStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.oxygenSystem}</h4>
           </>
         ) : null}
 
         {generally.medical.portableOxygenSystem ? (
           <>
-            <h3>{medical.portableOxygenSystem}</h3>
+            <h3>
+              {medical.portableOxygenSystem}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "foldableStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.portableOxygenSystem}</h4>
           </>
         ) : null}
 
         {generally.medical.defibrillator ? (
           <>
-            <h3>{medical.defibrillator}</h3>
+            <h3>
+              {medical.defibrillator}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "foldableStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4> {generally.medical.defibrillator}</h4>
           </>
         ) : null}
 
         {generally.medical.bluetoothTransmission ? (
           <>
-            <h3>{medical.bluetoothTransmission}</h3>
+            <h3>
+              {medical.bluetoothTransmission}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "foldableStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.bluetoothTransmission}</h4>
           </>
         ) : null}
 
         {generally.medical.portableSuctionUnit ? (
           <>
-            <h3>{medical.portableSuctionUnit}</h3>
+            <h3>
+              {medical.portableSuctionUnit}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "portableSuctionUnit")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.portableSuctionUnit}</h4>
           </>
         ) : null}
 
         {generally.medical.manualSuctionUnit ? (
           <>
-            <h3>{medical.manualSuctionUnit}</h3>
+            <h3>
+              {medical.manualSuctionUnit}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "manualSuctionUnit")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.manualSuctionUnit}</h4>
           </>
         ) : null}
 
         {generally.medical.spineBoard ? (
           <>
-            <h3>{medical.spineBoard}</h3>
+            <h3>
+              {medical.spineBoard}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "spineBoard")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.spineBoard}</h4>
           </>
         ) : null}
 
         {generally.medical.headImmobilizer ? (
           <>
-            <h3>{medical.headImmobilizer}</h3>
+            <h3>
+              {medical.headImmobilizer}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "headImmobilizer")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.headImmobilizer}</h4>
           </>
         ) : null}
 
         {generally.medical.scoopStretcher ? (
           <>
-            <h3>{medical.scoopStretcher}</h3>
+            <h3>
+              {medical.scoopStretcher}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "scoopStretcher")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.scoopStretcher}</h4>
           </>
         ) : null}
 
         {generally.medical.vacuumMattress ? (
           <>
-            <h3>{medical.vacuumMattress}</h3>
+            <h3>
+              {medical.vacuumMattress}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "vacuumMattress")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.vacuumMattress}</h4>
           </>
         ) : null}
 
         {generally.medical.glucometer ? (
           <>
-            <h3>{medical.glucometer}</h3>
+            <h3>
+              {medical.glucometer}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "glucometer")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.glucometer}</h4>
           </>
         ) : null}
 
         {generally.medical.portableVentilator ? (
           <>
-            <h3>{medical.portableVentilator}</h3>
+            <h3>
+              {medical.portableVentilator}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "portableVentilator")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.portableVentilator}</h4>
           </>
         ) : null}
 
         {generally.medical.portablePatientMonitor ? (
           <>
-            <h3>{medical.portablePatientMonitor}</h3>
+            <h3>
+              {medical.portablePatientMonitor}
+              <AiOutlineCloseCircle
+                onClick={() =>
+                  handleRemove("medical", "portablePatientMonitor")
+                }
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.portablePatientMonitor}</h4>
           </>
         ) : null}
 
         {generally.medical.suctionAspiration ? (
           <>
-            <h3>{medical.suctionAspiration}</h3>
+            <h3>
+              {medical.suctionAspiration}
+              <AiOutlineCloseCircle
+                onClick={() => handleRemove("medical", "suctionAspiration")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </h3>
             <h4>{generally.medical.suctionAspiration}</h4>
           </>
         ) : null}
 
-        <h2 className={styles.total}>{dict.totalPrice}{":"}{generally.totalPrice}$</h2>
+        <h2 className={styles.total}>
+          {dict.totalPrice}
+          {":"}
+          {generally.totalPrice}$
+        </h2>
       </div>
     </div>
   );

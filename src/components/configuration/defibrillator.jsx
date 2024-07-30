@@ -94,6 +94,10 @@ const Defibrillator = ({ setActive, generally, setGenerally,name, buttons }) => 
         ...prev.medical,
         defibrillator: defibrillator,
       },
+      prices: {
+        ...prev.prices,
+        defibrillator: newPrice,
+      },
     }));
   };
 

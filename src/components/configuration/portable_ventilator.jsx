@@ -66,6 +66,10 @@ const PortableVentilator = ({ setActive, generally, setGenerally, name, buttons 
         ...prev.medical,
         portableVentilator: ventilator.name,
       },
+      prices: {
+        ...prev.prices,
+        portableVentilator: newPrice,
+      },
     }));
   };
 

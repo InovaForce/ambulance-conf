@@ -98,6 +98,10 @@ const SpineBoard = ({ setActive, generally, setGenerally,name, buttons }) => {
         ...prev.medical,
         spineBoard: board,
       },
+      prices: {
+        ...prev.prices,
+        spineBoard: newPrice,
+      },
     }));
   };
 

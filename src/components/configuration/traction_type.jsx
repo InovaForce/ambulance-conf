@@ -76,6 +76,10 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
           ...prev.pyschical,
           tractionType: vehicle,
         },
+        prices: {
+          ...prev.prices,
+          tractionType: newPrice,
+        },
       }));
       console.log("generally", generally);
     };

@@ -72,6 +72,10 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset
         ...prev.medical,
         portablePatientMonitor: monitor.name,
       },
+      prices: {
+        ...prev.prices,
+        portablePatientMonitor: newPrice,
+      },
     }));
   };
 

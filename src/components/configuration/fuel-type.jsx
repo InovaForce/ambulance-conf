@@ -72,6 +72,10 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
         ...prev.pyschical,
         fuelType: fuel,
       },
+      prices: {
+        ...prev.prices,
+        fuelType: newPrice,
+      },
     }));
     console.log("generally", generally);
   };

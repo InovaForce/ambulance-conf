@@ -98,6 +98,10 @@ const FirstAidKit = ({ setActive, generally, setGenerally,name, buttons }) => {
         ...prev.medical,
         firstAidKit: kit,
       },
+      prices: {
+        ...prev.prices,
+        firstAidKit: newPrice,
+      },
     }));
   };
 
