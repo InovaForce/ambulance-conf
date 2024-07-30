@@ -13,7 +13,7 @@ const LayoutConfiguration = async ({ params }) => {
   return (
     <>
     <Header/>
-      <Row className="flex-grow-1">
+      <Row style={{ Height: "100%" }}  >
         <ConfigurationPage dict={dict} />
       </Row>
     </>

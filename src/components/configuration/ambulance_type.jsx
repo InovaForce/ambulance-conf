@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import Label from "../label";
 import styles from "@/styles/components/configuration/ambulance_type.module.scss";
@@ -6,7 +5,7 @@ import { getAllInformation } from "@/services/api";
 import SelectButton from "../select-button";
 import OptionButton from "../option-button";
 
-const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => {
+const AmbulanceType = ({ setActive, generally, setGenerally, name, buttons }) => {
   const [selectedAmbulanceType, setSelectedAmbulanceType] = useState("");
   const [vehicleData, setVehicleData] = useState(null);
   const [price, setPrice] = useState(100);
@@ -24,7 +23,7 @@ const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => 
   }, []);
 
   if (!vehicleData) {
-    return <div>Yükleniyor...</div>;
+    return <div>Loading...</div>;
   }
 
   const handleSelect = (vehicle) => {
@@ -116,45 +115,30 @@ const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => 
   };
 
   return (
-    <div>
-      <Label title={name}></Label>
-      <div className={styles.ambulance_type}>
-        <div className={styles.ambulance_type}>
-          {vehicleData[2].ambulance_type.map((type) => (
-            <SelectButton
-              key={type.name}
-              value={type.price}
-              handleSelect={handleSelect}
-              option={type.name}
-              price={type.price}
-              disabled={generally.pyschical.ambulanceType === type.name}
-            />
-          ))}
-        </div>
+    <div className={styles.container}>
+      <Label title={name} />
+      <div className={styles.ambulance_type_container}>
+        {vehicleData[2].ambulance_type.map((type) => (
+          <SelectButton
+            key={type.name}
+            value={type.price}
+            handleSelect={handleSelect}
+            option={type.name}
+            price={type.price}
+            disabled={generally.pyschical.ambulanceType === type.name}
+          />
+        ))}
+      </div>
+      <div className={styles.ambulance_type_button}>
         <OptionButton
-        handleNext={handleNext}
-        handleBack={handleBack}
-        back={buttons.back}
-        next={buttons.next}
-      />
+          handleNext={handleNext}
+          handleBack={handleBack}
+          back={buttons.back}
+          next={buttons.next}
+        />
       </div>
     </div>
   );
 };
 
 export default AmbulanceType;
-
-/*<div className={styles.ambulance_type_button}>
-                <button onClick={() => handleSelectAmbulanceType('Basic Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Basic Life Support' ? '#fbf79e' : 'grey', borderRadius: "5px",border: " 2px solid #cdca8d",
-              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)"}}>
-                    Basic Life Support
-                </button>
-                <button onClick={() => handleSelectAmbulanceType('Advanced Life Support')} style={{ backgroundColor: selectedAmbulanceType === 'Advanced Life Support' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
-              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
-                    Advanced Life Support
-                </button>
-                <button onClick={() => handleSelectAmbulanceType('Intensive Care Unit')} style={{ backgroundColor: selectedAmbulanceType === 'Intensive Care Unit' ? '#fbf79e' : 'grey',borderRadius: "5px", border: " 2px solid #cdca8d",
-              boxShadow: "0px 1px 1x rgba(0, 0, 0, 0.25)" }}>
-                    Intensive Care Unit
-                </button>
-            </div>*/

@@ -1,46 +1,27 @@
 
-.ambulance_type_lablel{
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    margin-bottom: 30px;
-    border-radius:5px ;
-    -webkit-border-radius:5px ;
-    -moz-border-radius:5px ;
-    -ms-border-radius:5px ;
-    -o-border-radius:5px ;
-
-}
-.ambulance_type_button{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-    width: 80%;
+.ambulance_type_container {
+    width: 50rem;
     margin: auto;
-
-    button{
-        font-size: 16px;
-        font-weight: 600;
-         padding: 50px 30px;
-         border-radius: '5px !important';
-         -webkit-border-radius: '5px !important';
-         -moz-border-radius: '5px !important';
-         -ms-border-radius: '5px !important';
-         -o-border-radius: '5px !important';
-}
-    
-    
-}
- .ambulance_type {
     display: flex;
- 
     flex-wrap: wrap;
-    gap: 10px;
-    text-align: center; 
-    align-items: center;
-    width: 800px;
-    margin: auto;
-    padding: 0 40px;
-  } 
-  
+    justify-content: center;
+    gap: 0.7rem;
+    align-items: center;s
+    .select_button {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-evenly;        
+       // flex: 1 1 auto; // Flex ayarı ile orantılı genişleme
+    }
+   
+
+
+
+}
+
+
+
+
+
+
+
