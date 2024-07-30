@@ -23,7 +23,7 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
     fetchData();
   }, []);
   if (!vehicleData) {
-    return <div>Yükleniyor...</div>;
+    return <div>Loding...</div>;
   }
   const handleSelect = (fuel) => {
     // Yeni seçilen stretcher'ın fiyatını al
@@ -78,7 +78,9 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
   const handleNext = () => {
     setActive((prev) => prev + 1);
   };
-
+  const handleBack = () => {
+    setActive((prev) => prev - 1);
+  };
   return (
     <div >
       <Label title={name}></Label>
@@ -107,12 +109,11 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
           ))}
         </div>
       </div>
-      {selectedFuelType && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h5>Selected Fuel Type: {selectedFuelType}</h5>
-        </div>
-      )}
-      <OptionButton handleNext={handleNext} next={buttons.next} justify="flex-end" />
+      <div>
+      <OptionButton handleBack={handleBack} back={buttons.back} />
+      <OptionButton handleNext={handleNext} next={buttons.next} />
+      </div>
+      
     </div>
   );
 };

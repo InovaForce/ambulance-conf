@@ -25,7 +25,7 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
     }, []);
     
     if (!vehicleData) {
-      return <div>Yükleniyor...</div>;
+      return <div>Loading...</div>;
     }
     const handleSelect = (vehicle) => {
       // Yeni seçilen stretcher'ın fiyatını al
@@ -107,12 +107,7 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
               />
             ))}
           </div>
-        </div>
-        {selectedTractionType && (
-          <div style={{ marginTop: "20px", textAlign: "center" }}>
-            <h5>Selected Traction Type: {selectedTractionType}</h5>
-          </div>
-        )}
+        </div>  
         <OptionButton
           handleNext={handleNext}
           handleBack={handleBack}
