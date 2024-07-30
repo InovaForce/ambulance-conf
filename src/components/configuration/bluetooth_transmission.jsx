@@ -104,6 +104,10 @@ const BluetoothTransmissionSelector = ({
         ...prev.medical,
         bluetoothTransmission: system,
       },
+      prices: {
+        ...prev.prices,
+        bluetoothTransmission: newPrice,
+      },
     }));
   };
 

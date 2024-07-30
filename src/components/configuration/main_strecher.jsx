@@ -101,6 +101,10 @@ const MainStretcher = ({ setActive, generally, setGenerally,setSection,name,butt
           ...prev.medical,
           mainStretcher: stretcher,
         },
+        prices: {
+          ...prev.prices,
+          mainStretcher: newPrice, // prev.prices.mainStretcher yerine newPrice kullanarak fiyatı doğrudan setleyin
+        },
       }));
       console.log("generally", generally);
     };

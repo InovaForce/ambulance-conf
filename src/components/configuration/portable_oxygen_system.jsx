@@ -94,6 +94,10 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally,name ,buttons
         ...prev.medical,
         portableOxygenSystem: system,
       },
+      prices: {
+        ...prev.prices,
+        portableOxygenSystem: newPrice,
+      },
     }));
   };
 

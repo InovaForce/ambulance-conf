@@ -104,6 +104,10 @@ const PortableSuctionUnitSelector = ({
         ...prev.medical,
         portableSuctionUnit: unit,
       },
+      prices: {
+        ...prev.prices,
+        portableSuctionUnit: newPrice,
+      },
     }));
   };
 

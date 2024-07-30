@@ -33,6 +33,29 @@ const initialAmbulance = {
     portablePatientMonitor: "",
     suctionAspiration: "",
   },
+  prices: {
+    fuelType: 0,
+    tractionType: 0,
+    ambulanceType:0,
+    vehicleType: 0,
+    mainStretcher: 0,
+    foldableStretcher: 0,
+    firstAidKit: 0,
+    oxygenSystem: 0,
+    portableOxygenSystem: 0,
+    defibrillator: 0,
+    bluetoothTransmission: 0,
+    portableSuctionUnit:0,
+    manualSuctionUnit: 0,
+    spineBoard: 0,
+    headImmobilizer: 0,
+    scoopStretcher: 0,
+    vacuumMattress: 0,
+    glucometer: 0,
+    portableVentilator: 0,
+    portablePatientMonitor: 0,
+    suctionAspiration: 0,
+  },
   totalPrice: 0,
 };
 
@@ -80,8 +103,13 @@ const ConfigurationPage = ({ dict}) => {
   }, [generally]);
 
   const handleRemove = (section, key) => {
-    const newGenerally = { ...generally };
-    let priceToRemove = 0;
+    console.log("total", generally.totalPrice, "price", generally.prices[key]);
+
+    const newGenerally = {
+      ...generally,
+      totalPrice: generally.totalPrice - generally.prices[key],
+    };
+    
 
     if (section === 'pyschical') {
      //   priceToRemove = newGenerally.pyschical[key]?.price || 0;

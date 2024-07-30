@@ -94,6 +94,10 @@ const ScoopStretcher = ({ setActive, generally, setGenerally, name, buttons }) =
         ...prev.medical,
         scoopStretcher: stretcher,
       },
+      prices: {
+        ...prev.prices,
+        scoopStretcher: newPrice,
+      },
     }));
   };
 

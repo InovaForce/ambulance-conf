@@ -66,6 +66,10 @@ const Glucometer = ({ setActive, generally, setGenerally, name, buttons }) => {
         ...prev.medical,
         glucometer: glucometer.name,
       },
+      prices: {
+        ...prev.prices,
+        glucometer: newPrice,
+      },
     }));
     console.log("generally", generally);
   };

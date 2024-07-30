@@ -98,6 +98,10 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally,name, bu
         ...prev.medical,
         foldableStretcher: stretcher,
       },
+      prices: {
+        ...prev.prices,
+        foldableStretcher: newPrice,
+      },
     }));
   };
 

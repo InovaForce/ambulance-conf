@@ -98,6 +98,10 @@ const ManualSuctionUnit = ({ setActive, generally, setGenerally,name, buttons })
         ...prev.medical,
         manualSuctionUnit: unit,
       },
+      prices: {
+        ...prev.prices,
+        manualSuctionUnit: newPrice,
+      },
     }));
   };
 

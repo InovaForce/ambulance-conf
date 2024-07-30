@@ -98,6 +98,10 @@ const HeadImmobilizer = ({ setActive, generally, setGenerally, name, buttons }) 
         ...prev.medical,
         headImmobilizer: immobilizer,
       },
+      prices: {
+        ...prev.prices,
+        headImmobilizer: newPrice,
+      },
     }));
   };
 

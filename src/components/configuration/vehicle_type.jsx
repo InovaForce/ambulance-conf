@@ -75,6 +75,10 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally,name,buttons }) 
           ...prev.pyschical,
           vehicleType: vehicle,
         },
+        prices: {
+          ...prev.prices,
+          vehicleType: newPrice,
+        },
       }));
       console.log("generally", generally);
     };

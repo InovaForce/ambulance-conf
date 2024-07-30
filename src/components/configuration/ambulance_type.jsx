@@ -104,6 +104,10 @@ const AmbulanceType = ({ setActive, generally, setGenerally,name, buttons }) => 
         ...prev.pyschical,
         ambulanceType: vehicle,
       },
+      prices: {
+        ...prev.prices,
+        pyschical: newPrice,
+      },
     }));
   };
 

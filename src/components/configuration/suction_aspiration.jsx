@@ -94,6 +94,10 @@ const SuctionAspiration = ({ setActive, generally, setGenerally,name, buttons })
         ...prev.medical,
         suctionAspiration: device,
       },
+      prices: {
+        ...prev.prices,
+        suctionAspiration: newPrice,
+      },
     }));
   };
 
