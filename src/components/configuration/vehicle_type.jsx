@@ -102,11 +102,12 @@ const VehicleTypeSelector = ({
         alt="Vehicle Image"
         width={800}
         height={350}
+        className={styles.vehicle_type} // 
       />
-      <div className={styles.vehicle_type}>
+      <div className={styles.vehicle_selected}>
         <div>
           {vehicleData[3].vehicle_type.map((type) => (
-            <SelectButton
+            <SelectButtons
               key={type.name}
               value={type.price}
               handleSelect={handleSelect}
@@ -117,12 +118,6 @@ const VehicleTypeSelector = ({
           ))}
         </div>
       </div>
-      {selectedVehicleType && (
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <h5>Selected Fuel Type: {selectedVehicleType}</h5>
-        </div>
-      )}
-
       <div
         style={{
           display: "flex",

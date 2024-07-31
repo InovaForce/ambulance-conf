@@ -2,15 +2,22 @@
 @use "@/styles/mixins" as m;
 
 
- 
-.next_back {
-  display: flex;
-  width: 100%;
+.traction_type {
   width: 800px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  justify-content: space-evenly;
+  height: 350px; 
+  display: flex;
+  justify-content: center;
   align-items: center;
+  margin: auto;
+
+  .traction_selected{
+    display: flex;
+    width: 800px;
+    font-weight: 600;
+    justify-content: space-evenly;
+    
+   
+  }
+    
+
 }
-
-
