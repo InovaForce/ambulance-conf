@@ -129,7 +129,7 @@ const AmbulanceType = ({ setActive, generally, setGenerally, name, buttons }) =>
           />
         ))}
       </div>
-      <div className={styles.ambulance_type_button}>
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
         <OptionButton
           handleNext={handleNext}
           handleBack={handleBack}
