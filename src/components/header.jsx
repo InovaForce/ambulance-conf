@@ -1,11 +1,14 @@
+"use client"; 
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from '@/styles/components/header.module.scss';
 import { Nav } from 'react-bootstrap';
 import ChooseLanguage from './ChooseLanguage';
+import { useRouter } from 'next/navigation';
 
-const Header = ({ lang }) => {
+const Header = ({ lang }) => {`
+  `
   const Language = {
     es: "Español",
     en: "English",
@@ -38,10 +41,17 @@ const Header = ({ lang }) => {
     ru: "Контакт",
   };
 
+  const router=useRouter();
+
+  const pushRouter = () => {
+    router.push("/");
+  }
+
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Image src="/images/ıcu.png" alt="logo" width={120} height={40} />
+        <Image style={{ cursor: "pointer" }} onClick={pushRouter} src="/images/ıcu.png" alt="logo" width={120} height={40} />
       </div>
       <Nav className={styles.nav}>
         <ul className={styles.nav_link}>
