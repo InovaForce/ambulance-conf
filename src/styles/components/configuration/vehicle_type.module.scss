@@ -3,18 +3,14 @@
 
 
 .vehicle_type {
-  width: 800px;
-  height:350px ;
   display: flex;
-  justify-content: space-evenly;
   margin: auto;
 
   
 }
 .vehicle_selected {
-  width: 800px;  
   display: flex;
-  font-weight: 600;
   justify-content: space-evenly;
-  margin-bottom: 20px; // Butonların altına boşluk ekle
+  font-weight: 600;
+  gap: 20px; 
 }
