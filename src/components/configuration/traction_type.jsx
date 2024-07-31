@@ -101,7 +101,7 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
                 handleSelect={handleSelect}
                 option={type.name}
                 price={type.price}
-                disabled={generally.medical.tractionTypeSelector === type.name}
+                disabled={generally.pyschical.tractionType === type.name}
               />
             ))}
           </div>

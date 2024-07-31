@@ -97,13 +97,23 @@ const VehicleTypeSelector = ({
   return (
     <div>
       <Label title={name}></Label>
+      <div className="d-flex justify-content-center">
       <Image
-        src={vehicleData[3].image_url}
+        src={vehicleData[3].image_url.van_type}
         alt="Vehicle Image"
-        width={800}
-        height={350}
+        width={400}
+        height={250}
         className={styles.vehicle_type} // 
       />
+        <Image
+        src={vehicleData[3].image_url.box_type}
+        alt="Vehicle Image"
+        width={400}
+        height={250}
+        className={styles.vehicle_type} // 
+      />
+      </div>
+    
       <div className="{styles.vehicle_selected}">
         <div style={{width: "40%", margin:"auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           {vehicleData[3].vehicle_type.map((type) => (
@@ -113,7 +123,7 @@ const VehicleTypeSelector = ({
               handleSelect={handleSelect}
               option={type.name}
               price={type.price}
-              disabled={generally.medical.vehicleTypeSelector === type.name}
+              disabled={generally.pyschical.vehicleType === type.name}
             />
           ))}
         </div>

@@ -106,11 +106,10 @@ const ConfigurationPage = ({ dict}) => {
   const handleRemove = (section, key) => {
     console.log("total", generally.totalPrice, "price", generally.prices[key]);
 
-    setPreviousTotalPrice(generally.totalPrice);
-
+    
     const newGenerally = {
       ...generally,
-      totalPrice: generally.totalPrice - generally.prices[key],
+      totalPrice: key==="extraFeatures"? generally.totalPrice : generally.totalPrice - generally.prices[key],
     };
     
 
@@ -131,12 +130,6 @@ const ConfigurationPage = ({ dict}) => {
     setGenerally(newGenerally);
 
 
-    if (isNaN(generally.totalPrice)) {
-      setGenerally(prev => ({
-        ...prev,
-        totalPrice: previousTotalPrice
-      }));
-    }
 
 };
  

@@ -105,7 +105,7 @@ const AmbulanceType = ({ setActive, generally, setGenerally, name, buttons }) =>
       },
       prices: {
         ...prev.prices,
-        pyschical: newPrice,
+        ambulanceType: newPrice,
       },
     }));
   };
