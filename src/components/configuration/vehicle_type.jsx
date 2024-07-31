@@ -24,7 +24,7 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally,name,buttons }) 
       fetchData();
     }, []);
     if (!vehicleData) {
-      return <div>Yükleniyor...</div>;
+      return <div>Loading...</div>;
     }
     const handleSelect = (vehicle) => {
       // Yeni seçilen stretcher'ın fiyatını al
@@ -92,10 +92,13 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally,name,buttons }) 
       <div>
         <Label title={name}></Label>
         <Image
-          src="/images/vehicle_type.jpg"
+          src={vehicleData[3].image_url} 
+          
+          alt="Vehicle Image"
+          
           width={800}
           height={350}
-          alt="fuel_type"
+         
         />
         <div className={styles.vehicle_type}>
           <div>
@@ -116,12 +119,15 @@ const VehicleTypeSelector = ({ setActive,generally,setGenerally,name,buttons }) 
             <h5>Selected Fuel Type: {selectedVehicleType}</h5>
           </div>
         )}
-        <OptionButton
-          handleNext={handleNext}
-          handleBack={handleBack}
-          back={buttons.back}
-          next={buttons.next}
-        />
+        
+        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+      <OptionButton
+        handleNext={handleNext}
+        handleBack={handleBack}
+        back={buttons.back}
+        next={buttons.next}
+      />
+      </div>
       </div>
     );
     };

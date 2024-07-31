@@ -140,8 +140,9 @@ const MainStretcher = ({ setActive, generally, setGenerally,setSection,name,butt
             />
           ))}
         </div>
+        <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
         <OptionButton handleNext={handleNext} handleBack={handleBack} back={buttons.back} next={buttons.next} />
-
+        </div>
       </div>
     );
 };

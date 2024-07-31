@@ -1,24 +1,16 @@
 @use "@/styles/variable" as v;
 @use "@/styles/mixins" as m;
 
-.traction_type {
-    width: 800px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  
-    
-    .btn_traction_type{
-        display: flex;
-        font-weight: 600;        
-        justify-content: space-evenly;
-       
-    
-    
-    }
-    
 
-
-   
+ 
+.next_back {
+  display: flex;
+  width: 100%;
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  align-items: center;
 }
+
+
