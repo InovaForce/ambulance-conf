@@ -108,7 +108,7 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
               handleSelect={handleSelect}
               option={type.name}
               price={type.price}
-              disabled={generally.pyschical.fuelTypeSelector === type.name}
+              disabled={generally.pyschical.fuelType === type.name}
             />
           ))}
         </div>
