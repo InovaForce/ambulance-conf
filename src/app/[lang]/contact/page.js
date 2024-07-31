@@ -116,10 +116,13 @@ const ContactPage = ({ dict }) => {
             {":"} {ambulanceData.totalPrice}$
           </h4>
         </div>
-        <Button onClick={handleDownloadPdf}>{dict.buttons.download}</Button>
-        <Button onClick={() => setShowContactModal(true)}>
+        <div className="d-flex justify-content-center w-100 gap-5">
+        <Button  variant="danger" onClick={handleDownloadPdf}>{dict.buttons.download}</Button>
+        <Button variant="primary" onClick={() => setShowContactModal(true)}>
           {dict.buttons.contact}
         </Button>
+        </div>
+       
       </div>
 
       <Modal
