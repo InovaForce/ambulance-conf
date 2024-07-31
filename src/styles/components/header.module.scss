@@ -4,11 +4,11 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center ;
     width: 100%;
-    padding: 0 20px;
     border-bottom: 1px solid v.$sidebar-border-color;
-    //background-color: v.$sidebar-background-color;
-  
+   
+    
     .nav {
         display: flex;
         width: 25%;

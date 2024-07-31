@@ -27,6 +27,7 @@ function ModalButton({ dict,lang }) {
           ref={btn1}
           //  className={`${styles.helpButton1} ${styles.helpButton} btn-primary`}
           onClick={() => setModalShow(true)}
+          
         >
           Help
         </Button>

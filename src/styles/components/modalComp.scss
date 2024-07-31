@@ -9,12 +9,21 @@
         display: flex;
         justify-content: space-between;
         height: 92vh;
-        overflow: scroll;
-      
-    }
+        .btn-primary{
+          border-radius: 0 ;
+          -webkit-border-radius: 0 ;
+          -moz-border-radius: 0 ;
+          -ms-border-radius: 0 ;
+          -o-border-radius: 0 ;
+          width: 70px;
+}
+        
+}
 }
 
 .modulhg{
   max-height: 92vh;
   overflow-y: scroll;
 }
+
+
