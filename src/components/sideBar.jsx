@@ -124,9 +124,17 @@ const SideBar = ({handleReset,handleRemove, setGenerally,generally,dict }) => {
           </>
         ) : null}
 
-        {generally.pyschical.extraFeatures.length > 0 ? (
+        {generally.pyschical?.extraFeatures?.length > 0 ? (
+          
           <div>
+            <div className="d-flex">
             <h3>{pyschical.extraFeatures}</h3>
+            <AiOutlineCloseCircle
+                onClick={() => handleRemove("pyschical", "extraFeatures")}
+                className={`${styles.hvr} hvr ms-4 text-black fs-4`}
+              />
+            </div>
+            
 
             {generally.pyschical.extraFeatures.map((feature, index) => (
               <h4 key={index}>
