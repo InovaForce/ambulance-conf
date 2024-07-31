@@ -104,7 +104,7 @@ const VehicleTypeSelector = ({
         height={350}
         className={styles.vehicle_type} // 
       />
-      <div className={styles.vehicle_selected}>
+      <div className="{styles.vehicle_selected}">
         <div>
           {vehicleData[3].vehicle_type.map((type) => (
             <SelectButton
@@ -118,16 +118,9 @@ const VehicleTypeSelector = ({
           ))}
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          marginButton: "10px",
-        }}
-      >
-        <OptionButton handleBack={handleBack} back={buttons.back} />
-        <OptionButton handleNext={handleNext} next={buttons.next} />
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+      <OptionButton handleBack={handleBack} back={buttons.back} />
+      <OptionButton handleNext={handleNext} next={buttons.next} />
       </div>
     </div>
   );
