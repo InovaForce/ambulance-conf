@@ -133,11 +133,11 @@ const AmbulanceType = ({ setActive, generally, setGenerally, name, buttons }) =>
           />
         ))}
       </div>
-tton handleNext={handleNext} next={buttons.next} />
+      <button handleNext={handleNext} next={buttons.next} />
       </div>
 
-    </div>
+      
   );
-};
+  };
 
 export default AmbulanceType;
