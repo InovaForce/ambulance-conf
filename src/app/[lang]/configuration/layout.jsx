@@ -13,7 +13,7 @@ const LayoutConfiguration = async ({ params }) => {
   return (
     <>
     <Header/>
-      <Row style={{ Height: "100vh" }}  >
+      <Row className="100% ">
         <ConfigurationPage dict={dict} />
       </Row>
     </>
