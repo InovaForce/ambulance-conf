@@ -3,8 +3,9 @@ import styles from "@/styles/components/sideBar.module.scss";
 import { useEffect, useState } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { FaTrash } from "react-icons/fa6";
 
-const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
+const SideBar = ({handleReset,handleRemove, setGenerally,generally,dict }) => {
   const [vehicleData, setVehicleData] = useState(null);
 
   const { pyschical, medical } = dict;
@@ -65,7 +66,11 @@ const SideBar = ({handleRemove, setGenerally,generally,dict }) => {
     <div className={styles.sideBar}>
       <h2>{dict.yourAmbulance}</h2>
       <div className="ps-2  text-start">
+        <div className="d-flex justify-content-between align-items-center">
         <p className=" border-bottom mt-3">{dict.vehicleProperties}</p>
+        <FaTrash onClick={handleReset} className={`${styles.rstIcon} me-1`}/>
+        </div>
+
 
         {generally.pyschical.fuelType ? (
           <div>

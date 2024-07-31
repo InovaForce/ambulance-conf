@@ -134,12 +134,10 @@ const FoldableStretcherSelector = ({ setActive, generally, setGenerally,name, bu
           />
         ))}
       </div>
-      <OptionButton
-        handleNext={handleNext}
-        handleBack={handleBack}
-        back={buttons.back}
-        next={buttons.next}
-      />
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+      <OptionButton handleBack={handleBack} back={buttons.back} />
+      <OptionButton handleNext={handleNext} next={buttons.next} />
+      </div>
     </div>
   );
 };
