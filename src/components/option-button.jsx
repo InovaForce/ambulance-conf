@@ -7,7 +7,7 @@ const OptionButton = ({ handleNext, handleBack, back, next,reset,handleReset,fin
       style={{
         display: "flex",
         justifyContent: justify ? justify : "space-between",
-        marginTop: "10px",
+        marginTop: "10px","marginBottom":"10px"
       }}
     >
       {back && (
