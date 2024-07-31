@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.scss";
+import Footer from "@/components/footer";
 
 
 
@@ -27,8 +28,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`inter.className d-flex flex-column`}>        
         {children}  
-              
+        <Footer/>
       </body>
+ 
     </html>
   );
 }

@@ -1,11 +1,11 @@
 "use client"; 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/styles/components/header.module.scss';
 import { Nav } from 'react-bootstrap';
 import ChooseLanguage from './ChooseLanguage';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Header = ({ lang }) => {`
   `
@@ -42,11 +42,20 @@ const Header = ({ lang }) => {`
   };
 
   const router=useRouter();
-
+  const pathname = usePathname();
+  const [isLang, setIsLang] = useState(false);
   const pushRouter = () => {
     router.push("/");
   }
 
+  useEffect(() => {
+    const pathSegments = pathname.split('/');
+    const lastSegment = pathSegments[pathSegments.length - 2];
+   
+     if (lastSegment === 'es'|| lastSegment === 'en'|| lastSegment === 'fr'|| lastSegment === 'ar'|| lastSegment === 'ru') {
+      setIsLang(true);
+    }
+  }, [pathname]);
 
   return (
     <header className={styles.header}>
@@ -59,13 +68,13 @@ const Header = ({ lang }) => {`
             <Link href="/">{Language[lang]}</Link>
           </li> */}
           <li>
-            <Link href={`${lang}`}>{Home[lang]}</Link>
+            <Link href={isLang? "/":`${lang}`}>{Home[lang]}</Link>
           </li>
           <li>
-            <Link href={`${lang}/configuration`}>{Configurator[lang]}</Link>
+            <Link href={isLang?"configuration": `${lang}/configuration`}>{Configurator[lang]}</Link>
           </li>
           <li>
-            <Link href={`${lang}/contact`}>{Contact[lang]}</Link>
+            <Link href={isLang?"contact": `${lang}/contact`}>{Contact[lang]}</Link>
           </li>
         </ul>
       </Nav>
