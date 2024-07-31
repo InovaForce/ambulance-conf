@@ -26,6 +26,7 @@ const SelectButton = ({ key, value, option, price, handleSelect, selectedType, t
       value={value}
       onClick={() => handleSelect(option)}
       disabled={disabled}
+    
     >
       {option}{" - "}{price}
     </button>
