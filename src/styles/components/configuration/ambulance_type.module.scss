@@ -1,23 +1,35 @@
+@use "@/styles/variable" as v;
+@use "@/styles/mixins" as m;
 
-.ambulance_type_container {
-    width: 50rem;
-    margin: auto;
+.container{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.7rem;
-    align-items: center;s
-    .select_button {
-        margin-top: 10px;
+    flex-direction: column;
+    @include m.container(90%);
+    
+    .ambulance_type_container {
+       
         display: flex;
-        justify-content: space-evenly;        
-       // flex: 1 1 auto; // Flex ayarı ile orantılı genişleme
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        SelectButton {
+            margin-top: 10px;
+            display: flex;
+           // justify-content: space-evenly;        
+            flex: 1 1 auto; // Flex ayarı ile orantılı genişleme
+        }
+       
+    
+    
+    
     }
-   
-
 
 
 }
+
+
+
 
 
 

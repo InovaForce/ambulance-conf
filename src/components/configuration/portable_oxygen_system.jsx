@@ -33,7 +33,7 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally,name ,buttons
   };
 
   if (!vehicleData) {
-    return <div>Yükleniyor...</div>;
+    return <div>Loading...</div>;
   }
 
   const handleSelect = (system) => {
@@ -130,12 +130,14 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally,name ,buttons
           />
         ))}
       </div>
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
       <OptionButton
         handleNext={handleNext}
         handleBack={handleBack}
         back={buttons.back}
         next={buttons.next}
       />
+      </div>
     </div>
   );
 };

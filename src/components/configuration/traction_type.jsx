@@ -92,12 +92,6 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
     return (
       <div>
         <Label title={name}></Label>
-        {/*        <Image
-          src="/images/traction_type.jpg"
-          width={800}
-          height={350}
-          alt="traction_type"
-        />*/}
         <div className={styles.traction_type}>
           <div>
             {vehicleData[1].traction_type.map((type) => (

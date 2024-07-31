@@ -1,13 +1,11 @@
+@use "@/styles/variable" as v;
+@use "@/styles/mixins" as m;
 
 
 .fuel_type{
     display: flex;
     justify-content: center;
-    gap: 230px;
-    .btn_fuel_type{
-        display: flex;
-        font-weight: 600;        
-        justify-content: space-evenly;
-        
-    }
-}
+    margin :0 auto;
+    
+}   
+    
