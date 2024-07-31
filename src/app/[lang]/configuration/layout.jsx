@@ -8,7 +8,7 @@ const LayoutConfiguration = async ({ params }) => {
 
   const dict = await getDictionary(lang);
 
-
+//
 
   return (
     <>
