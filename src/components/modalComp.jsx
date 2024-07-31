@@ -22,7 +22,7 @@ const ModalComp = ({ dict, show, onHide }) => {
         </Modal.Title>
       </Modal.Header>
 
-      <Modal.Body style={{ overflowY: "scroll" }}>
+      <Modal.Body >
         <div className={styles.container}>
           <h2 className={styles.title}>{title}</h2>
           <h3>
