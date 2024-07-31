@@ -61,6 +61,7 @@ const initialAmbulance = {
 
 
 const ConfigurationPage = ({ dict}) => {
+  const [previousTotalPrice, setPreviousTotalPrice] = useState(initialAmbulance.totalPrice);
   const [section, setSection] = useState("pyschical");
   const [step, setStep] = useState(5);
   const [active, setActive] = useState(1);
@@ -105,6 +106,8 @@ const ConfigurationPage = ({ dict}) => {
   const handleRemove = (section, key) => {
     console.log("total", generally.totalPrice, "price", generally.prices[key]);
 
+    setPreviousTotalPrice(generally.totalPrice);
+
     const newGenerally = {
       ...generally,
       totalPrice: generally.totalPrice - generally.prices[key],
@@ -112,20 +115,29 @@ const ConfigurationPage = ({ dict}) => {
     
 
     if (section === 'pyschical') {
-     //   priceToRemove = newGenerally.pyschical[key]?.price || 0;
+   
         delete newGenerally.pyschical[key];
     } else if (section === 'medical') {
-     //   priceToRemove = newGenerally.medical[key]?.price || 0;
+    
         delete newGenerally.medical[key];
     }
 
-  //  newGenerally.totalPrice -= priceToRemove;
+  
 
 
     localStorage.setItem("ambulanceData", JSON.stringify(newGenerally));
     
 
     setGenerally(newGenerally);
+
+
+    if (isNaN(generally.totalPrice)) {
+      setGenerally(prev => ({
+        ...prev,
+        totalPrice: previousTotalPrice
+      }));
+    }
+
 };
  
   return (
