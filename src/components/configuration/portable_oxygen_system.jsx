@@ -131,12 +131,8 @@ const PortableOxygenSystem = ({ setActive, generally, setGenerally,name ,buttons
         ))}
       </div>
       <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
-      <OptionButton
-        handleNext={handleNext}
-        handleBack={handleBack}
-        back={buttons.back}
-        next={buttons.next}
-      />
+      <OptionButton handleBack={handleBack} back={buttons.back} />
+      <OptionButton handleNext={handleNext} next={buttons.next} />
       </div>
     </div>
   );

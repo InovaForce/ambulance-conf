@@ -109,7 +109,11 @@ const PortablePatientMonitor = ({ setActive, generally, setGenerally,handleReset
           />
         ))}
       </div>
-      <OptionButton handleNext={handleNext} handleBack={handleBack} finish={buttons.finish} back={buttons.back} reset={buttons.reset} handleReset={handleReset} />
+      <div style={{ width: "70%",margin: "0 auto" }}>
+      <OptionButton handleNext={handleNext} handleBack={handleBack} finish={buttons.finish} back={buttons.back}  handleReset={handleReset} />
+
+      </div>
+        
     </div>
   );
 };

@@ -107,7 +107,7 @@ const VehicleTypeSelector = ({
       <div className={styles.vehicle_selected}>
         <div>
           {vehicleData[3].vehicle_type.map((type) => (
-            <SelectButtons
+            <SelectButton
               key={type.name}
               value={type.price}
               handleSelect={handleSelect}
