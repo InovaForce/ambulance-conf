@@ -129,7 +129,7 @@ const ConfigurationPage = ({ dict}) => {
 };
  
   return (
-    <Row style={{ height: "100%" }}>
+    <Row style={{paddingRight: "0px", height: "100%" }}>
       <Col md={9}>
         <div className="btn-group">
           <button
