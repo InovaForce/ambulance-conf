@@ -93,7 +93,7 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
       <div>
         <Label title={name}></Label>
         <div className={styles.traction_type}>
-          <div className='d-flex justify-content-center'>
+          <div className={styles.traction_selected}>
             {vehicleData[1].traction_type.map((type) => (
               <SelectButton
                 key={type.name}
@@ -106,15 +106,10 @@ const TractionTypeSelector = ({setActive,generally,setGenerally,name,buttons}) =
             ))}
           </div>
         </div>  
-        <div style={{width:"56%",margin:"auto"}}>
-        <OptionButton
-          handleNext={handleNext}
-          handleBack={handleBack}
-          back={buttons.back}
-          next={buttons.next}
-        />
-        </div>
-        
+        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+      <OptionButton handleBack={handleBack} back={buttons.back} />
+      <OptionButton handleNext={handleNext} next={buttons.next} />
+      </div>
       </div>
     );
 };
