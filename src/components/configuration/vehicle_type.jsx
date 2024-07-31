@@ -97,7 +97,7 @@ const VehicleTypeSelector = ({
   return (
     <div>
       <Label title={name}></Label>
-      <div className="d-flex justify-content-center">
+      <div style={{width: "58%"}} className="m-auto d-flex justify-content-center align-items-center">
       <Image
         src={vehicleData[3].image_url.van_type}
         alt="Vehicle Image"
@@ -108,9 +108,10 @@ const VehicleTypeSelector = ({
         <Image
         src={vehicleData[3].image_url.box_type}
         alt="Vehicle Image"
-        width={400}
+        width={390}
         height={250}
-        className={styles.vehicle_type} // 
+        className={styles.vehicle_type} 
+       
       />
       </div>
     
