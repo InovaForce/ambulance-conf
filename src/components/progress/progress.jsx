@@ -1,3 +1,4 @@
+"use client"
 import './progress.scss'
 
 const Progress = ({step=5 ,active=0,setActive}) => { 

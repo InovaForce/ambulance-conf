@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import Label from "../label";
 import styles from "@/styles/components/configuration/ambulance_type.module.scss";
