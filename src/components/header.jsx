@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/styles/components/header.module.scss';
 import { Nav } from 'react-bootstrap';
 import { usePathname, useRouter } from 'next/navigation';
-import ChooseLanguage from './chooseLanguage';
+import ChooseLanguage from './chooseLanguage.jsx';
 
 const Header = ({ lang }) => {`
   `
@@ -70,7 +70,7 @@ const Header = ({ lang }) => {`
           <li>
             <Link href={isLang?"configuration": `${lang}/configuration`}>{Configurator[lang]}</Link>
           </li>
-          <li style={{ marginRight: "10" }}>
+          <li>
             <Link href={isLang?"contact": `${lang}/contact`}>{Contact[lang]}</Link>
           </li>
         </ul>

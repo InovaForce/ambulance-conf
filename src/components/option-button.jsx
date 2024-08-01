@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const OptionButton = ({ handleNext, handleBack, back, next,reset,handleReset,finish,justify }) => {
