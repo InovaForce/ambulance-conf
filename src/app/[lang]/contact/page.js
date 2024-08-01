@@ -1,13 +1,21 @@
-"use client";
+/* "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
-import FirmContactForm from "@/components/contact/contactForm";
+import FirmContactForm from "@/components/contact/contactForm"; */
+
+import ContactComp from "@/components/contact/contactComp";
 
 const ContactPage = ({ dict }) => {
-  const [ambulanceData, setAmbulanceData] = useState(null);
+
+  return(
+<ContactComp dict={dict}/>
+  )
+ 
+
+ /*  const [ambulanceData, setAmbulanceData] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const componentRef = useRef();
 
@@ -138,7 +146,7 @@ const ContactPage = ({ dict }) => {
         </Modal.Body>
       </Modal>
     </>
-  );
+  ); */
 };
 
 export default ContactPage;

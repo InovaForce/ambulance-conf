@@ -1,12 +1,12 @@
-"use client"
+/* "use client"
 import MedicalEqiupment from '@/components/medical-eqiupment'
 import Progress from '@/components/progress/progress';
 import PyschicalEqiupment from '@/components/pyschical-eqiupment'
 import SideBar from '@/components/sideBar';
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import "./layout.scss";
-const initialAmbulance = {
+import "./layout.scss"; */
+/* const initialAmbulance = {
   pyschical: {
     fuelType: "",
     tractionType: "",
@@ -58,10 +58,16 @@ const initialAmbulance = {
   },
   totalPrice: 0,
 };
+ */
 
+import ConfigComp from "./configComp";
 
 const ConfigurationPage = ({ dict}) => {
-  const [previousTotalPrice, setPreviousTotalPrice] = useState(initialAmbulance.totalPrice);
+
+  return (
+    <ConfigComp dict={dict}/>
+  );
+  /* const [previousTotalPrice, setPreviousTotalPrice] = useState(initialAmbulance.totalPrice);
   const [section, setSection] = useState("pyschical");
   const [step, setStep] = useState(5);
   const [active, setActive] = useState(1);
@@ -184,7 +190,7 @@ const ConfigurationPage = ({ dict}) => {
         <SideBar handleReset={handleReset} handleRemove={handleRemove} generally={generally} setGenerally={setGenerally} dict={initAmbulance} />
       </Col>
     </Row>
-  );
+  ); */
 };
 
 export default ConfigurationPage;

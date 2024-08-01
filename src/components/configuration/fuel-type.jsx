@@ -103,6 +103,7 @@ const FuelTypeSelector = ({ setActive, generally, setGenerally,name,buttons }) =
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           {vehicleData[0].fuel_type.map((type) => (
             <SelectButton
+           
               key={type.name}
               value={type.price}
               handleSelect={handleSelect}
