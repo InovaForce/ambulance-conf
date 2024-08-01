@@ -4,8 +4,9 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/components/header.module.scss';
 import { Nav } from 'react-bootstrap';
-import ChooseLanguage from './ChooseLanguage';
+
 import { usePathname, useRouter } from 'next/navigation';
+import ChooseLanguage from './chooseLanguage.jsx';
 
 const Header = ({ lang }) => {`
   `
