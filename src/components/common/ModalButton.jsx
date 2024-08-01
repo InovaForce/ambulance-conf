@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import "@/styles/components/modalComp.scss";
 import ModalComp from "../modalComp";
 import { useRouter } from "next/navigation";
-import { FcStart } from "react-icons/fc";  
+import { VscDebugStart } from "react-icons/vsc";
+import { MdOutlineQuestionMark } from "react-icons/md";
 function ModalButton({ dict,lang }) {
   const [modalShow, setModalShow] = useState(false);
   const btn1 = useRef(null);
@@ -29,7 +30,8 @@ function ModalButton({ dict,lang }) {
           onClick={() => setModalShow(true)}
           
         >
-          Help
+          <div className="icon"><MdOutlineQuestionMark /></div>
+         
         </Button>
 
         <Button
@@ -37,7 +39,8 @@ function ModalButton({ dict,lang }) {
           //   className={`${styles.helpButton2} ${styles.helpButton} btn-primary`}
           onClick={handleStart}
         >
-          Start
+          <div className="icon"><VscDebugStart /></div>
+          
         </Button>
       </div>
     </div>

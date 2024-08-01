@@ -3,7 +3,7 @@ import ConfigurationPage from "./page";
 import { getDictionary } from "@/services/dictionaries";
 import Header from "@/components/header";
 
-const LayoutConfiguration = async ({ params, pageProps }) => {
+const LayoutConfiguration = async ({ params}) => {
   const { lang } = params;
 
   const dict = await getDictionary(lang);
@@ -13,7 +13,7 @@ const LayoutConfiguration = async ({ params, pageProps }) => {
   return (
     <>
     <Header/>
-      <Row className="flex-grow-1 h-auto" {...pageProps} >
+      <Row className="flex-grow-1 h-auto gutter-x:0" >
         <ConfigurationPage dict={dict} />
       </Row>
     </>
