@@ -4,7 +4,7 @@
 .sideBar {
     display: flex;
     flex-direction: column;
-    height: 90.6vh;
+    height: 100%;
     width: 100%;
     padding: 10px;   
     border: 1px solid v.$sidebar-border-color;
@@ -24,12 +24,6 @@
         font-size: 17px;
         font-weight: 600;
         margin-bottom: 14px;
-    }
-
-    .total{
-       // position: absolute;
-       // bottom: 0;
-       
     }
     ul{
         list-style: none;
