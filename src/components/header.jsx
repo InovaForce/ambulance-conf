@@ -62,6 +62,7 @@ const Header = ({ lang }) => {`
       <div className={styles.logo}>
         <Image style={{ cursor: "pointer" }} onClick={pushRouter} src="/images/ıcu.png" alt="logo" width={120} height={40} />
       </div>
+     
       <Nav className={styles.nav}>
         <ul className={styles.nav_link}>
           <li>

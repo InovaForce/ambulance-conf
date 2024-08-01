@@ -21,10 +21,14 @@
             justify-content: space-between;
             margin-top: 5px;
             
-            
-            
-            
         }   
     }
+  
     
+}
+@media screen and (max-width: 995px) {
+        .nav{
+            width: 100% !important;
+        }
+   
 }

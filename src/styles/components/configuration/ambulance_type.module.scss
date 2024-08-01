@@ -33,7 +33,13 @@
 
 
 
-
+@media screen and (max-width: 855px) {
+    .ambulance_type_container{
+        justify-content: start !important;
+        width: 70% !important;
+        overflow-y: scroll;
+    }
+}
 
 
 
