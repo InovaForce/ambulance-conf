@@ -4,8 +4,13 @@
 
 .fuel_type{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin :0 auto;
     
 }   
     
+@media screen and (max-width: 795px) {
+    .fuel_type{
+        justify-content: center;
+    }
+}
