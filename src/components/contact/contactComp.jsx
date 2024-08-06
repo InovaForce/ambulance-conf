@@ -1,17 +1,26 @@
-"use client";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+"use client"; 
+import React, { useEffect, useState, useRef } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 import FirmContactForm from "@/components/contact/contactForm";
 
-const ContactComp = ({ dict, translateKeys }) => {
+const ContactComp = ({ dict }) => {
   const [ambulanceData, setAmbulanceData] = useState(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const componentRef = useRef();
 
-  const translateKeysFunction = useCallback((data) => {
+  useEffect(() => {
+    const savedData = localStorage.getItem("ambulanceData");
+    if (savedData) {
+      const parsedData = JSON.parse(savedData);
+      const translatedData = translateKeys(parsedData);
+      setAmbulanceData(translatedData);
+    }
+  }, []);
+
+  const translateKeys = (data) => {
     const translatedPyschical = Object.fromEntries(
       Object.entries(data.pyschical).map(([key, value]) => [
         dict.initAmbulance.pyschical[key],
@@ -29,16 +38,7 @@ const ContactComp = ({ dict, translateKeys }) => {
       medical: translatedMedical,
       totalPrice: data.totalPrice,
     };
-  }, [dict]);
-
-  useEffect(() => {
-    const savedData = localStorage.getItem("ambulanceData");
-    if (savedData) {
-      const parsedData = JSON.parse(savedData);
-      const translatedData = translateKeysFunction(parsedData);
-      setAmbulanceData(translatedData);
-    }
-  }, [translateKeysFunction]);
+  };
 
   const renderTable = (data) => {
     return (
@@ -143,7 +143,6 @@ const ContactComp = ({ dict, translateKeys }) => {
 };
 
 export default ContactComp;
-
 
 
 
